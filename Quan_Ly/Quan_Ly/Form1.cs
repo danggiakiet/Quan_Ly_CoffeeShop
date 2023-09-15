@@ -21,5 +21,10 @@ namespace Quan_Ly
         {
 
         }
+
+        private void TabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

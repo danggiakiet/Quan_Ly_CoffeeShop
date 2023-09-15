@@ -1,0 +1,15 @@
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\Quan_Ly.exe.config
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\Quan_Ly.exe
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\Quan_Ly.pdb
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\MetroFramework.Design.dll
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\MetroFramework.dll
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\MetroFramework.Fonts.dll
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.AssemblyReference.cache
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.SuggestedBindingRedirects.cache
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.Form1.resources
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.Properties.Resources.resources
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.GenerateResource.cache
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.CoreCompileInputs.cache
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.CopyComplete
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.exe
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.pdb
