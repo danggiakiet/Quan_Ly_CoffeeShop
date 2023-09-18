@@ -28,76 +28,161 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Tab = new MetroFramework.Controls.MetroTabControl();
-            this.TabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.Tab.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.tabControl = new Sunny.UI.UITabControl();
+            this.tabTrangChu = new System.Windows.Forms.TabPage();
+            this.tabKhoHang = new System.Windows.Forms.TabPage();
+            this.tabNhanVien = new System.Windows.Forms.TabPage();
+            this.tabDoanhThu = new System.Windows.Forms.TabPage();
+            this.tabBanHang = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Tab
+            // imageList
             // 
-            this.Tab.Controls.Add(this.TabPage1);
-            this.Tab.Controls.Add(this.metroTabPage2);
-            this.Tab.Location = new System.Drawing.Point(2, 80);
-            this.Tab.Name = "Tab";
-            this.Tab.SelectedIndex = 0;
-            this.Tab.Size = new System.Drawing.Size(543, 235);
-            this.Tab.Style = MetroFramework.MetroColorStyle.Orange;
-            this.Tab.TabIndex = 1;
-            this.Tab.UseSelectable = true;
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "cafe.png");
+            this.imageList.Images.SetKeyName(1, "home.png");
+            this.imageList.Images.SetKeyName(2, "people.png");
+            this.imageList.Images.SetKeyName(3, "stats-chart.png");
+            this.imageList.Images.SetKeyName(4, "storefront.png");
             // 
-            // TabPage1
+            // tabControl
             // 
-            this.TabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.TabPage1.HorizontalScrollbarBarColor = true;
-            this.TabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.TabPage1.HorizontalScrollbarSize = 10;
-            this.TabPage1.Location = new System.Drawing.Point(4, 38);
-            this.TabPage1.Name = "TabPage1";
-            this.TabPage1.Size = new System.Drawing.Size(535, 193);
-            this.TabPage1.TabIndex = 0;
-            this.TabPage1.Text = "Home";
-            this.TabPage1.VerticalScrollbarBarColor = true;
-            this.TabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.TabPage1.VerticalScrollbarSize = 10;
-            this.TabPage1.Click += new System.EventHandler(this.TabPage1_Click);
+            this.tabControl.Controls.Add(this.tabTrangChu);
+            this.tabControl.Controls.Add(this.tabKhoHang);
+            this.tabControl.Controls.Add(this.tabNhanVien);
+            this.tabControl.Controls.Add(this.tabDoanhThu);
+            this.tabControl.Controls.Add(this.tabBanHang);
+            this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabControl.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.tabControl.ImageList = this.imageList;
+            this.tabControl.ItemSize = new System.Drawing.Size(150, 40);
+            this.tabControl.Location = new System.Drawing.Point(2, 96);
+            this.tabControl.MainPage = "";
+            this.tabControl.MenuStyle = Sunny.UI.UIMenuStyle.White;
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1046, 606);
+            this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl.Style = Sunny.UI.UIStyle.Orange;
+            this.tabControl.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tabControl.TabIndex = 2;
+            this.tabControl.TabSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tabControl.TabSelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.tabControl.TabSelectedHighColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.tabControl.TabUnSelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             // 
-            // metroTabPage2
+            // tabTrangChu
             // 
-            this.metroTabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(524, 193);
-            this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Nhân Viên";
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.tabTrangChu.AutoScroll = true;
+            this.tabTrangChu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabTrangChu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabTrangChu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabTrangChu.ImageIndex = 1;
+            this.tabTrangChu.Location = new System.Drawing.Point(0, 40);
+            this.tabTrangChu.Name = "tabTrangChu";
+            this.tabTrangChu.Size = new System.Drawing.Size(1046, 566);
+            this.tabTrangChu.TabIndex = 0;
+            this.tabTrangChu.Text = "Trang Chủ";
+            // 
+            // tabKhoHang
+            // 
+            this.tabKhoHang.AutoScroll = true;
+            this.tabKhoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabKhoHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabKhoHang.ImageIndex = 4;
+            this.tabKhoHang.Location = new System.Drawing.Point(0, 40);
+            this.tabKhoHang.Name = "tabKhoHang";
+            this.tabKhoHang.Size = new System.Drawing.Size(1046, 566);
+            this.tabKhoHang.TabIndex = 1;
+            this.tabKhoHang.Text = "Kho Hàng";
+            // 
+            // tabNhanVien
+            // 
+            this.tabNhanVien.AutoScroll = true;
+            this.tabNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabNhanVien.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabNhanVien.ImageIndex = 2;
+            this.tabNhanVien.Location = new System.Drawing.Point(0, 40);
+            this.tabNhanVien.Name = "tabNhanVien";
+            this.tabNhanVien.Size = new System.Drawing.Size(1046, 566);
+            this.tabNhanVien.TabIndex = 2;
+            this.tabNhanVien.Text = "Nhân Viên";
+            // 
+            // tabDoanhThu
+            // 
+            this.tabDoanhThu.AutoScroll = true;
+            this.tabDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabDoanhThu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDoanhThu.ImageIndex = 3;
+            this.tabDoanhThu.Location = new System.Drawing.Point(0, 40);
+            this.tabDoanhThu.Name = "tabDoanhThu";
+            this.tabDoanhThu.Size = new System.Drawing.Size(1046, 566);
+            this.tabDoanhThu.TabIndex = 3;
+            this.tabDoanhThu.Text = "Doanh Thu";
+            // 
+            // tabBanHang
+            // 
+            this.tabBanHang.AutoScroll = true;
+            this.tabBanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabBanHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabBanHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabBanHang.ImageIndex = 0;
+            this.tabBanHang.Location = new System.Drawing.Point(0, 40);
+            this.tabBanHang.Name = "tabBanHang";
+            this.tabBanHang.Size = new System.Drawing.Size(1046, 566);
+            this.tabBanHang.TabIndex = 4;
+            this.tabBanHang.Text = "Bán Hàng";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(843, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(115, 110);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 341);
-            this.Controls.Add(this.Tab);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(1056, 714);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.tabControl);
+            this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(13, 39, 13, 13);
+            this.Padding = new System.Windows.Forms.Padding(26, 111, 26, 24);
             this.Text = "Tròn Coffee Shop";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Tab.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroTabControl Tab;
-        private MetroFramework.Controls.MetroTabPage TabPage1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage2;
+        private System.Windows.Forms.ImageList imageList;
+        private Sunny.UI.UITabControl tabControl;
+        private System.Windows.Forms.TabPage tabTrangChu;
+        private System.Windows.Forms.TabPage tabKhoHang;
+        private System.Windows.Forms.TabPage tabNhanVien;
+        private System.Windows.Forms.TabPage tabDoanhThu;
+        private System.Windows.Forms.TabPage tabBanHang;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

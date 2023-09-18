@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,9 +23,12 @@ namespace Quan_Ly
 
         }
 
-        private void TabPage1_Click(object sender, EventArgs e)
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (tabControl.SelectedIndex == 0)
+            {
 
+            }
         }
     }
 }
