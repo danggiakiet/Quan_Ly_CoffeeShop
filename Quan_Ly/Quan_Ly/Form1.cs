@@ -24,24 +24,36 @@ namespace Quan_Ly
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            khoHang.Main(panelKhoHang);
+            khoHang.Main(panelKhoHang, imageIconList);
         }
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
         {
-            khoHang.Refresh(panelKhoHang);
+            khoHang.Refresh(panelKhoHang, imageIconList);
         }
 
         private void bttSaveValuePanelKhoHang_Click(object sender, EventArgs e)
         {
-            khoHang.Save(panelKhoHang);
+            khoHang.Save(panelKhoHang, imageIconList);
         }
 
         private void bttThemMoiKhoHang_Click(object sender, EventArgs e)
         {
-                int donGia = Convert.ToInt32(txtDonGiaPanelTMKH.Text);
-                int soLuong = Convert.ToInt32(txtSoLuongPanelTMKH.Text);
-                khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang);
-
+            if (txtNamePanelTMKH.Text == "" || txtDonViPanelTMKH.Text == "" || txtSoLuongPanelTMKH.Text == "" || txtDonGiaPanelTMKH.Text == "")
+            {
+                MessageBox.Show("Yêu cầu điền đầy đủ thông tin","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (!int.TryParse(txtSoLuongPanelTMKH.Text, out int soLuong) || !int.TryParse(txtDonGiaPanelTMKH.Text, out int donGia))
+                {
+                    MessageBox.Show("Yêu cầu số lượng hoặc đơn giá là dữ liệu kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang,imageIconList);
+                }    
+            }    
+            
         }
 
         private void bttRefreshPanelTMKH_Click(object sender, EventArgs e)

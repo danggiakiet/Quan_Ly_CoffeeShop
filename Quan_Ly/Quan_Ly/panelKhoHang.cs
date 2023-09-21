@@ -16,6 +16,7 @@ using System.Drawing;
 using Microsoft.Office.Interop.Excel;
 using TextBox = System.Windows.Forms.TextBox;
 using Point = System.Drawing.Point;
+using Button = System.Windows.Forms.Button;
 
 namespace Quan_Ly
 {
@@ -24,12 +25,13 @@ namespace Quan_Ly
         //Tạo dsNguyenLieu chứa thông tin từ kho hàng
         private List<nguyenLieu> dsNguyenLieu = new List<nguyenLieu>();
 
-        public void Main(Panel KhoHang)
+        public void Main(Panel KhoHang, ImageList imgList)
         {
             //Lấy thông tin từ data
             LoadDataFromExcel();
             //Đưa thông tin lên panelKhoHang
-            renderControlsToPanel(KhoHang);
+            renderControlsToPanel(KhoHang, imgList);
+
         }
 
         private void LoadDataFromExcel()
@@ -65,7 +67,7 @@ namespace Quan_Ly
             }
         }
         //đưa dữ liệu lên PanelKhoHang
-        private void renderControlsToPanel(Panel KhoHang)
+        private void renderControlsToPanel(Panel KhoHang, ImageList imgList)
         {
             //vị trí control đầu tiên
             int x = 5, y = 120, index = 0;
@@ -73,29 +75,47 @@ namespace Quan_Ly
             foreach (nguyenLieu nguyenLieu in dsNguyenLieu)
             {
                 //Gọi hàm thêm control vào panel với các giá trị: vị trí x, vị trí y, biến nguyenLieu, số thứ tự trên panel và panelKhoHang)
-                AddControlToPanel(x, y, nguyenLieu, index, KhoHang);
+                AddControlToPanel(x, y, nguyenLieu, index, KhoHang, imgList);
                 //chỉnh vị trí và stt cho control tiếp theo
                 y += 40;
                 index++;
             }
         }
 
-        private void AddControlToPanel(int x, int y, nguyenLieu nguyenLieu, int index, Panel KhoHang)
+        private void AddControlToPanel(int x, int y, nguyenLieu nguyenLieu, int index, Panel KhoHang, ImageList imgList)
         {
-            TextBox textBoxTen = CreateTextBox(nguyenLieu.ten, HorizontalAlignment.Left, x, y, 410, 35);
+            TextBox textBoxTen = CreateTextBoxTen(nguyenLieu.ten, HorizontalAlignment.Left, x, y, 410, 35);
             TextBox textBoxDonVi = CreateTextBox(nguyenLieu.donVi, HorizontalAlignment.Center, x + 415, y, 100, 35);
             NumericUpDown numericUpDownSoLuong = CreateNumericUpDown(nguyenLieu.soLuong, HorizontalAlignment.Right, x + 520, y, 95);
             TextBox textBoxDonGia = CreateTextBox(nguyenLieu.donGia.ToString(), HorizontalAlignment.Right, x + 620, y, 130, 35);
+            Button buttonDelete = CreateButton(x + 755, y, 35, 35, imgList);
 
             KhoHang.Controls.Add(textBoxTen);
             KhoHang.Controls.Add(textBoxDonVi);
             KhoHang.Controls.Add(numericUpDownSoLuong);
             KhoHang.Controls.Add(textBoxDonGia);
-        }
+            KhoHang.Controls.Add(buttonDelete);
 
+            // Định nghĩa sự kiện Click cho nút buttonDelete
+            buttonDelete.Click += (sender, e) => bttDelete(y, KhoHang, imgList);
+
+        }
         private TextBox CreateTextBox(string text, HorizontalAlignment align, int x, int y, int width, int height)
         {
             TextBox textBox = new TextBox();
+            textBox.Name = "textBoxTen";
+            textBox.Text = text;
+            textBox.TextAlign = align;
+            textBox.ReadOnly = true;
+            textBox.Width = width;
+            textBox.Height = height;
+            textBox.Location = new Point(x, y);
+            return textBox;
+        }
+        private TextBox CreateTextBoxTen(string text, HorizontalAlignment align, int x, int y, int width, int height)
+        {
+            TextBox textBox = new TextBox();
+            textBox.Name = "textBoxTen";
             textBox.Text = text;
             textBox.TextAlign = align;
             textBox.ReadOnly = true;
@@ -114,19 +134,29 @@ namespace Quan_Ly
             numericUpDown.Location = new Point(x, y);
             return numericUpDown;
         }
+        private Button CreateButton(int x, int y, int width, int height, ImageList imgList)
+        {
+            Button btt = new Button();
+            btt.ImageList = imgList;
+            btt.ImageKey = "trash-outline.png";
+            btt.Width = width;
+            btt.Height = height;
+            btt.Location = new Point(x, y);
+            return btt;
+        }
 
-        public void Refresh(Panel KhoHang)
+        public void Refresh(Panel KhoHang, ImageList imgList)
         {
             ClearPanelControls(KhoHang);
             LoadDataFromExcel();
-            renderControlsToPanel(KhoHang);
+            renderControlsToPanel(KhoHang, imgList);
         }
 
         private void ClearPanelControls(Panel KhoHang)
         {
-            //tạo danh sách chứa controls cần xóa, các controls cần xóa là textbox và NumericUpDown
+            //tạo danh sách chứa controls cần xóa, các controls cần xóa là textbox, button và NumericUpDown
             List<Control> controlsToRemove = KhoHang.Controls.OfType<Control>().Where(control =>
-                control is TextBox || control is NumericUpDown).ToList();
+                control is TextBox || control is NumericUpDown || control is Button).ToList();
 
             foreach (Control control in controlsToRemove)
             {
@@ -136,7 +166,7 @@ namespace Quan_Ly
 
         }
 
-        public void Save(Panel KhoHang)
+        public void Save(Panel KhoHang, ImageList imgList)
         {
             try
             {
@@ -161,45 +191,58 @@ namespace Quan_Ly
             finally
             {
                 MessageBox.Show("Lưu thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Refresh(KhoHang);
+                Refresh(KhoHang, imgList);
             }
         }
 
-        public void addNew(string ten, string donVi, int soLuong, int donGia, Panel KhoHang)
+        public void addNew(string ten, string donVi, int soLuong, int donGia, Panel KhoHang, ImageList imgList)
         {
             try
             {
                 using (var package = new ExcelPackage(new FileInfo("data/Kho Hàng.xlsx")))
                 {
-                    Dictionary<int,string> Dictionary = new Dictionary<int,string>();
+                    //Mở sheet đầu tiên
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
-                    // Duyệt từ dòng 3 đến hết của file excel
-                    for (int i = worksheet.Dimension.Start.Row + 2; i <= worksheet.Dimension.End.Row; i++)
+                    //Khai báo giá trị bắt đầu là = 3
+                    int start = worksheet.Dimension.Start.Row + 2;
+                    int check = 0;
+                    //Cho duyệt dữ liệu từ dòng 3 đến dòng cuối cùng
+                    for (int i = start; i <= worksheet.Dimension.End.Row; i++)
                     {
-                        Dictionary.Add(i, worksheet.Cells[i,1].ToString());
+                        //Nếu tên đã tồn tại trong data thì cập nhật lại đơn vị, số lượng, đơn giá
+                        if (worksheet.Cells[i,1].Value.ToString().ToLower() == ten.ToLower())
+                        {
+                            //Đánh dấu là có tên trùng hợp
+                            check = 1;
+                            //Cập nhật lại đơn vị
+                            worksheet.Cells[i, 2].Value = donVi;
+                            //Cập nhật lại số lượng
+                            worksheet.Cells[i, 3].Value = soLuong.ToString();
+                            //Cập nhật lại đơn giá
+                            worksheet.Cells[i, 4].Value = donGia.ToString();
+                            //Lưu file
+                            package.Save();
+                        }
                     }
-                    int key = Dictionary.FirstOrDefault(x => x.Value == ten).Key;
-
-                    if (key != 0)
+                    //Nếu tên chưa tồn tại trong data thì thêm dòng mới
+                    if(check == 0)
                     {
-                        // Bạn đã tìm thấy giá trị "ten" trong Dictionary, sử dụng key để truy cập các giá trị khác.
-                        worksheet.Cells[key, 2].Value = donVi;
-                        worksheet.Cells[key, 3].Value = soLuong.ToString();
-                        worksheet.Cells[key, 4].Value = donGia.ToString();
-                        package.Save();
-                    }
-                    else
-                    {
-                        // Không tìm thấy giá trị "ten" trong Dictionary, thêm một dòng mới.
+                        //Tạo vị trí dòng mới
                         int newRow = worksheet.Dimension.End.Row + 1;
+                        //Thêm tên
                         worksheet.Cells[newRow, 1].Value = ten;
+                        //Thêm đơn vị
                         worksheet.Cells[newRow, 2].Value = donVi;
+                        //Thêm số lượng
                         worksheet.Cells[newRow, 3].Value = soLuong.ToString();
+                        //Thêm đơn giá
                         worksheet.Cells[newRow, 4].Value = donGia.ToString();
+                        // Đặt căn chỉnh sang phải (right-align) cho ô cột đơn giá
+                        worksheet.Cells[newRow, 4].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Right;
+                        //Thêm tổng giá
+                        worksheet.Cells[newRow, 5].Formula = "C" + newRow + "*D" + newRow; // Sử dụng công thức Excel để tính tổng giá
                         package.Save();
                     }
-
-
                 }
             }
             catch (Exception ex)
@@ -209,8 +252,86 @@ namespace Quan_Ly
             finally
             {
                 MessageBox.Show("Thêm mới thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Refresh(KhoHang);
+                Refresh(KhoHang, imgList);
             }
         }
+
+        public void bttDelete(int y, Panel KhoHang, ImageList imgList)
+        {
+            string nameNeedToDel = "";
+            foreach (Control control in KhoHang.Controls)
+            {
+                if (control.Location.Y == y && control.Name == "textBoxTen")
+                {
+                    nameNeedToDel = control.Text;
+                    break;
+                }    
+            }
+            try
+            {
+                using (var package = new ExcelPackage(new FileInfo("data/Kho Hàng.xlsx")))
+                {
+                    //Mở sheet đầu tiên
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
+                    //Khai báo giá trị bắt đầu là = 3
+                    int start = worksheet.Dimension.Start.Row + 2;
+                    int check = 0;
+                    //Cho duyệt dữ liệu từ dòng 3 đến dòng cuối cùng
+                    for (int i = start; i <= worksheet.Dimension.End.Row; i++)
+                    {
+                        //Nếu tên đã tồn tại trong data xóa
+                        if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
+                        {
+                            //Đánh dấu là có tên trùng hợp
+                            check = 1;
+                            //Xóa ô tên
+                            worksheet.Cells[i, 1].Clear();
+                            //Xóa ô đơn vị
+                            worksheet.Cells[i, 2].Clear();
+                            //Xóa ô số lượng
+                            worksheet.Cells[i, 3].Clear();
+                            //Xóa ô đơn giá
+                            worksheet.Cells[i, 4].Clear();
+                            //Xóa ô tổng giá
+                            worksheet.Cells[i, 5].Clear();
+
+                            // Dịch chuyển dữ liệu từ các hàng phía dưới lên trên
+                            for (int j = i; j < worksheet.Dimension.End.Row; j++)
+                            {
+                                if (i == worksheet.Dimension.End.Row)
+                                {
+                                    worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
+                                }
+                                else
+                                {
+                                    worksheet.Cells[j, 1].Value = worksheet.Cells[j + 1, 1].Value;
+                                    worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
+                                    worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
+                                    worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
+                                    worksheet.Cells[j, 5].Formula = worksheet.Cells[j + 1, 5].Formula;
+                                }
+                            }
+
+                            // Xóa dữ liệu ở hàng cuối cùng
+                            worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
+                            //Lưu file
+                            package.Save();
+                            Refresh(KhoHang, imgList);
+                            break;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Xóa không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
     }
 }
