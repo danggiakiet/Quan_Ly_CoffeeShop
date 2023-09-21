@@ -38,7 +38,10 @@ namespace Quan_Ly
 
         private void bttThemMoiKhoHang_Click(object sender, EventArgs e)
         {
-            khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, Convert.ToInt32(txtSoLuongPanelTMKH.Text), Convert.ToInt32(txtDonGiaPanelTMKH.Text), panelKhoHang);
+                int donGia = Convert.ToInt32(txtDonGiaPanelTMKH.Text);
+                int soLuong = Convert.ToInt32(txtSoLuongPanelTMKH.Text);
+                khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang);
+
         }
 
         private void bttRefreshPanelTMKH_Click(object sender, EventArgs e)

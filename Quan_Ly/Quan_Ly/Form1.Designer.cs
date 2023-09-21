@@ -64,6 +64,7 @@
             this.tabBanHang = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabKhoHang.SuspendLayout();
             this.panelThemMoiKhoHang.SuspendLayout();
@@ -124,9 +125,9 @@
             this.tabKhoHang.AutoScroll = true;
             this.tabKhoHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
             this.tabKhoHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabKhoHang.Controls.Add(this.panelKhoHang);
             this.tabKhoHang.Controls.Add(this.panelThemMoiKhoHang);
             this.tabKhoHang.Controls.Add(this.panelChucNangKhoHang);
-            this.tabKhoHang.Controls.Add(this.panelKhoHang);
             this.tabKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabKhoHang.ImageIndex = 4;
             this.tabKhoHang.Location = new System.Drawing.Point(0, 40);
@@ -315,6 +316,7 @@
             this.panelKhoHang.AutoScroll = true;
             this.panelKhoHang.BackColor = System.Drawing.Color.White;
             this.panelKhoHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelKhoHang.Controls.Add(this.label12);
             this.panelKhoHang.Controls.Add(this.label4);
             this.panelKhoHang.Controls.Add(this.label3);
             this.panelKhoHang.Controls.Add(this.label2);
@@ -328,7 +330,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(522, 91);
+            this.label4.Location = new System.Drawing.Point(531, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 24);
             this.label4.TabIndex = 9;
@@ -463,6 +465,16 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(645, 91);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(80, 24);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Đơn giá";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -530,6 +542,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNamePanelTMKH;
         private System.Windows.Forms.Button bttRefreshPanelTMKH;
+        private System.Windows.Forms.Label label12;
     }
 }
 

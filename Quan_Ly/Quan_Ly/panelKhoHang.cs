@@ -13,7 +13,9 @@ using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-
+using Microsoft.Office.Interop.Excel;
+using TextBox = System.Windows.Forms.TextBox;
+using Point = System.Drawing.Point;
 
 namespace Quan_Ly
 {
@@ -83,10 +85,12 @@ namespace Quan_Ly
             TextBox textBoxTen = CreateTextBox(nguyenLieu.ten, HorizontalAlignment.Left, x, y, 410, 35);
             TextBox textBoxDonVi = CreateTextBox(nguyenLieu.donVi, HorizontalAlignment.Center, x + 415, y, 100, 35);
             NumericUpDown numericUpDownSoLuong = CreateNumericUpDown(nguyenLieu.soLuong, HorizontalAlignment.Right, x + 520, y, 95);
+            TextBox textBoxDonGia = CreateTextBox(nguyenLieu.donGia.ToString(), HorizontalAlignment.Right, x + 620, y, 130, 35);
 
             KhoHang.Controls.Add(textBoxTen);
             KhoHang.Controls.Add(textBoxDonVi);
             KhoHang.Controls.Add(numericUpDownSoLuong);
+            KhoHang.Controls.Add(textBoxDonGia);
         }
 
         private TextBox CreateTextBox(string text, HorizontalAlignment align, int x, int y, int width, int height)
@@ -167,13 +171,35 @@ namespace Quan_Ly
             {
                 using (var package = new ExcelPackage(new FileInfo("data/Kho Hàng.xlsx")))
                 {
+                    Dictionary<int,string> Dictionary = new Dictionary<int,string>();
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
-                    int i = worksheet.Dimension.End.Row;
-                    worksheet.Cells[i + 1, 1].Value = ten;
-                    worksheet.Cells[i + 1, 2].Value = donVi;
-                    worksheet.Cells[i + 1, 3].Value = soLuong.ToString();
-                    worksheet.Cells[i + 1, 4].Value = donGia.ToString();
-                    package.Save();
+                    // Duyệt từ dòng 3 đến hết của file excel
+                    for (int i = worksheet.Dimension.Start.Row + 2; i <= worksheet.Dimension.End.Row; i++)
+                    {
+                        Dictionary.Add(i, worksheet.Cells[i,1].ToString());
+                    }
+                    int key = Dictionary.FirstOrDefault(x => x.Value == ten).Key;
+
+                    if (key != 0)
+                    {
+                        // Bạn đã tìm thấy giá trị "ten" trong Dictionary, sử dụng key để truy cập các giá trị khác.
+                        worksheet.Cells[key, 2].Value = donVi;
+                        worksheet.Cells[key, 3].Value = soLuong.ToString();
+                        worksheet.Cells[key, 4].Value = donGia.ToString();
+                        package.Save();
+                    }
+                    else
+                    {
+                        // Không tìm thấy giá trị "ten" trong Dictionary, thêm một dòng mới.
+                        int newRow = worksheet.Dimension.End.Row + 1;
+                        worksheet.Cells[newRow, 1].Value = ten;
+                        worksheet.Cells[newRow, 2].Value = donVi;
+                        worksheet.Cells[newRow, 3].Value = soLuong.ToString();
+                        worksheet.Cells[newRow, 4].Value = donGia.ToString();
+                        package.Save();
+                    }
+
+
                 }
             }
             catch (Exception ex)
