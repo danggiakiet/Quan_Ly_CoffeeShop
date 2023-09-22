@@ -63,6 +63,16 @@ namespace Quan_Ly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_120x120 {
+            get {
+                object obj = ResourceManager.GetObject("icon 120x120", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_circle {
             get {
                 object obj = ResourceManager.GetObject("refresh-circle", resourceCulture);

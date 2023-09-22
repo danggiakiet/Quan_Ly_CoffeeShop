@@ -34,6 +34,7 @@
             this.tabControl = new Sunny.UI.UITabControl();
             this.tabKhoHang = new System.Windows.Forms.TabPage();
             this.panelKhoHang = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.tabBanHang = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabKhoHang.SuspendLayout();
             this.panelKhoHang.SuspendLayout();
@@ -112,7 +112,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1215, 606);
+            this.tabControl.Size = new System.Drawing.Size(1215, 525);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.Style = Sunny.UI.UIStyle.Custom;
             this.tabControl.TabBackColor = System.Drawing.Color.White;
@@ -134,7 +134,7 @@
             this.tabKhoHang.ImageIndex = 4;
             this.tabKhoHang.Location = new System.Drawing.Point(0, 40);
             this.tabKhoHang.Name = "tabKhoHang";
-            this.tabKhoHang.Size = new System.Drawing.Size(1215, 566);
+            this.tabKhoHang.Size = new System.Drawing.Size(1215, 485);
             this.tabKhoHang.TabIndex = 1;
             this.tabKhoHang.Text = "Kho Hàng";
             // 
@@ -152,8 +152,18 @@
             this.panelKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelKhoHang.Location = new System.Drawing.Point(11, 12);
             this.panelKhoHang.Name = "panelKhoHang";
-            this.panelKhoHang.Size = new System.Drawing.Size(827, 539);
+            this.panelKhoHang.Size = new System.Drawing.Size(827, 458);
             this.panelKhoHang.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(752, 91);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 24);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Xóa";
             // 
             // label12
             // 
@@ -221,9 +231,9 @@
             this.panelThemMoiKhoHang.Controls.Add(this.label7);
             this.panelThemMoiKhoHang.Controls.Add(this.label8);
             this.panelThemMoiKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelThemMoiKhoHang.Location = new System.Drawing.Point(844, 169);
+            this.panelThemMoiKhoHang.Location = new System.Drawing.Point(844, 135);
             this.panelThemMoiKhoHang.Name = "panelThemMoiKhoHang";
-            this.panelThemMoiKhoHang.Size = new System.Drawing.Size(359, 382);
+            this.panelThemMoiKhoHang.Size = new System.Drawing.Size(359, 335);
             this.panelThemMoiKhoHang.TabIndex = 5;
             // 
             // bttRefreshPanelTMKH
@@ -337,7 +347,7 @@
             this.panelChucNangKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelChucNangKhoHang.Location = new System.Drawing.Point(844, 12);
             this.panelChucNangKhoHang.Name = "panelChucNangKhoHang";
-            this.panelChucNangKhoHang.Size = new System.Drawing.Size(359, 151);
+            this.panelChucNangKhoHang.Size = new System.Drawing.Size(359, 117);
             this.panelChucNangKhoHang.TabIndex = 2;
             // 
             // bttSaveValuePanelKhoHang
@@ -345,7 +355,7 @@
             this.bttSaveValuePanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttSaveValuePanelKhoHang.ImageIndex = 7;
             this.bttSaveValuePanelKhoHang.ImageList = this.imageIconList;
-            this.bttSaveValuePanelKhoHang.Location = new System.Drawing.Point(145, 87);
+            this.bttSaveValuePanelKhoHang.Location = new System.Drawing.Point(145, 60);
             this.bttSaveValuePanelKhoHang.Name = "bttSaveValuePanelKhoHang";
             this.bttSaveValuePanelKhoHang.Size = new System.Drawing.Size(53, 30);
             this.bttSaveValuePanelKhoHang.TabIndex = 4;
@@ -357,7 +367,7 @@
             this.bttRefeshPanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttRefeshPanelKhoHang.ImageIndex = 6;
             this.bttRefeshPanelKhoHang.ImageList = this.imageIconList;
-            this.bttRefeshPanelKhoHang.Location = new System.Drawing.Point(145, 34);
+            this.bttRefeshPanelKhoHang.Location = new System.Drawing.Point(145, 7);
             this.bttRefeshPanelKhoHang.Name = "bttRefeshPanelKhoHang";
             this.bttRefeshPanelKhoHang.Size = new System.Drawing.Size(53, 30);
             this.bttRefeshPanelKhoHang.TabIndex = 3;
@@ -367,7 +377,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 91);
+            this.label6.Location = new System.Drawing.Point(21, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 27);
             this.label6.TabIndex = 2;
@@ -376,7 +386,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 38);
+            this.label5.Location = new System.Drawing.Point(21, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 27);
             this.label5.TabIndex = 1;
@@ -392,7 +402,7 @@
             this.tabNhanVien.ImageIndex = 2;
             this.tabNhanVien.Location = new System.Drawing.Point(0, 40);
             this.tabNhanVien.Name = "tabNhanVien";
-            this.tabNhanVien.Size = new System.Drawing.Size(1046, 566);
+            this.tabNhanVien.Size = new System.Drawing.Size(1215, 485);
             this.tabNhanVien.TabIndex = 2;
             this.tabNhanVien.Text = "Nhân Viên";
             // 
@@ -413,7 +423,7 @@
             this.tabThongKe.ImageIndex = 5;
             this.tabThongKe.Location = new System.Drawing.Point(0, 40);
             this.tabThongKe.Name = "tabThongKe";
-            this.tabThongKe.Size = new System.Drawing.Size(1046, 566);
+            this.tabThongKe.Size = new System.Drawing.Size(1215, 485);
             this.tabThongKe.TabIndex = 5;
             this.tabThongKe.Text = "Thống Kê";
             // 
@@ -436,7 +446,7 @@
             this.tabDoanhThu.ImageIndex = 3;
             this.tabDoanhThu.Location = new System.Drawing.Point(0, 40);
             this.tabDoanhThu.Name = "tabDoanhThu";
-            this.tabDoanhThu.Size = new System.Drawing.Size(1046, 566);
+            this.tabDoanhThu.Size = new System.Drawing.Size(1215, 485);
             this.tabDoanhThu.TabIndex = 3;
             this.tabDoanhThu.Text = "Doanh Thu";
             // 
@@ -459,7 +469,7 @@
             this.tabBanHang.ImageIndex = 0;
             this.tabBanHang.Location = new System.Drawing.Point(0, 40);
             this.tabBanHang.Name = "tabBanHang";
-            this.tabBanHang.Size = new System.Drawing.Size(1046, 566);
+            this.tabBanHang.Size = new System.Drawing.Size(1215, 485);
             this.tabBanHang.TabIndex = 4;
             this.tabBanHang.Text = "Bán Hàng";
             // 
@@ -474,28 +484,18 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Quan_Ly.Properties.Resources.icon_120x120;
             this.pictureBox1.Location = new System.Drawing.Point(801, 20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(115, 110);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(752, 91);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 24);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Xóa";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 758);
+            this.ClientSize = new System.Drawing.Size(1230, 670);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl);
             this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

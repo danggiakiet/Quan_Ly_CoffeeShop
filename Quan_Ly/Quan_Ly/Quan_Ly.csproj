@@ -154,5 +154,8 @@
   <ItemGroup>
     <None Include="bin\Debug\img\icon\refresh-circle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\icon 120x120.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,3 +34,9 @@ D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\SunnyUI.dll
 D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.ResolveComReference.cache
 D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\EPPlus.dll
 D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\EPPlus.xml
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\EPPlus.dll
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\SunnyUI.Common.dll
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\SunnyUI.dll
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\EPPlus.xml
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.ResolveComReference.cache
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.Resource1.resources

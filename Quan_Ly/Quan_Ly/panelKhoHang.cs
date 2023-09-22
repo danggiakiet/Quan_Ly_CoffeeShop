@@ -97,7 +97,7 @@ namespace Quan_Ly
             KhoHang.Controls.Add(buttonDelete);
 
             // Định nghĩa sự kiện Click cho nút buttonDelete
-            buttonDelete.Click += (sender, e) => bttDelete(y, KhoHang, imgList);
+            buttonDelete.Click += (sender, e) => bttDelete(buttonDelete.Location.Y, KhoHang, imgList);
 
         }
         private TextBox CreateTextBox(string text, HorizontalAlignment align, int x, int y, int width, int height)
