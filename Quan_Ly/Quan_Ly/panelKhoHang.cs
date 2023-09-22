@@ -97,7 +97,7 @@ namespace Quan_Ly
             KhoHang.Controls.Add(buttonDelete);
 
             // Định nghĩa sự kiện Click cho nút buttonDelete
-            buttonDelete.Click += (sender, e) => bttDelete(buttonDelete.Location.Y, KhoHang, imgList);
+            buttonDelete.Click += (sender, e) => bttDelete(buttonDelete, KhoHang, imgList);
 
         }
         private TextBox CreateTextBox(string text, HorizontalAlignment align, int x, int y, int width, int height)
@@ -128,6 +128,7 @@ namespace Quan_Ly
         private NumericUpDown CreateNumericUpDown(int value, HorizontalAlignment align, int x, int y, int width)
         {
             NumericUpDown numericUpDown = new NumericUpDown();
+            numericUpDown.Maximum = 1000;
             numericUpDown.Value = value;
             numericUpDown.TextAlign = align;
             numericUpDown.Width = width;
@@ -210,7 +211,7 @@ namespace Quan_Ly
                     for (int i = start; i <= worksheet.Dimension.End.Row; i++)
                     {
                         //Nếu tên đã tồn tại trong data thì cập nhật lại đơn vị, số lượng, đơn giá
-                        if (worksheet.Cells[i,1].Value.ToString().ToLower() == ten.ToLower())
+                        if (worksheet.Cells[i, 1].Value.ToString().ToLower() == ten.ToLower())
                         {
                             //Đánh dấu là có tên trùng hợp
                             check = 1;
@@ -225,7 +226,7 @@ namespace Quan_Ly
                         }
                     }
                     //Nếu tên chưa tồn tại trong data thì thêm dòng mới
-                    if(check == 0)
+                    if (check == 0)
                     {
                         //Tạo vị trí dòng mới
                         int newRow = worksheet.Dimension.End.Row + 1;
@@ -256,53 +257,67 @@ namespace Quan_Ly
             }
         }
 
-        public void bttDelete(int y, Panel KhoHang, ImageList imgList)
+        public void bttDelete(Button buttonDelete, Panel KhoHang, ImageList imgList)
         {
+            // Khai báo biến lưu trữ tên cần xóa
             string nameNeedToDel = "";
+
+            // Lấy tọa độ Y của nút xóa
+            int y = buttonDelete.Location.Y;
+
+            // Duyệt qua tất cả các controls trong Panel KhoHang
             foreach (Control control in KhoHang.Controls)
             {
+                // Kiểm tra nếu control có cùng tọa độ Y và tên là "textBoxTen"
                 if (control.Location.Y == y && control.Name == "textBoxTen")
                 {
+                    // Lưu tên cần xóa
                     nameNeedToDel = control.Text;
-                    break;
-                }    
+                    break; // Dừng vòng lặp
+                }
             }
+
             try
             {
+                // Mở tệp Excel "Kho Hàng.xlsx" bằng thư viện EPPlus
                 using (var package = new ExcelPackage(new FileInfo("data/Kho Hàng.xlsx")))
                 {
-                    //Mở sheet đầu tiên
+                    // Mở sheet đầu tiên
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
-                    //Khai báo giá trị bắt đầu là = 3
+
+                    // Khai báo giá trị bắt đầu là dòng 3
                     int start = worksheet.Dimension.Start.Row + 2;
-                    int check = 0;
-                    //Cho duyệt dữ liệu từ dòng 3 đến dòng cuối cùng
+                    int check = 0; // Biến kiểm tra
+
+                    // Duyệt qua các dòng dữ liệu từ dòng 3 đến dòng cuối cùng
                     for (int i = start; i <= worksheet.Dimension.End.Row; i++)
                     {
-                        //Nếu tên đã tồn tại trong data xóa
+                        // Nếu tên trong tệp Excel trùng với tên cần xóa (không phân biệt hoa thường)
                         if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
                         {
-                            //Đánh dấu là có tên trùng hợp
-                            check = 1;
-                            //Xóa ô tên
+                            check = 1; // Đánh dấu rằng tìm thấy tên trùng
+
+                            // Xóa các ô dữ liệu tương ứng
                             worksheet.Cells[i, 1].Clear();
-                            //Xóa ô đơn vị
                             worksheet.Cells[i, 2].Clear();
-                            //Xóa ô số lượng
                             worksheet.Cells[i, 3].Clear();
-                            //Xóa ô đơn giá
                             worksheet.Cells[i, 4].Clear();
-                            //Xóa ô tổng giá
                             worksheet.Cells[i, 5].Clear();
 
-                            // Dịch chuyển dữ liệu từ các hàng phía dưới lên trên
-                            for (int j = i; j < worksheet.Dimension.End.Row; j++)
+                            // Kiểm tra xem có phải dòng cuối không
+                            if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
                             {
-                                if (i == worksheet.Dimension.End.Row)
+                                // Nếu đã xóa một dòng, chỉ cần xóa dòng tiếp theo
+                                if (check != 0)
                                 {
-                                    worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
+                                    worksheet.DeleteRow(i, 1);
                                 }
-                                else
+                                break; // Dừng vòng lặp
+                            }
+                            else
+                            {
+                                // Dịch chuyển dữ liệu từ các dòng phía sau lên trên để ghi đè lên dòng hiện tại
+                                for (int j = i; j < worksheet.Dimension.End.Row; j++)
                                 {
                                     worksheet.Cells[j, 1].Value = worksheet.Cells[j + 1, 1].Value;
                                     worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
@@ -310,28 +325,38 @@ namespace Quan_Ly
                                     worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
                                     worksheet.Cells[j, 5].Formula = worksheet.Cells[j + 1, 5].Formula;
                                 }
-                            }
 
-                            // Xóa dữ liệu ở hàng cuối cùng
-                            worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
-                            //Lưu file
-                            package.Save();
-                            Refresh(KhoHang, imgList);
-                            break;
+                                // Xóa dữ liệu ở hàng cuối cùng
+                                worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
+                                break; // Dừng vòng lặp
+                            }
+                        }
+
+                        if (check != 0)
+                        {
+                            break; // Dừng vòng lặp nếu đã xóa tên
                         }
                     }
+
+                    // Lưu tệp sau khi hoàn thành tất cả thay đổi
+                    package.Save();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                // Hiển thị thông báo lỗi nếu có lỗi xảy ra
                 MessageBox.Show("Xóa không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
+                // Hiển thị thông báo thành công sau khi xóa
                 MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Gọi hàm Refresh để cập nhật Panel KhoHang
+                Refresh(KhoHang, imgList);
             }
         }
+
 
     }
 }

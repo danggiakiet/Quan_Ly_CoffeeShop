@@ -51,6 +51,10 @@ namespace Quan_Ly
                 else
                 {
                     khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang,imageIconList);
+                    txtNamePanelTMKH.Clear();
+                    txtDonViPanelTMKH.Clear();
+                    txtSoLuongPanelTMKH.Clear();
+                    txtDonGiaPanelTMKH.Clear();
                 }    
             }    
             
