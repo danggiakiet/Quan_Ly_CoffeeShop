@@ -15,6 +15,7 @@ namespace Quan_Ly
     {
         ControlPanel control = new ControlPanel();
         panelKhoHang khoHang = new panelKhoHang();
+        panelNhanVien nhanVien = new panelNhanVien();
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace Quan_Ly
         {
 
             khoHang.Main(panelKhoHang, imageIconList);
+            nhanVien.Main(panelNhanVien, imageIconList);
         }
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
         {
@@ -56,8 +58,7 @@ namespace Quan_Ly
                     txtSoLuongPanelTMKH.Clear();
                     txtDonGiaPanelTMKH.Clear();
                 }    
-            }    
-            
+            }       
         }
 
         private void bttRefreshPanelTMKH_Click(object sender, EventArgs e)

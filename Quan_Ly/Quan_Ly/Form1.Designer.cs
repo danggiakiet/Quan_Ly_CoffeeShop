@@ -58,7 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabNhanVien = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelNhanVien = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -95,7 +95,7 @@
             this.panelThemMoiKhoHang.SuspendLayout();
             this.panelChucNangKhoHang.SuspendLayout();
             this.tabNhanVien.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelNhanVien.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabThongKe.SuspendLayout();
@@ -259,7 +259,7 @@
             this.panelThemMoiKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelThemMoiKhoHang.Location = new System.Drawing.Point(855, 135);
             this.panelThemMoiKhoHang.Name = "panelThemMoiKhoHang";
-            this.panelThemMoiKhoHang.Size = new System.Drawing.Size(360, 335);
+            this.panelThemMoiKhoHang.Size = new System.Drawing.Size(367, 335);
             this.panelThemMoiKhoHang.TabIndex = 5;
             // 
             // bttRefreshPanelTMKH
@@ -373,7 +373,7 @@
             this.panelChucNangKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelChucNangKhoHang.Location = new System.Drawing.Point(856, 12);
             this.panelChucNangKhoHang.Name = "panelChucNangKhoHang";
-            this.panelChucNangKhoHang.Size = new System.Drawing.Size(359, 117);
+            this.panelChucNangKhoHang.Size = new System.Drawing.Size(366, 117);
             this.panelChucNangKhoHang.TabIndex = 2;
             // 
             // bttSaveValuePanelKhoHang
@@ -423,7 +423,7 @@
             this.tabNhanVien.AutoScroll = true;
             this.tabNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
             this.tabNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabNhanVien.Controls.Add(this.panel2);
+            this.tabNhanVien.Controls.Add(this.panelNhanVien);
             this.tabNhanVien.Controls.Add(this.panel3);
             this.tabNhanVien.Controls.Add(this.panel6);
             this.tabNhanVien.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -434,28 +434,28 @@
             this.tabNhanVien.TabIndex = 2;
             this.tabNhanVien.Text = "Nhân Viên";
             // 
-            // panel2
+            // panelNhanVien
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(14, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(830, 460);
-            this.panel2.TabIndex = 6;
+            this.panelNhanVien.AutoScroll = true;
+            this.panelNhanVien.BackColor = System.Drawing.Color.White;
+            this.panelNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelNhanVien.Controls.Add(this.label14);
+            this.panelNhanVien.Controls.Add(this.label15);
+            this.panelNhanVien.Controls.Add(this.label16);
+            this.panelNhanVien.Controls.Add(this.label17);
+            this.panelNhanVien.Controls.Add(this.label18);
+            this.panelNhanVien.Controls.Add(this.label19);
+            this.panelNhanVien.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelNhanVien.Location = new System.Drawing.Point(11, 12);
+            this.panelNhanVien.Name = "panelNhanVien";
+            this.panelNhanVien.Size = new System.Drawing.Size(830, 460);
+            this.panelNhanVien.TabIndex = 6;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(752, 91);
+            this.label14.Location = new System.Drawing.Point(755, 91);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 24);
             this.label14.TabIndex = 13;
@@ -465,7 +465,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(645, 91);
+            this.label15.Location = new System.Drawing.Point(629, 91);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(71, 24);
             this.label15.TabIndex = 12;
@@ -475,7 +475,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(531, 91);
+            this.label16.Location = new System.Drawing.Point(451, 91);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(97, 24);
             this.label16.TabIndex = 9;
@@ -485,7 +485,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(431, 91);
+            this.label17.Location = new System.Drawing.Point(308, 91);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(50, 24);
             this.label17.TabIndex = 8;
@@ -495,7 +495,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(139, 91);
+            this.label18.Location = new System.Drawing.Point(73, 91);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(97, 24);
             this.label18.TabIndex = 7;
@@ -527,9 +527,9 @@
             this.panel3.Controls.Add(this.label23);
             this.panel3.Controls.Add(this.label24);
             this.panel3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(858, 133);
+            this.panel3.Location = new System.Drawing.Point(855, 135);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(360, 335);
+            this.panel3.Size = new System.Drawing.Size(367, 335);
             this.panel3.TabIndex = 8;
             // 
             // button1
@@ -639,9 +639,9 @@
             this.panel6.Controls.Add(this.label25);
             this.panel6.Controls.Add(this.label26);
             this.panel6.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(859, 10);
+            this.panel6.Location = new System.Drawing.Point(856, 12);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(359, 117);
+            this.panel6.Size = new System.Drawing.Size(366, 117);
             this.panel6.TabIndex = 7;
             // 
             // button3
@@ -783,8 +783,8 @@
             this.panelChucNangKhoHang.ResumeLayout(false);
             this.panelChucNangKhoHang.PerformLayout();
             this.tabNhanVien.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelNhanVien.ResumeLayout(false);
+            this.panelNhanVien.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -834,7 +834,7 @@
         private System.Windows.Forms.Button bttRefreshPanelTMKH;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelNhanVien;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;

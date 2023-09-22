@@ -24,6 +24,7 @@ namespace Quan_Ly
     {
         //Tạo dsNguyenLieu chứa thông tin từ kho hàng
         private List<nguyenLieu> dsNguyenLieu = new List<nguyenLieu>();
+        private ControlPanel ControlPanel = new ControlPanel();
 
         public void Main(Panel KhoHang, ImageList imgList)
         {
@@ -84,11 +85,11 @@ namespace Quan_Ly
 
         private void AddControlToPanel(int x, int y, nguyenLieu nguyenLieu, int index, Panel KhoHang, ImageList imgList)
         {
-            TextBox textBoxTen = CreateTextBoxTen(nguyenLieu.ten, HorizontalAlignment.Left, x, y, 410, 35);
-            TextBox textBoxDonVi = CreateTextBox(nguyenLieu.donVi, HorizontalAlignment.Center, x + 415, y, 100, 35);
-            NumericUpDown numericUpDownSoLuong = CreateNumericUpDown(nguyenLieu.soLuong, HorizontalAlignment.Right, x + 520, y, 95);
-            TextBox textBoxDonGia = CreateTextBox(nguyenLieu.donGia.ToString(), HorizontalAlignment.Right, x + 620, y, 130, 35);
-            Button buttonDelete = CreateButton(x + 755, y, 35, 35, imgList);
+            TextBox textBoxTen = ControlPanel.CreateTextBoxTen(nguyenLieu.ten, HorizontalAlignment.Left, x, y, 410, 35);
+            TextBox textBoxDonVi = ControlPanel.CreateTextBox(nguyenLieu.donVi, HorizontalAlignment.Center, x + 415, y, 100, 35);
+            NumericUpDown numericUpDownSoLuong = ControlPanel.CreateNumericUpDown(nguyenLieu.soLuong, HorizontalAlignment.Right, x + 520, y, 95);
+            TextBox textBoxDonGia = ControlPanel.CreateTextBox(nguyenLieu.donGia.ToString(), HorizontalAlignment.Right, x + 620, y, 130, 35);
+            Button buttonDelete = ControlPanel.CreateButton(x + 755, y, 35, 35, imgList);
 
             KhoHang.Controls.Add(textBoxTen);
             KhoHang.Controls.Add(textBoxDonVi);
@@ -99,51 +100,6 @@ namespace Quan_Ly
             // Định nghĩa sự kiện Click cho nút buttonDelete
             buttonDelete.Click += (sender, e) => bttDelete(buttonDelete, KhoHang, imgList);
 
-        }
-        private TextBox CreateTextBox(string text, HorizontalAlignment align, int x, int y, int width, int height)
-        {
-            TextBox textBox = new TextBox();
-            textBox.Name = "textBoxTen";
-            textBox.Text = text;
-            textBox.TextAlign = align;
-            textBox.ReadOnly = true;
-            textBox.Width = width;
-            textBox.Height = height;
-            textBox.Location = new Point(x, y);
-            return textBox;
-        }
-        private TextBox CreateTextBoxTen(string text, HorizontalAlignment align, int x, int y, int width, int height)
-        {
-            TextBox textBox = new TextBox();
-            textBox.Name = "textBoxTen";
-            textBox.Text = text;
-            textBox.TextAlign = align;
-            textBox.ReadOnly = true;
-            textBox.Width = width;
-            textBox.Height = height;
-            textBox.Location = new Point(x, y);
-            return textBox;
-        }
-
-        private NumericUpDown CreateNumericUpDown(int value, HorizontalAlignment align, int x, int y, int width)
-        {
-            NumericUpDown numericUpDown = new NumericUpDown();
-            numericUpDown.Maximum = 1000;
-            numericUpDown.Value = value;
-            numericUpDown.TextAlign = align;
-            numericUpDown.Width = width;
-            numericUpDown.Location = new Point(x, y);
-            return numericUpDown;
-        }
-        private Button CreateButton(int x, int y, int width, int height, ImageList imgList)
-        {
-            Button btt = new Button();
-            btt.ImageList = imgList;
-            btt.ImageKey = "trash-outline.png";
-            btt.Width = width;
-            btt.Height = height;
-            btt.Location = new Point(x, y);
-            return btt;
         }
 
         public void Refresh(Panel KhoHang, ImageList imgList)
