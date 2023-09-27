@@ -11,20 +11,18 @@ using System.Windows.Forms;
 
 namespace Quan_Ly
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class formMainAdmin : MetroFramework.Forms.MetroForm
     {
         ControlPanel control = new ControlPanel();
         panelKhoHang khoHang = new panelKhoHang();
         panelNhanVien nhanVien = new panelNhanVien();
-        public Form1()
+        public formMainAdmin()
         {
             InitializeComponent();
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void formMainAdmin_Load(object sender, EventArgs e)
         {
-
             khoHang.Main(panelKhoHang, imageIconList);
             nhanVien.Main(panelNhanVien, imageIconList);
         }
@@ -42,7 +40,7 @@ namespace Quan_Ly
         {
             if (txtNamePanelTMKH.Text == "" || txtDonViPanelTMKH.Text == "" || txtSoLuongPanelTMKH.Text == "" || txtDonGiaPanelTMKH.Text == "")
             {
-                MessageBox.Show("Yêu cầu điền đầy đủ thông tin","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -52,13 +50,13 @@ namespace Quan_Ly
                 }
                 else
                 {
-                    khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang,imageIconList);
+                    khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang, imageIconList);
                     txtNamePanelTMKH.Clear();
                     txtDonViPanelTMKH.Clear();
                     txtSoLuongPanelTMKH.Clear();
                     txtDonGiaPanelTMKH.Clear();
-                }    
-            }       
+                }
+            }
         }
 
         private void bttRefreshPanelTMKH_Click(object sender, EventArgs e)

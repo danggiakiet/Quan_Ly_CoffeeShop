@@ -73,6 +73,16 @@ namespace Quan_Ly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_Tròn {
+            get {
+                object obj = ResourceManager.GetObject("Logo Tròn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_circle {
             get {
                 object obj = ResourceManager.GetObject("refresh-circle", resourceCulture);
