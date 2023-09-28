@@ -106,31 +106,30 @@ namespace Quan_Ly
                 }
             }
         }
-        public TextBox CreateTextBox(string text, HorizontalAlignment align, int x, int y, int width, int height)
+        public TextBox CreateTextBox(string name, string text, HorizontalAlignment align, int x, int y, int width, int height)
         {
             TextBox textBox = new TextBox();
-            textBox.Name = "textBox";
+            textBox.Name = name;
             textBox.Text = text;
             textBox.TextAlign = align;
-            textBox.ReadOnly = true;
             textBox.Width = width;
             textBox.Height = height;
             textBox.Location = new Point(x, y);
             return textBox;
         }
-        public TextBox CreateTextBoxTen(string text, HorizontalAlignment align, int x, int y, int width, int height)
+        public DateTimePicker CreateDateTimePicker(string name, DateTime value, string format, int x, int y, int width, int height)
         {
-            TextBox textBox = new TextBox();
-            textBox.Name = "textBoxTen";
-            textBox.Text = text;
-            textBox.TextAlign = align;
-            textBox.ReadOnly = true;
-            textBox.Width = width;
-            textBox.Height = height;
-            textBox.Location = new Point(x, y);
-            return textBox;
-        }
+            DateTimePicker dateTime = new DateTimePicker();
 
+            dateTime.Name = name;
+            dateTime.Format = DateTimePickerFormat.Custom;
+            dateTime.CustomFormat = format;
+            dateTime.Value = value;
+            dateTime.Width = width;
+            dateTime.Height = height;
+            dateTime.Location = new Point(x, y);
+            return dateTime;
+        }
         public NumericUpDown CreateNumericUpDown(int value, HorizontalAlignment align, int x, int y, int width)
         {
             NumericUpDown numericUpDown = new NumericUpDown();

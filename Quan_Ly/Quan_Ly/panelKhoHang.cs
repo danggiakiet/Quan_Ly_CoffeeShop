@@ -85,10 +85,13 @@ namespace Quan_Ly
 
         private void AddControlToPanel(int x, int y, nguyenLieu nguyenLieu, int index, Panel KhoHang, ImageList imgList)
         {
-            TextBox textBoxTen = ControlPanel.CreateTextBoxTen(nguyenLieu.ten, HorizontalAlignment.Left, x, y, 410, 35);
-            TextBox textBoxDonVi = ControlPanel.CreateTextBox(nguyenLieu.donVi, HorizontalAlignment.Center, x + 415, y, 100, 35);
+            TextBox textBoxTen = ControlPanel.CreateTextBox("txtName", nguyenLieu.ten, HorizontalAlignment.Left, x, y, 410, 35);
+            textBoxTen.ReadOnly = true;
+            TextBox textBoxDonVi = ControlPanel.CreateTextBox("txtDonVi", nguyenLieu.donVi, HorizontalAlignment.Center, x + 415, y, 100, 35);
+            textBoxDonVi.ReadOnly = true;
             NumericUpDown numericUpDownSoLuong = ControlPanel.CreateNumericUpDown(nguyenLieu.soLuong, HorizontalAlignment.Right, x + 520, y, 95);
-            TextBox textBoxDonGia = ControlPanel.CreateTextBox(nguyenLieu.donGia.ToString(), HorizontalAlignment.Right, x + 620, y, 130, 35);
+            TextBox textBoxDonGia = ControlPanel.CreateTextBox("txtDonGia", nguyenLieu.donGia.ToString(), HorizontalAlignment.Right, x + 620, y, 130, 35);
+            textBoxDonGia.ReadOnly = true;
             Button buttonDelete = ControlPanel.CreateButton(x + 755, y, 35, 35, imgList);
 
             KhoHang.Controls.Add(textBoxTen);
@@ -215,101 +218,109 @@ namespace Quan_Ly
 
         public void bttDelete(Button buttonDelete, Panel KhoHang, ImageList imgList)
         {
-            // Khai báo biến lưu trữ tên cần xóa
-            string nameNeedToDel = "";
-
-            // Lấy tọa độ Y của nút xóa
-            int y = buttonDelete.Location.Y;
-
-            // Duyệt qua tất cả các controls trong Panel KhoHang
-            foreach (Control control in KhoHang.Controls)
+            DialogResult result = MessageBox.Show("Bạn có muốn thực hiện hành động này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
             {
-                // Kiểm tra nếu control có cùng tọa độ Y và tên là "textBoxTen"
-                if (control.Location.Y == y && control.Name == "textBoxTen")
+                // Khai báo biến lưu trữ tên cần xóa
+                string nameNeedToDel = "";
+
+                // Lấy tọa độ Y của nút xóa
+                int y = buttonDelete.Location.Y;
+
+                // Duyệt qua tất cả các controls trong Panel KhoHang
+                foreach (Control control in KhoHang.Controls)
                 {
-                    // Lưu tên cần xóa
-                    nameNeedToDel = control.Text;
-                    break; // Dừng vòng lặp
-                }
-            }
-
-            try
-            {
-                // Mở tệp Excel "Kho Hàng.xlsx" bằng thư viện EPPlus
-                using (var package = new ExcelPackage(new FileInfo("data/Kho Hàng.xlsx")))
-                {
-                    // Mở sheet đầu tiên
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
-
-                    // Khai báo giá trị bắt đầu là dòng 3
-                    int start = worksheet.Dimension.Start.Row + 2;
-                    int check = 0; // Biến kiểm tra
-
-                    // Duyệt qua các dòng dữ liệu từ dòng 3 đến dòng cuối cùng
-                    for (int i = start; i <= worksheet.Dimension.End.Row; i++)
+                    // Kiểm tra nếu control có cùng tọa độ Y và tên là "textBoxTen"
+                    if (control.Location.Y == y && control.Name == "txtName")
                     {
-                        // Nếu tên trong tệp Excel trùng với tên cần xóa (không phân biệt hoa thường)
-                        if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
-                        {
-                            check = 1; // Đánh dấu rằng tìm thấy tên trùng
-
-                            // Xóa các ô dữ liệu tương ứng
-                            worksheet.Cells[i, 1].Clear();
-                            worksheet.Cells[i, 2].Clear();
-                            worksheet.Cells[i, 3].Clear();
-                            worksheet.Cells[i, 4].Clear();
-                            worksheet.Cells[i, 5].Clear();
-
-                            // Kiểm tra xem có phải dòng cuối không
-                            if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
-                            {
-                                // Nếu đã xóa một dòng, chỉ cần xóa dòng tiếp theo
-                                if (check != 0)
-                                {
-                                    worksheet.DeleteRow(i, 1);
-                                }
-                                break; // Dừng vòng lặp
-                            }
-                            else
-                            {
-                                // Dịch chuyển dữ liệu từ các dòng phía sau lên trên để ghi đè lên dòng hiện tại
-                                for (int j = i; j < worksheet.Dimension.End.Row; j++)
-                                {
-                                    worksheet.Cells[j, 1].Value = worksheet.Cells[j + 1, 1].Value;
-                                    worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
-                                    worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
-                                    worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
-                                    worksheet.Cells[j, 5].Formula = worksheet.Cells[j + 1, 5].Formula;
-                                }
-
-                                // Xóa dữ liệu ở hàng cuối cùng
-                                worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
-                                break; // Dừng vòng lặp
-                            }
-                        }
-
-                        if (check != 0)
-                        {
-                            break; // Dừng vòng lặp nếu đã xóa tên
-                        }
+                        // Lưu tên cần xóa
+                        nameNeedToDel = control.Text;
+                        break; // Dừng vòng lặp
                     }
+                }
 
-                    // Lưu tệp sau khi hoàn thành tất cả thay đổi
-                    package.Save();
+                try
+                {
+                    // Mở tệp Excel "Kho Hàng.xlsx" bằng thư viện EPPlus
+                    using (var package = new ExcelPackage(new FileInfo("data/Kho Hàng.xlsx")))
+                    {
+                        // Mở sheet đầu tiên
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
+
+                        // Khai báo giá trị bắt đầu là dòng 3
+                        int start = worksheet.Dimension.Start.Row + 2;
+                        int check = 0; // Biến kiểm tra
+
+                        // Duyệt qua các dòng dữ liệu từ dòng 3 đến dòng cuối cùng
+                        for (int i = start; i <= worksheet.Dimension.End.Row; i++)
+                        {
+                            // Nếu tên trong tệp Excel trùng với tên cần xóa (không phân biệt hoa thường)
+                            if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
+                            {
+                                check = 1; // Đánh dấu rằng tìm thấy tên trùng
+
+                                // Xóa các ô dữ liệu tương ứng
+                                worksheet.Cells[i, 1].Clear();
+                                worksheet.Cells[i, 2].Clear();
+                                worksheet.Cells[i, 3].Clear();
+                                worksheet.Cells[i, 4].Clear();
+                                worksheet.Cells[i, 5].Clear();
+
+                                // Kiểm tra xem có phải dòng cuối không
+                                if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
+                                {
+                                    // Nếu đã xóa một dòng, chỉ cần xóa dòng tiếp theo
+                                    if (check != 0)
+                                    {
+                                        worksheet.DeleteRow(i, 1);
+                                    }
+                                    break; // Dừng vòng lặp
+                                }
+                                else
+                                {
+                                    // Dịch chuyển dữ liệu từ các dòng phía sau lên trên để ghi đè lên dòng hiện tại
+                                    for (int j = i; j < worksheet.Dimension.End.Row; j++)
+                                    {
+                                        worksheet.Cells[j, 1].Value = worksheet.Cells[j + 1, 1].Value;
+                                        worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
+                                        worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
+                                        worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
+                                        worksheet.Cells[j, 5].Formula = worksheet.Cells[j + 1, 5].Formula;
+                                    }
+
+                                    // Xóa dữ liệu ở hàng cuối cùng
+                                    worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
+                                    break; // Dừng vòng lặp
+                                }
+                            }
+
+                            if (check != 0)
+                            {
+                                break; // Dừng vòng lặp nếu đã xóa tên
+                            }
+                        }
+
+                        // Lưu tệp sau khi hoàn thành tất cả thay đổi
+                        package.Save();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hiển thị thông báo lỗi nếu có lỗi xảy ra
+                    MessageBox.Show("Xóa không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Hiển thị thông báo thành công sau khi xóa
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Gọi hàm Refresh để cập nhật Panel KhoHang
+                    Refresh(KhoHang, imgList);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                // Hiển thị thông báo lỗi nếu có lỗi xảy ra
-                MessageBox.Show("Xóa không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                // Hiển thị thông báo thành công sau khi xóa
-                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Gọi hàm Refresh để cập nhật Panel KhoHang
-                Refresh(KhoHang, imgList);
+                return;
             }
         }
 

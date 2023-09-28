@@ -24,8 +24,10 @@ namespace Quan_Ly
         private void formMainAdmin_Load(object sender, EventArgs e)
         {
             khoHang.Main(panelKhoHang, imageIconList);
-            nhanVien.Main(panelNhanVien, imageIconList);
+            nhanVien.Main(panelMember, imageIconList, "member");
+            nhanVien.Main(panelAdmin, imageIconList, "admin");
         }
+        #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
         {
             khoHang.Refresh(panelKhoHang, imageIconList);
@@ -63,5 +65,30 @@ namespace Quan_Ly
         {
             control.Clear_TextBox(panelThemMoiKhoHang);
         }
+        #endregion
+
+        #region PanelNhanVien_Member
+        private void btt_PanelMember_Refresh_Click(object sender, EventArgs e)
+        {
+            nhanVien.Refresh(panelMember, imageIconList, "member");
+        }
+
+        private void btt_PanelMember_Save_Click(object sender, EventArgs e)
+        {
+            nhanVien.Save(panelMember, imageIconList, "member");
+        }
+
+        private void btt_PanelMember_Add_Click(object sender, EventArgs e)
+        {
+            //nhanVien.addNew(panelMember, imageIconList, "member");
+        }
+
+        private void btt_PanelMember_RefreshValue_Click(object sender, EventArgs e)
+        {
+            control.Clear_TextBox(panelMember_Add);
+        }
+        #endregion
+
+
     }
 }
