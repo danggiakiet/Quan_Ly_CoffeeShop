@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Application = System.Windows.Forms.Application;
 using Button = System.Windows.Forms.Button;
 using TextBox = System.Windows.Forms.TextBox;
+using Label = System.Windows.Forms.Label;
 
 namespace Quan_Ly
 {
@@ -36,42 +37,31 @@ namespace Quan_Ly
                 //Mở file excel
                 using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
                 {
+                    ExcelWorksheet worksheet = null;
                     if (permission == "member")
                     {
                         //lấy sheet đầu tiên
-                        ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
-                        //cho duyệt từ dòng 3 đến hết
-                        for (int i = 3; i <= worksheet.Dimension.End.Row; i++)
-                        {
-                            //khởi tạo các biến để chứa các giá trị lấy từ dữ liệu theo từng dòng
-                            string hoVaTen = worksheet.Cells[i, 1].Value.ToString();
-                            string soDienThoai = worksheet.Cells[i, 2].Value.ToString();
-                            DateTime ngaySinh = Convert.ToDateTime(worksheet.Cells[i, 3].Value);
-                            int luong = Convert.ToInt32(worksheet.Cells[i, 4].Value);
-                            //tạo biến nguyenLieu để thêm vào dsNguyenLieu
-                            nhanVien nVien = new nhanVien(hoVaTen, soDienThoai, ngaySinh, luong);
-                            //thêm biến vừa tạo vào dsNguyenLieu
-                            dsNhanVien.Add(nVien);
-                        }
+                        worksheet = package.Workbook.Worksheets[1];
                     }
                     else if (permission == "admin")
                     {
-                        //lấy sheet 2
-                        ExcelWorksheet worksheet = package.Workbook.Worksheets[2];
-                        //cho duyệt từ dòng 3 đến hết
-                        for (int i = 3; i <= worksheet.Dimension.End.Row; i++)
-                        {
-                            //khởi tạo các biến để chứa các giá trị lấy từ dữ liệu theo từng dòng
-                            string hoVaTen = worksheet.Cells[i, 1].Value.ToString();
-                            string soDienThoai = worksheet.Cells[i, 2].Value.ToString();
-                            DateTime ngaySinh = Convert.ToDateTime(worksheet.Cells[i, 3].Value);
-                            int luong = Convert.ToInt32(worksheet.Cells[i, 4].Value);
-                            //tạo biến nguyenLieu để thêm vào dsNguyenLieu
-                            nhanVien nVien = new nhanVien(hoVaTen, soDienThoai, ngaySinh, luong);
-                            //thêm biến vừa tạo vào dsNguyenLieu
-                            dsNhanVien.Add(nVien);
-                        }
-                    }    
+                        //lấy sheet thứ 2
+                        worksheet = package.Workbook.Worksheets[2];
+                    }
+                    //cho duyệt từ dòng 3 đến hết
+                    for (int i = 3; i <= worksheet.Dimension.End.Row; i++)
+                    {
+                        //khởi tạo các biến để chứa các giá trị lấy từ dữ liệu theo từng dòng
+                        string maNV = worksheet.Cells[i, 1].Value.ToString();
+                        string hoVaTen = worksheet.Cells[i, 2].Value.ToString();
+                        string soDienThoai = worksheet.Cells[i, 3].Value.ToString();
+                        DateTime ngaySinh = Convert.ToDateTime(worksheet.Cells[i, 4].Value);
+                        int luong = Convert.ToInt32(worksheet.Cells[i, 5].Value);
+                        //tạo biến nguyenLieu để thêm vào dsNhanVien
+                        nhanVien nVien = new nhanVien(maNV, hoVaTen, soDienThoai, ngaySinh, luong);
+                        //thêm biến vừa tạo vào dsNhanVien
+                        dsNhanVien.Add(nVien);
+                    }
                 }
             }
             catch (Exception ex)
@@ -99,12 +89,14 @@ namespace Quan_Ly
 
         private void AddControlToPanel(int x, int y, nhanVien nhanVien, int index, Panel panelNhanVien, ImageList imgList, string permission)
         {
-            TextBox textBoxTen = ControlPanel.CreateTextBox("txtName", nhanVien.ten, HorizontalAlignment.Left, x, y, 245, 35);
-            TextBox textBoxSoDienThoai = ControlPanel.CreateTextBox("txtSoDienThoai", nhanVien.soDienThoai, HorizontalAlignment.Right, x + 250, y, 160, 35);
-            DateTimePicker dateTimeNgaySinh = ControlPanel.CreateDateTimePicker("dateTimeNgaySinh", nhanVien.ngaySinh, "dd/MM/yyyy", x + 415, y, 160, 35);
+            TextBox textBoxMaNV = ControlPanel.CreateTextBox("txtMaNV", nhanVien.maNV, HorizontalAlignment.Center, x, y, 65, 35);
+            TextBox textBoxTen = ControlPanel.CreateTextBox("txtName", nhanVien.ten, HorizontalAlignment.Left, x + 70, y, 210, 35);
+            TextBox textBoxSoDienThoai = ControlPanel.CreateTextBox("txtSoDienThoai", nhanVien.soDienThoai, HorizontalAlignment.Right, x + 285, y, 150, 35);
+            DateTimePicker dateTimeNgaySinh = ControlPanel.CreateDateTimePicker("dateTimeNgaySinh", nhanVien.ngaySinh, "dd/MM/yyyy", x + 440, y, 135, 35);
             TextBox textBoxLuong = ControlPanel.CreateTextBox("txtLuong", nhanVien.luong.ToString(), HorizontalAlignment.Right, x + 580, y, 160, 35);
             Button buttonDelete = ControlPanel.CreateButton(x + 755, y, 35, 35, imgList);
 
+            panelNhanVien.Controls.Add(textBoxMaNV);
             panelNhanVien.Controls.Add(textBoxTen);
             panelNhanVien.Controls.Add(textBoxSoDienThoai);
             panelNhanVien.Controls.Add(dateTimeNgaySinh);
@@ -115,7 +107,7 @@ namespace Quan_Ly
             buttonDelete.Click += (sender, e) => bttDelete(buttonDelete, panelNhanVien, imgList, permission);
 
         }
-        public void bttDelete(Button buttonDelete, Panel KhoHang, ImageList imgList, string permission)
+        public void bttDelete(Button buttonDelete, Panel nhanVien, ImageList imgList, string permission)
         {
             // Khai báo biến lưu trữ tên cần xóa
             string nameNeedToDel = "";
@@ -123,11 +115,11 @@ namespace Quan_Ly
             // Lấy tọa độ Y của nút xóa
             int y = buttonDelete.Location.Y;
 
-            // Duyệt qua tất cả các controls trong Panel KhoHang
-            foreach (Control control in KhoHang.Controls)
+            // Duyệt qua tất cả các controls trong Panel nhanVien
+            foreach (Control control in nhanVien.Controls)
             {
                 // Kiểm tra nếu control có cùng tọa độ Y và tên là "textBoxTen"
-                if (control.Location.Y == y && control.Name == "textBoxTen")
+                if (control.Location.Y == y && control is TextBox && control.Name == "txtMaNV")
                 {
                     // Lưu tên cần xóa
                     nameNeedToDel = control.Text;
@@ -138,10 +130,20 @@ namespace Quan_Ly
             try
             {
                 // Mở tệp Excel "Kho Hàng.xlsx" bằng thư viện EPPlus
-                using (var package = new ExcelPackage(new FileInfo("data/Kho Hàng.xlsx")))
+                using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
                 {
-                    // Mở sheet đầu tiên
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
+                    ExcelWorksheet worksheet = null;
+                    if (permission.ToLower() == "member")
+                    {
+                        // Mở sheet đầu tiên
+                        worksheet = package.Workbook.Worksheets[1];
+                    }
+                    else if (permission.ToLower() == "admin")
+                    {
+                        // Mở sheet thứ hai
+                        worksheet = package.Workbook.Worksheets[2];
+                    }
+
 
                     // Khai báo giá trị bắt đầu là dòng 3
                     int start = worksheet.Dimension.Start.Row + 2;
@@ -181,7 +183,7 @@ namespace Quan_Ly
                                     worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
                                     worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
                                     worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
-                                    worksheet.Cells[j, 5].Formula = worksheet.Cells[j + 1, 5].Formula;
+                                    worksheet.Cells[j, 5].Value = worksheet.Cells[j + 1, 5].Value;
                                 }
 
                                 // Xóa dữ liệu ở hàng cuối cùng
@@ -210,8 +212,8 @@ namespace Quan_Ly
                 // Hiển thị thông báo thành công sau khi xóa
                 MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Gọi hàm Refresh để cập nhật Panel KhoHang
-                Refresh(KhoHang, imgList, permission);
+                // Gọi hàm Refresh để cập nhật Panel nhanVien
+                Refresh(nhanVien, imgList, permission);
             }
         }
 
@@ -238,80 +240,78 @@ namespace Quan_Ly
 
         public void Save(Panel panelNhanVien, ImageList imgList, string permission)
         {
+            List<int> dsLocationY = new List<int>();
+            string chucVu = permission;
             try
             {
                 using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
                 {
-                    if (permission.ToLower() == "member")
+                    ExcelWorksheet worksheet = null;
+                    if (chucVu.ToLower() == "member")
                     {
-                        ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
-                        // Lặp qua các controls trên panelNhanVien và lấy dữ liệu để ghi vào Excel
-                        for (int i = 3; i <= worksheet.Dimension.End.Row; i++)
+                        //Lấy sheet đầu tiên
+                        worksheet = package.Workbook.Worksheets[1];
+                    }
+                    else if (chucVu.ToLower() == "admin")
+                    {
+                        //Lấy sheet đầu tiên
+                        worksheet = package.Workbook.Worksheets[2];
+                    }
+                    //Duyệt các control trong panelNhanVien
+                    foreach (Control control in panelNhanVien.Controls)
+                    {
+                        //nếu control là textbox
+                        if (control is TextBox textBox)
                         {
-                            foreach (Control control in panelNhanVien.Controls)
+                            //nếu control có name là "txtMaNV"
+                            if (textBox.Name == "txtMaNV")
                             {
-                                if (control is TextBox textBox)
+                                //Thêm vị trí Y của textbox vào danh sách LocationY
+                                dsLocationY.Add(textBox.Location.Y);
+                            }
+                        }
+                    }
+                    //Khởi tạo biến i bắt đầu từ dòng 3 trong file excel
+                    int i = 3;
+                    //Cho duyệt từng giá trị Y trong danh sách
+                    foreach (int y in dsLocationY)
+                    {
+                        //Duyệt qua các control trong panel
+                        foreach (Control control in panelNhanVien.Controls)
+                        {
+                            //Nếu control là textbox
+                            if (control is TextBox textBox)
+                            {
+                                //Và có giá trị Y tương ứng với y và có tên là "txtMaNV"
+                                if (textBox.Location.Y == y && textBox.Name == "txtMaNV")
                                 {
-                                    string controlName = textBox.Name;
-                                    string cellValue = textBox.Text;
-
-                                    // Ghi dữ liệu vào cột tương ứng
-                                    if (controlName == "txtName")
-                                        worksheet.Cells[i, 1].Value = cellValue;
-                                    else if (controlName == "txtSoDienThoai")
-                                        worksheet.Cells[i, 2].Value = cellValue;
-                                    else if (controlName == "txtLuong")
-                                        worksheet.Cells[i, 4].Value = cellValue;
+                                    //thì thêm vào dòng i cột 1
+                                    worksheet.Cells[i, 1].Value = textBox.Text;
                                 }
-                                else if (control is DateTimePicker dateTimePicker)
+                                else if (textBox.Location.Y == y && textBox.Name == "txtName")
                                 {
-                                    string controlName = dateTimePicker.Name;
-                                    DateTime cellValue = dateTimePicker.Value;
-
-                                    // Ghi dữ liệu vào cột tương ứng
-                                    if (controlName == "dateTimeNgaySinh")
-                                        worksheet.Cells[i, 3].Value = cellValue;
+                                    worksheet.Cells[i, 2].Value = textBox.Text;
+                                }
+                                else if (textBox.Location.Y == y && textBox.Name == "txtSoDienThoai")
+                                {
+                                    worksheet.Cells[i, 3].Value = textBox.Text;
+                                }
+                                else if (textBox.Location.Y == y && textBox.Name == "txtLuong")
+                                {
+                                    worksheet.Cells[i, 5].Value = textBox.Text;
                                 }
                             }
-                            i++;
-                        }
-                        package.Save();
-                    }
-                    else if (permission.ToLower() == "admin")
-                    {
-                        ExcelWorksheet worksheet = package.Workbook.Worksheets[2];
-                        // Lặp qua các controls trên panelNhanVien và lấy dữ liệu để ghi vào Excel
-                        for (int i = 3; i <= worksheet.Dimension.End.Row; i++)
-                        {
-                            foreach (Control control in panelNhanVien.Controls)
+                            else if (control is DateTimePicker dateTimePicker)
                             {
-                                if (control is TextBox textBox)
+                                if (dateTimePicker.Location.Y == y && dateTimePicker.Name == "dateTimeNgaySinh")
                                 {
-                                    string controlName = textBox.Name;
-                                    string cellValue = textBox.Text;
-
-                                    // Ghi dữ liệu vào cột tương ứng
-                                    if (controlName == "txtName")
-                                        worksheet.Cells[i, 1].Value = cellValue;
-                                    else if (controlName == "txtSoDienThoai")
-                                        worksheet.Cells[i, 2].Value = cellValue;
-                                    else if (controlName == "txtLuong")
-                                        worksheet.Cells[i, 4].Value = cellValue;
-                                }
-                                else if (control is DateTimePicker dateTimePicker)
-                                {
-                                    string controlName = dateTimePicker.Name;
-                                    DateTime cellValue = dateTimePicker.Value;
-
-                                    // Ghi dữ liệu vào cột tương ứng
-                                    if (controlName == "dateTimeNgaySinh")
-                                        worksheet.Cells[i, 3].Value = cellValue;
+                                    worksheet.Cells[i, 4].Value = dateTimePicker.Value;
                                 }
                             }
-                            i++;
                         }
-                        package.Save();
+                        i++;
                     }
+                    package.Save();
                 }
             }
             catch (Exception ex)

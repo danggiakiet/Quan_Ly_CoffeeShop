@@ -67,7 +67,8 @@ namespace Quan_Ly
         }
         #endregion
 
-        #region PanelNhanVien_Member
+        #region PanelNhanVien
+        //Member
         private void btt_PanelMember_Refresh_Click(object sender, EventArgs e)
         {
             nhanVien.Refresh(panelMember, imageIconList, "member");
@@ -87,8 +88,28 @@ namespace Quan_Ly
         {
             control.Clear_TextBox(panelMember_Add);
         }
+
+        //Admin
+        private void btt_PanelAdmin_Refresh_Click(object sender, EventArgs e)
+        {
+            nhanVien.Refresh(panelAdmin, imageIconList, "admin");
+        }
+
+        private void btt_PanelAdmin_Save_Click(object sender, EventArgs e)
+        {
+            nhanVien.Save(panelAdmin, imageIconList, "admin");
+        }
+
+        private void btt_PanelAdmin_Add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btt_PanelAdmin_ResetValue_Click(object sender, EventArgs e)
+        {
+            control.Clear_TextBox(panelAdmin_Add);
+        }
+
         #endregion
-
-
     }
 }

@@ -8,6 +8,7 @@ namespace Quan_Ly
 {
     public class nhanVien
     {
+        public string maNV { get; set; }
         public string ten { get; set; }
         public string soDienThoai { get; set; }
         public DateTime ngaySinh { get; set; }
@@ -15,8 +16,9 @@ namespace Quan_Ly
 
         public nhanVien() { }
 
-        public nhanVien(string ten, string soDienThoai, DateTime ngaySinh, int luong)
+        public nhanVien(string maNV,string ten, string soDienThoai, DateTime ngaySinh, int luong)
         {
+            this.maNV = maNV;
             this.ten = ten;
             this.soDienThoai = soDienThoai;
             this.ngaySinh = ngaySinh;

@@ -6,7 +6,6 @@ D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\Me
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\MetroFramework.Fonts.dll
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.AssemblyReference.cache
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.SuggestedBindingRedirects.cache
-D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.Form1.resources
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.Properties.Resources.resources
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.GenerateResource.cache
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.CoreCompileInputs.cache
@@ -37,7 +36,9 @@ D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\Su
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\SunnyUI.dll
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\bin\Debug\EPPlus.xml
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.csproj.ResolveComReference.cache
-D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.Resource1.resources
 D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formLogin.resources
 D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formMain.resources
 D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formMainAdmin.resources
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formLogin.resources
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formMain.resources
+D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formMainAdmin.resources
