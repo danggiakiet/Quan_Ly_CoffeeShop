@@ -68,6 +68,12 @@ namespace Quan_Ly
         #endregion
 
         #region PanelNhanVien
+        //Kiểm tra số điện thoại
+        private bool kiemTraSoDienThoai(string input)
+        {
+            return input.All(char.IsDigit);
+        }
+
         //Member
         private void btt_PanelMember_Refresh_Click(object sender, EventArgs e)
         {
@@ -81,7 +87,31 @@ namespace Quan_Ly
 
         private void btt_PanelMember_Add_Click(object sender, EventArgs e)
         {
-            //nhanVien.addNew(panelMember, imageIconList, "member");
+            double luong;
+            if (txt_TMNV_MaNV.Text == "" || txt_TMNV_Password.Text == "" || txt_TMNV_Ten.Text == "" || txt_TMNV_DienThoai.Text == "" || txt_TMNV_Luong.Text == "")
+            {
+                MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (kiemTraSoDienThoai(txt_TMNV_DienThoai.Text))
+                {
+                    if (double.TryParse(txt_TMNV_Luong.Text, out luong))
+                    {
+                        nhanVien.addNew(panelMember, imageIconList, "member", txt_TMNV_MaNV.Text, txt_TMNV_Password.Text, txt_TMNV_Ten.Text, txt_TMNV_DienThoai.Text, dateTime_TMNV_NgaySinh, luong);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Giá trị lương phải là kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txt_TMNV_Luong.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Số điện thoại phải là kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_TMNV_DienThoai.Clear();
+                }
+            }    
         }
 
         private void btt_PanelMember_RefreshValue_Click(object sender, EventArgs e)
@@ -102,7 +132,31 @@ namespace Quan_Ly
 
         private void btt_PanelAdmin_Add_Click(object sender, EventArgs e)
         {
-
+            double luong;
+            if (txt_TMQL_MaNV.Text == "" || txt_TMQL_Password.Text == "" || txt_TMQL_Ten.Text == "" || txt_TMQL_Sdt.Text == "" || txt_TMQL_Luong.Text == "")
+            {
+                MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (kiemTraSoDienThoai(txt_TMQL_Sdt.Text))
+                {
+                    if (double.TryParse(txt_TMQL_Luong.Text, out luong))
+                    {
+                        nhanVien.addNew(panelAdmin, imageIconList, "admin", txt_TMQL_MaNV.Text, txt_TMQL_Password.Text, txt_TMQL_Ten.Text, txt_TMQL_Sdt.Text, dateTime_TMQL_NgaySinh, luong);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Giá trị lương phải là kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txt_TMQL_Luong.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Số điện thoại phải là kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_TMQL_Sdt.Clear();
+                }
+            }
         }
 
         private void btt_PanelAdmin_ResetValue_Click(object sender, EventArgs e)

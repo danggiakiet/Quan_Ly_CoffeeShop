@@ -12,6 +12,7 @@ using Application = System.Windows.Forms.Application;
 using Button = System.Windows.Forms.Button;
 using TextBox = System.Windows.Forms.TextBox;
 using Label = System.Windows.Forms.Label;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 
 namespace Quan_Ly
 {
@@ -19,6 +20,7 @@ namespace Quan_Ly
     {
         List<nhanVien> dsNhanVien = new List<nhanVien>();
         ControlPanel ControlPanel = new ControlPanel();
+
         public void Main(Panel panelNhanVien, ImageList imgList, string permission)
         {
             //Lấy thông tin từ data
@@ -71,7 +73,7 @@ namespace Quan_Ly
                 Application.Exit();
             }
         }
-        //đưa dữ liệu lên PanelpanelNhanVien
+
         private void renderControlsToPanel(Panel panelNhanVien, ImageList imgList, string permission)
         {
             //vị trí control đầu tiên
@@ -107,6 +109,7 @@ namespace Quan_Ly
             buttonDelete.Click += (sender, e) => bttDelete(buttonDelete, panelNhanVien, imgList, permission);
 
         }
+
         public void bttDelete(Button buttonDelete, Panel nhanVien, ImageList imgList, string permission)
         {
             // Khai báo biến lưu trữ tên cần xóa
@@ -129,7 +132,7 @@ namespace Quan_Ly
 
             try
             {
-                // Mở tệp Excel "Kho Hàng.xlsx" bằng thư viện EPPlus
+                // Mở tệp Excel "Nhân Viên.xlsx" bằng thư viện EPPlus
                 using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
                 {
                     ExcelWorksheet worksheet = null;
@@ -201,6 +204,81 @@ namespace Quan_Ly
                     // Lưu tệp sau khi hoàn thành tất cả thay đổi
                     package.Save();
                 }
+                try
+                {
+                    // Mở tệp Excel "Accounts.xlsx" bằng thư viện EPPlus
+                    using (var package = new ExcelPackage(new FileInfo("data/Accounts.xlsx")))
+                    {
+                        ExcelWorksheet worksheet = null;
+                        if (permission.ToLower() == "member")
+                        {
+                            // Mở sheet đầu tiên
+                            worksheet = package.Workbook.Worksheets[1];
+                        }
+                        else if (permission.ToLower() == "admin")
+                        {
+                            // Mở sheet thứ hai
+                            worksheet = package.Workbook.Worksheets[2];
+                        }
+
+                        // Khai báo giá trị bắt đầu là dòng 3
+                        int check = 0; // Biến kiểm tra
+                        // Duyệt qua các dòng dữ liệu từ dòng 3 đến dòng cuối cùng
+                        for (int i = worksheet.Dimension.Start.Row + 2; i <= worksheet.Dimension.End.Row; i++)
+                        {
+                            // Nếu tên trong tệp Excel trùng với tên cần xóa (không phân biệt hoa thường)
+                            if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
+                            {
+                                check = 1; // Đánh dấu rằng tìm thấy tên trùng
+
+                                // Xóa các ô dữ liệu tương ứng
+                                worksheet.Cells[i, 1].Clear();
+                                worksheet.Cells[i, 2].Clear();
+                                worksheet.Cells[i, 3].Clear();
+                                worksheet.Cells[i, 4].Clear();
+
+                                // Kiểm tra xem có phải dòng cuối không
+                                if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
+                                {
+                                    // Nếu đã xóa một dòng, chỉ cần xóa dòng tiếp theo
+                                    if (check != 0)
+                                    {
+                                        worksheet.DeleteRow(i, 1);
+                                    }
+                                    break; // Dừng vòng lặp
+                                }
+                                else
+                                {
+                                    // Dịch chuyển dữ liệu từ các dòng phía sau lên trên để ghi đè lên dòng hiện tại
+                                    for (int j = i; j < worksheet.Dimension.End.Row; j++)
+                                    {
+                                        worksheet.Cells[j, 1].Value = worksheet.Cells[j + 1, 1].Value;
+                                        worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
+                                        worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
+                                        worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
+                                    }
+
+                                    // Xóa dữ liệu ở hàng cuối cùng
+                                    worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
+                                    break; // Dừng vòng lặp
+                                }
+                            }
+
+                            if (check != 0)
+                            {
+                                break; // Dừng vòng lặp nếu đã xóa tên
+                            }
+                        }
+
+                        // Lưu tệp sau khi hoàn thành tất cả thay đổi
+                        package.Save();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hiển thị thông báo lỗi nếu có lỗi xảy ra
+                    MessageBox.Show("Lỗi xóa account không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -241,18 +319,18 @@ namespace Quan_Ly
         public void Save(Panel panelNhanVien, ImageList imgList, string permission)
         {
             List<int> dsLocationY = new List<int>();
-            string chucVu = permission;
+
             try
             {
                 using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
                 {
                     ExcelWorksheet worksheet = null;
-                    if (chucVu.ToLower() == "member")
+                    if (permission.ToLower() == "member")
                     {
                         //Lấy sheet đầu tiên
                         worksheet = package.Workbook.Worksheets[1];
                     }
-                    else if (chucVu.ToLower() == "admin")
+                    else if (permission.ToLower() == "admin")
                     {
                         //Lấy sheet đầu tiên
                         worksheet = package.Workbook.Worksheets[2];
@@ -312,6 +390,7 @@ namespace Quan_Ly
                         i++;
                     }
                     package.Save();
+                    MessageBox.Show("Lưu thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -320,7 +399,101 @@ namespace Quan_Ly
             }
             finally
             {
-                MessageBox.Show("Lưu thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Refresh(panelNhanVien, imgList, permission);
+            }
+        }
+
+        public void addNew(Panel panelNhanVien, ImageList imgList, string permission, string maNV, string password, string ten, string dienThoai, DateTimePicker ngaySinh, double Luong)
+        {
+            try
+            {
+                using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
+                {
+                    ExcelWorksheet worksheet = null;
+                    if (permission.ToLower() == "member")
+                    {
+                        //Lấy sheet đầu tiên
+                        worksheet = package.Workbook.Worksheets[1];
+                    }
+                    else if (permission.ToLower() == "admin")
+                    {
+                        //Lấy sheet đầu tiên
+                        worksheet = package.Workbook.Worksheets[2];
+                    }
+                    //Khai báo giá trị bắt đầu là = 3
+                    int start = worksheet.Dimension.Start.Row + 2;
+                    int check = 0;
+                    //Cho duyệt dữ liệu từ dòng 3 đến dòng cuối cùng
+                    for (int i = start; i <= worksheet.Dimension.End.Row; i++)
+                    {
+                        //Nếu tên đã tồn tại trong data thì cập nhật lại thông tin
+                        if (worksheet.Cells[i, 1].Value.ToString().ToLower() == maNV.ToLower())
+                        {
+                            check++;
+                            MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+                    }
+                    //Nếu tên chưa tồn tại trong data thì thêm dòng mới
+                    if (check == 0)
+                    {
+                        //Tạo vị trí dòng mới
+                        int newRow = worksheet.Dimension.End.Row + 1;
+                        //Thêm mã nhân viên
+                        worksheet.Cells[newRow, 1].Value = maNV;
+                        //Thêm tên
+                        worksheet.Cells[newRow, 2].Value = ten;
+                        //Thêm só điện thoại
+                        worksheet.Cells[newRow, 3].Value = dienThoai;
+                        //Thêm ngày sinh
+                        worksheet.Cells[newRow, 4].Value = ngaySinh.Value;
+                        //Thêm lương
+                        worksheet.Cells[newRow, 5].Value = Luong.ToString();
+                        // Đặt căn chỉnh sang phải (right-align) cho ô cột đơn giá
+                        worksheet.Cells[newRow, 5].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Right;
+                        package.Save();
+                        try
+                        {
+                            using (var accountPackage = new ExcelPackage(new FileInfo("data/Accounts.xlsx")))
+                            {
+                                ExcelWorksheet accountWorksheet = null;
+                                if (permission.ToLower() == "member")
+                                {
+                                    //Lấy sheet đầu tiên
+                                    accountWorksheet = accountPackage.Workbook.Worksheets[1];
+                                }
+                                else if (permission.ToLower() == "admin")
+                                {
+                                    //Lấy sheet đầu tiên
+                                    accountWorksheet = accountPackage.Workbook.Worksheets[2];
+                                }
+                                //Tạo vị trí dòng mới
+                                int accountNewRow = accountWorksheet.Dimension.End.Row + 1;
+                                //Thêm mã nhân viên
+                                accountWorksheet.Cells[accountNewRow, 1].Value = maNV;
+                                //Thêm mật khẩu
+                                accountWorksheet.Cells[accountNewRow, 2].Value = password;
+                                //Thêm só chức năng
+                                accountWorksheet.Cells[accountNewRow, 3].Value = permission;
+                                //Thêm ngày tên
+                                accountWorksheet.Cells[accountNewRow, 4].Value = ten;
+                                accountPackage.Save();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khi lưu dữ liệu vào file accounts: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        MessageBox.Show("Thêm mới thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu dữ liệu vào file nhân viên: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
                 Refresh(panelNhanVien, imgList, permission);
             }
         }
