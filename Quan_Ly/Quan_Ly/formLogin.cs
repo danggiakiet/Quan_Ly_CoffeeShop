@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace Quan_Ly
 {
     public partial class formLogin : Form
@@ -22,7 +23,7 @@ namespace Quan_Ly
 
         public formLogin()
         {
-            InitializeComponent();   
+            InitializeComponent();
         }
 
         private void formLogin_Load(object sender, EventArgs e)
@@ -88,30 +89,30 @@ namespace Quan_Ly
         private void bttDangNhap_Click(object sender, EventArgs e)
         {
             int check = 0;
-            foreach(var account in dsAccountsMember) 
+            foreach (var account in dsAccountsMember)
             {
                 if (txtUser.Text.ToLower() == account.user.ToLower() && txtPassword.Text == account.password)
                 {
-   
-                        check = 1;
-                        formMain.Show();
-                        this.Hide();
-                        formMain.FormClosed += (s, args) => { this.Close(); }; // Thêm sự kiện FormClosed cho formMain
-                        break;    
+
+                    check = 1;
+                    formMain.Show();
+                    this.Hide();
+                    formMain.FormClosed += (s, args) => { this.Close(); }; // Thêm sự kiện FormClosed cho formMain
+                    break;
                 }
             }
             foreach (var account in dsAccountsAdmin)
             {
                 if (txtUser.Text.ToLower() == account.user.ToLower() && txtPassword.Text == account.password)
                 {
-                        check = 1;
-                        formMainAdmin.Show();
-                        this.Hide();
-                        formMainAdmin.FormClosed += (s, args) => { this.Close(); }; // Thêm sự kiện FormClosed cho formMain
-                        break;
+                    check = 1;
+                    formMainAdmin.Show();
+                    this.Hide();
+                    formMainAdmin.FormClosed += (s, args) => { this.Close(); }; // Thêm sự kiện FormClosed cho formMain
+                    break;
                 }
             }
-            if (check == 0) 
+            if (check == 0)
             {
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -125,7 +126,7 @@ namespace Quan_Ly
             }
             else
             {
-                txtPassword.PasswordChar = '•'; 
+                txtPassword.PasswordChar = '•';
             }
         }
     }

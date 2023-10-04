@@ -8,6 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Core;
+using Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
+using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Quan_Ly
 {
@@ -16,6 +21,7 @@ namespace Quan_Ly
         ControlPanel control = new ControlPanel();
         panelKhoHang khoHang = new panelKhoHang();
         panelNhanVien nhanVien = new panelNhanVien();
+        panelThongKe thongKe = new panelThongKe();
         public formMainAdmin()
         {
             InitializeComponent();
@@ -26,6 +32,7 @@ namespace Quan_Ly
             khoHang.Main(panelKhoHang, imageIconList);
             nhanVien.Main(panelMember, imageIconList, "member");
             nhanVien.Main(panelAdmin, imageIconList, "admin");
+            cbbMonth.SelectedIndex = 0;
         }
         #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
@@ -164,6 +171,13 @@ namespace Quan_Ly
             control.Clear_TextBox(panelAdmin_Add);
         }
 
+        #endregion
+
+        #region PanelThongKe
+        private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            thongKe.Main(bangThongKe, Convert.ToInt32(cbbMonth.Text));
+        }
         #endregion
     }
 }

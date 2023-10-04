@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLogin));
             this.bttDangNhap = new Sunny.UI.UIButton();
             this.txtUser = new Sunny.UI.UITextBox();
             this.txtPassword = new Sunny.UI.UITextBox();
@@ -50,7 +51,7 @@
             this.bttDangNhap.RectColor = System.Drawing.Color.Transparent;
             this.bttDangNhap.Size = new System.Drawing.Size(134, 38);
             this.bttDangNhap.Style = Sunny.UI.UIStyle.Custom;
-            this.bttDangNhap.TabIndex = 0;
+            this.bttDangNhap.TabIndex = 4;
             this.bttDangNhap.Text = "Đăng nhập";
             this.bttDangNhap.Click += new System.EventHandler(this.bttDangNhap_Click);
             // 
@@ -86,7 +87,7 @@
             this.txtPassword.ShowText = false;
             this.txtPassword.Size = new System.Drawing.Size(208, 40);
             this.txtPassword.Style = Sunny.UI.UIStyle.Custom;
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtPassword.Watermark = "";
             // 
@@ -117,7 +118,7 @@
             this.checkNotHidePassword.Location = new System.Drawing.Point(274, 376);
             this.checkNotHidePassword.Name = "checkNotHidePassword";
             this.checkNotHidePassword.Size = new System.Drawing.Size(150, 28);
-            this.checkNotHidePassword.TabIndex = 6;
+            this.checkNotHidePassword.TabIndex = 3;
             this.checkNotHidePassword.Text = "Hiện mật khẩu";
             this.checkNotHidePassword.UseVisualStyleBackColor = true;
             this.checkNotHidePassword.CheckedChanged += new System.EventHandler(this.checkNotHidePassword_CheckedChanged);
@@ -136,7 +137,9 @@
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.bttDangNhap);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formLogin";
             this.Load += new System.EventHandler(this.formLogin_Load);
             this.ResumeLayout(false);

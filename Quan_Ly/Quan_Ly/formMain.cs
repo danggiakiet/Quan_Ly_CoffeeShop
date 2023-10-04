@@ -15,7 +15,7 @@ namespace Quan_Ly
     {
         ControlPanel control = new ControlPanel();
         panelKhoHang khoHang = new panelKhoHang();
-        panelNhanVien nhanVien = new panelNhanVien();
+        panelThongKe thongKe = new panelThongKe();
         public formMain()
         {
             InitializeComponent();
@@ -24,7 +24,9 @@ namespace Quan_Ly
         private void formMain_Load(object sender, EventArgs e)
         {
             khoHang.Main(panelKhoHang, imageIconList);
+            cbbMonth.SelectedIndex = 0;
         }
+        #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
         {
             khoHang.Refresh(panelKhoHang, imageIconList);
@@ -39,7 +41,7 @@ namespace Quan_Ly
         {
             if (txtNamePanelTMKH.Text == "" || txtDonViPanelTMKH.Text == "" || txtSoLuongPanelTMKH.Text == "" || txtDonGiaPanelTMKH.Text == "")
             {
-                MessageBox.Show("Yêu cầu điền đầy đủ thông tin","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -49,18 +51,26 @@ namespace Quan_Ly
                 }
                 else
                 {
-                    khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang,imageIconList);
+                    khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang, imageIconList);
                     txtNamePanelTMKH.Clear();
                     txtDonViPanelTMKH.Clear();
                     txtSoLuongPanelTMKH.Clear();
                     txtDonGiaPanelTMKH.Clear();
-                }    
-            }       
+                }
+            }
         }
 
         private void bttRefreshPanelTMKH_Click(object sender, EventArgs e)
         {
             control.Clear_TextBox(panelThemMoiKhoHang);
         }
+        #endregion
+
+        #region PanelThongKe
+        private void cbbMonth_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            thongKe.Main(bangThongKe, Convert.ToInt32(cbbMonth.Text));
+        }
+        #endregion
     }
 }
