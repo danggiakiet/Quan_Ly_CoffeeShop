@@ -24,7 +24,7 @@ namespace Quan_Ly
         private void formMain_Load(object sender, EventArgs e)
         {
             khoHang.Main(panelKhoHang, imageIconList);
-            cbbMonth.SelectedIndex = 0;
+            cbbMonth.SelectedIndex = Convert.ToInt32(DateTime.Today.Month - 1);
         }
         #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace Quan_Ly
         #region PanelThongKe
         private void cbbMonth_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            thongKe.Main(bangThongKe, Convert.ToInt32(cbbMonth.Text));
+            thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
         }
         #endregion
     }

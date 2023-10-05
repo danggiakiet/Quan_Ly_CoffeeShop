@@ -13,6 +13,7 @@ using Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
 using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
 
 namespace Quan_Ly
 {
@@ -32,7 +33,7 @@ namespace Quan_Ly
             khoHang.Main(panelKhoHang, imageIconList);
             nhanVien.Main(panelMember, imageIconList, "member");
             nhanVien.Main(panelAdmin, imageIconList, "admin");
-            cbbMonth.SelectedIndex = 0;
+            cbbMonth.SelectedIndex = Convert.ToInt32(DateTime.Today.Month - 1);
         }
         #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
@@ -176,7 +177,7 @@ namespace Quan_Ly
         #region PanelThongKe
         private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            thongKe.Main(bangThongKe, Convert.ToInt32(cbbMonth.Text));
+            thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
         }
         #endregion
     }

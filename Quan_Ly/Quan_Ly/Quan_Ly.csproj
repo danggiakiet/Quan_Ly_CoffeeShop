@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="account.cs" />
     <Compile Include="ControlPanel.cs" />
+    <Compile Include="doUongThongKe.cs" />
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>

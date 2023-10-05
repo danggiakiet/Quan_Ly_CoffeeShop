@@ -18,6 +18,7 @@ using TextBox = System.Windows.Forms.TextBox;
 using Point = System.Drawing.Point;
 using Button = System.Windows.Forms.Button;
 using Label = System.Windows.Forms.Label;
+using ScrollBars = System.Windows.Forms.ScrollBars;
 
 namespace Quan_Ly
 {
@@ -106,6 +107,28 @@ namespace Quan_Ly
                 }
             }
         }
+        public Label CreateLabel(string name, string text, int x, int y)
+        {
+            Label label = new Label();
+            label.Name = name;
+            label.Text = text;
+            label.Location = new Point(x, y);
+            return label;
+        }
+        public RichTextBox CreateRichTextBoxThongKe(string name, int x, int y, int width, int height, Color backColor)
+        {
+            RichTextBox richTextBox = new RichTextBox();
+            richTextBox.Name = name;
+            richTextBox.Width = width;
+            richTextBox.Height = height;
+            richTextBox.Location = new Point(x, y);
+            richTextBox.ReadOnly = true;
+            richTextBox.BorderStyle = BorderStyle.Fixed3D;
+            richTextBox.ScrollBars = RichTextBoxScrollBars.None;
+            richTextBox.BackColor = backColor;
+            return richTextBox;
+        }
+
         public TextBox CreateTextBox(string name, string text, HorizontalAlignment align, int x, int y, int width, int height)
         {
             TextBox textBox = new TextBox();

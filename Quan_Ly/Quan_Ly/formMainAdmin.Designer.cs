@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMainAdmin));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.imageIconList = new System.Windows.Forms.ImageList(this.components);
             this.tabNhanVien = new System.Windows.Forms.TabPage();
             this.uiTabControlNhanVien = new Sunny.UI.UITabControl();
@@ -97,6 +93,10 @@
             this.label43 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabThongKe = new System.Windows.Forms.TabPage();
+            this.panelThongKe = new System.Windows.Forms.Panel();
+            this.cbbMonth = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.tabDoanhThu = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabBanHang = new System.Windows.Forms.TabPage();
@@ -129,11 +129,8 @@
             this.bttRefeshPanelKhoHang = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.cbbMonth = new System.Windows.Forms.ComboBox();
-            this.panelThongKe = new System.Windows.Forms.Panel();
-            this.bangThongKe = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panelDsThongKe = new System.Windows.Forms.Panel();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabNhanVien.SuspendLayout();
             this.uiTabControlNhanVien.SuspendLayout();
             this.tabMember.SuspendLayout();
@@ -145,6 +142,7 @@
             this.panelAdmin_ChucNang.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.tabThongKe.SuspendLayout();
+            this.panelThongKe.SuspendLayout();
             this.tabDoanhThu.SuspendLayout();
             this.tabBanHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -153,8 +151,6 @@
             this.panelKhoHang.SuspendLayout();
             this.panelThemMoiKhoHang.SuspendLayout();
             this.panelChucNangKhoHang.SuspendLayout();
-            this.panelThongKe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bangThongKe)).BeginInit();
             this.SuspendLayout();
             // 
             // imageIconList
@@ -841,6 +837,59 @@
             this.tabThongKe.TabIndex = 5;
             this.tabThongKe.Text = "Thống Kê";
             // 
+            // panelThongKe
+            // 
+            this.panelThongKe.BackColor = System.Drawing.Color.White;
+            this.panelThongKe.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelThongKe.Controls.Add(this.panelDsThongKe);
+            this.panelThongKe.Controls.Add(this.cbbMonth);
+            this.panelThongKe.Controls.Add(this.label44);
+            this.panelThongKe.Controls.Add(this.label32);
+            this.panelThongKe.Location = new System.Drawing.Point(13, 12);
+            this.panelThongKe.Name = "panelThongKe";
+            this.panelThongKe.Size = new System.Drawing.Size(1206, 460);
+            this.panelThongKe.TabIndex = 1;
+            // 
+            // cbbMonth
+            // 
+            this.cbbMonth.FormattingEnabled = true;
+            this.cbbMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cbbMonth.Location = new System.Drawing.Point(1124, 48);
+            this.cbbMonth.Name = "cbbMonth";
+            this.cbbMonth.Size = new System.Drawing.Size(75, 31);
+            this.cbbMonth.TabIndex = 4;
+            this.cbbMonth.SelectedIndexChanged += new System.EventHandler(this.cbbMonth_SelectedIndexChanged);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(1057, 56);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(61, 23);
+            this.label44.TabIndex = 3;
+            this.label44.Text = "Tháng";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(1057, 10);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(134, 23);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "Thống kê theo:";
+            // 
             // tabDoanhThu
             // 
             this.tabDoanhThu.AutoScroll = true;
@@ -1212,78 +1261,18 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Refresh    :";
             // 
-            // label32
+            // panelDsThongKe
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(33, 35);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(134, 23);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "Thống kê theo:";
+            this.panelDsThongKe.AutoScroll = true;
+            this.panelDsThongKe.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelDsThongKe.Location = new System.Drawing.Point(15, 10);
+            this.panelDsThongKe.Name = "panelDsThongKe";
+            this.panelDsThongKe.Size = new System.Drawing.Size(1036, 432);
+            this.panelDsThongKe.TabIndex = 5;
             // 
-            // label44
+            // openFileDialog1
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(33, 81);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(61, 23);
-            this.label44.TabIndex = 3;
-            this.label44.Text = "Tháng";
-            // 
-            // cbbMonth
-            // 
-            this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.cbbMonth.Location = new System.Drawing.Point(100, 73);
-            this.cbbMonth.Name = "cbbMonth";
-            this.cbbMonth.Size = new System.Drawing.Size(75, 31);
-            this.cbbMonth.TabIndex = 4;
-            this.cbbMonth.SelectedIndexChanged += new System.EventHandler(this.cbbMonth_SelectedIndexChanged);
-            // 
-            // panelThongKe
-            // 
-            this.panelThongKe.BackColor = System.Drawing.Color.White;
-            this.panelThongKe.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelThongKe.Controls.Add(this.bangThongKe);
-            this.panelThongKe.Controls.Add(this.cbbMonth);
-            this.panelThongKe.Controls.Add(this.label44);
-            this.panelThongKe.Controls.Add(this.label32);
-            this.panelThongKe.Location = new System.Drawing.Point(13, 12);
-            this.panelThongKe.Name = "panelThongKe";
-            this.panelThongKe.Size = new System.Drawing.Size(1206, 460);
-            this.panelThongKe.TabIndex = 1;
-            // 
-            // bangThongKe
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.bangThongKe.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.bangThongKe.Legends.Add(legend4);
-            this.bangThongKe.Location = new System.Drawing.Point(217, 17);
-            this.bangThongKe.Name = "bangThongKe";
-            series4.ChartArea = "ChartArea1";
-            series4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.Legend = "Legend1";
-            series4.Name = "s1";
-            this.bangThongKe.Series.Add(series4);
-            this.bangThongKe.Size = new System.Drawing.Size(966, 423);
-            this.bangThongKe.TabIndex = 5;
-            title4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.Name = "Title1";
-            title4.Text = "Thống Kê";
-            this.bangThongKe.Titles.Add(title4);
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // formMainAdmin
             // 
@@ -1312,6 +1301,8 @@
             this.panelAdmin.ResumeLayout(false);
             this.panelAdmin.PerformLayout();
             this.tabThongKe.ResumeLayout(false);
+            this.panelThongKe.ResumeLayout(false);
+            this.panelThongKe.PerformLayout();
             this.tabDoanhThu.ResumeLayout(false);
             this.tabBanHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1323,9 +1314,6 @@
             this.panelThemMoiKhoHang.PerformLayout();
             this.panelChucNangKhoHang.ResumeLayout(false);
             this.panelChucNangKhoHang.PerformLayout();
-            this.panelThongKe.ResumeLayout(false);
-            this.panelThongKe.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bangThongKe)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1431,6 +1419,7 @@
         private System.Windows.Forms.ComboBox cbbMonth;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.DataVisualization.Charting.Chart bangThongKe;
+        private System.Windows.Forms.Panel panelDsThongKe;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
