@@ -13,6 +13,7 @@ using Button = System.Windows.Forms.Button;
 using TextBox = System.Windows.Forms.TextBox;
 using Label = System.Windows.Forms.Label;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 
 namespace Quan_Ly
 {
@@ -20,6 +21,7 @@ namespace Quan_Ly
     {
         List<nhanVien> dsNhanVien = new List<nhanVien>();
         ControlPanel ControlPanel = new ControlPanel();
+        private Dictionary<int, string> dsMaNV = new Dictionary<int, string>();
 
         public void Main(Panel panelNhanVien, ImageList imgList, string permission)
         {
@@ -32,47 +34,51 @@ namespace Quan_Ly
 
         private void LoadDataFromExcel(string permission)
         {
-            //Làm mới danh sách
+            // Làm mới danh sách
             dsNhanVien.Clear();
             try
             {
-                //Mở file excel
+                // Mở file excel
                 using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
                 {
                     ExcelWorksheet worksheet = null;
                     if (permission == "member")
                     {
-                        //lấy sheet đầu tiên
+                        // Lấy sheet đầu tiên
                         worksheet = package.Workbook.Worksheets[1];
                     }
                     else if (permission == "admin")
                     {
-                        //lấy sheet thứ 2
+                        // Lấy sheet thứ 2
                         worksheet = package.Workbook.Worksheets[2];
                     }
-                    //cho duyệt từ dòng 3 đến hết
+                    // Cho duyệt từ dòng 3 đến hết
                     for (int i = 3; i <= worksheet.Dimension.End.Row; i++)
                     {
-                        //khởi tạo các biến để chứa các giá trị lấy từ dữ liệu theo từng dòng
-                        string maNV = worksheet.Cells[i, 1].Value.ToString();
-                        string hoVaTen = worksheet.Cells[i, 2].Value.ToString();
-                        string soDienThoai = worksheet.Cells[i, 3].Value.ToString();
-                        DateTime ngaySinh = Convert.ToDateTime(worksheet.Cells[i, 4].Value);
-                        int luong = Convert.ToInt32(worksheet.Cells[i, 5].Value);
-                        //tạo biến nguyenLieu để thêm vào dsNhanVien
+                        // Khởi tạo các biến để chứa các giá trị lấy từ dữ liệu theo từng dòng
+                        string maNV = Convert.ToString(worksheet.Cells[i, 1].Value ?? "");
+                        string hoVaTen = Convert.ToString(worksheet.Cells[i, 2].Value ?? "");
+                        string soDienThoai = Convert.ToString(worksheet.Cells[i, 3].Value ?? "");
+                        DateTime? ngaySinhNullable = worksheet.Cells[i, 4].Value as DateTime?;
+                        DateTime ngaySinh = ngaySinhNullable ?? DateTime.MinValue; // Sử dụng giá trị mặc định nếu ngaySinhNullable là null
+                        int luong = 0;
+                        int.TryParse(Convert.ToString(worksheet.Cells[i, 5].Value ?? "0"), out luong);
+                        // Tạo biến nguyenLieu để thêm vào dsNhanVien
                         nhanVien nVien = new nhanVien(maNV, hoVaTen, soDienThoai, ngaySinh, luong);
-                        //thêm biến vừa tạo vào dsNhanVien
+                        // Thêm biến vừa tạo vào dsNhanVien
                         dsNhanVien.Add(nVien);
                     }
                 }
             }
             catch (Exception ex)
             {
-                //Thông báo lỗi
+                // Thông báo lỗi
                 MessageBox.Show("Lỗi khi đọc dữ liệu từ Excel: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
+
+
 
         private void renderControlsToPanel(Panel panelNhanVien, ImageList imgList, string permission)
         {
@@ -112,102 +118,31 @@ namespace Quan_Ly
 
         public void bttDelete(Button buttonDelete, Panel nhanVien, ImageList imgList, string permission)
         {
-            // Khai báo biến lưu trữ tên cần xóa
-            string nameNeedToDel = "";
-
-            // Lấy tọa độ Y của nút xóa
-            int y = buttonDelete.Location.Y;
-
-            // Duyệt qua tất cả các controls trong Panel nhanVien
-            foreach (Control control in nhanVien.Controls)
+            DialogResult result = MessageBox.Show("Bạn có muốn thực hiện hành động này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
             {
-                // Kiểm tra nếu control có cùng tọa độ Y và tên là "textBoxTen"
-                if (control.Location.Y == y && control is TextBox && control.Name == "txtMaNV")
+                // Khai báo biến lưu trữ tên cần xóa
+                string nameNeedToDel = "";
+
+                // Lấy tọa độ Y của nút xóa
+                int y = buttonDelete.Location.Y;
+
+                // Duyệt qua tất cả các controls trong Panel nhanVien
+                foreach (Control control in nhanVien.Controls)
                 {
-                    // Lưu tên cần xóa
-                    nameNeedToDel = control.Text;
-                    break; // Dừng vòng lặp
+                    // Kiểm tra nếu control có cùng tọa độ Y và tên là "textBoxTen"
+                    if (control.Location.Y == y && control is TextBox && control.Name == "txtMaNV")
+                    {
+                        // Lưu tên cần xóa
+                        nameNeedToDel = control.Text;
+                        break; // Dừng vòng lặp
+                    }
                 }
-            }
 
-            try
-            {
-                // Mở tệp Excel "Nhân Viên.xlsx" bằng thư viện EPPlus
-                using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
-                {
-                    ExcelWorksheet worksheet = null;
-                    if (permission.ToLower() == "member")
-                    {
-                        // Mở sheet đầu tiên
-                        worksheet = package.Workbook.Worksheets[1];
-                    }
-                    else if (permission.ToLower() == "admin")
-                    {
-                        // Mở sheet thứ hai
-                        worksheet = package.Workbook.Worksheets[2];
-                    }
-
-
-                    // Khai báo giá trị bắt đầu là dòng 3
-                    int start = worksheet.Dimension.Start.Row + 2;
-                    int check = 0; // Biến kiểm tra
-
-                    // Duyệt qua các dòng dữ liệu từ dòng 3 đến dòng cuối cùng
-                    for (int i = start; i <= worksheet.Dimension.End.Row; i++)
-                    {
-                        // Nếu tên trong tệp Excel trùng với tên cần xóa (không phân biệt hoa thường)
-                        if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
-                        {
-                            check = 1; // Đánh dấu rằng tìm thấy tên trùng
-
-                            // Xóa các ô dữ liệu tương ứng
-                            worksheet.Cells[i, 1].Clear();
-                            worksheet.Cells[i, 2].Clear();
-                            worksheet.Cells[i, 3].Clear();
-                            worksheet.Cells[i, 4].Clear();
-                            worksheet.Cells[i, 5].Clear();
-
-                            // Kiểm tra xem có phải dòng cuối không
-                            if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
-                            {
-                                // Nếu đã xóa một dòng, chỉ cần xóa dòng tiếp theo
-                                if (check != 0)
-                                {
-                                    worksheet.DeleteRow(i, 1);
-                                }
-                                break; // Dừng vòng lặp
-                            }
-                            else
-                            {
-                                // Dịch chuyển dữ liệu từ các dòng phía sau lên trên để ghi đè lên dòng hiện tại
-                                for (int j = i; j < worksheet.Dimension.End.Row; j++)
-                                {
-                                    worksheet.Cells[j, 1].Value = worksheet.Cells[j + 1, 1].Value;
-                                    worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
-                                    worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
-                                    worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
-                                    worksheet.Cells[j, 5].Value = worksheet.Cells[j + 1, 5].Value;
-                                }
-
-                                // Xóa dữ liệu ở hàng cuối cùng
-                                worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
-                                break; // Dừng vòng lặp
-                            }
-                        }
-
-                        if (check != 0)
-                        {
-                            break; // Dừng vòng lặp nếu đã xóa tên
-                        }
-                    }
-
-                    // Lưu tệp sau khi hoàn thành tất cả thay đổi
-                    package.Save();
-                }
                 try
                 {
-                    // Mở tệp Excel "Accounts.xlsx" bằng thư viện EPPlus
-                    using (var package = new ExcelPackage(new FileInfo("data/Accounts.xlsx")))
+                    // Mở tệp Excel "Nhân Viên.xlsx" bằng thư viện EPPlus
+                    using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
                     {
                         ExcelWorksheet worksheet = null;
                         if (permission.ToLower() == "member")
@@ -221,10 +156,13 @@ namespace Quan_Ly
                             worksheet = package.Workbook.Worksheets[2];
                         }
 
+
                         // Khai báo giá trị bắt đầu là dòng 3
+                        int start = worksheet.Dimension.Start.Row + 2;
                         int check = 0; // Biến kiểm tra
+
                         // Duyệt qua các dòng dữ liệu từ dòng 3 đến dòng cuối cùng
-                        for (int i = worksheet.Dimension.Start.Row + 2; i <= worksheet.Dimension.End.Row; i++)
+                        for (int i = start; i <= worksheet.Dimension.End.Row; i++)
                         {
                             // Nếu tên trong tệp Excel trùng với tên cần xóa (không phân biệt hoa thường)
                             if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
@@ -236,6 +174,7 @@ namespace Quan_Ly
                                 worksheet.Cells[i, 2].Clear();
                                 worksheet.Cells[i, 3].Clear();
                                 worksheet.Cells[i, 4].Clear();
+                                worksheet.Cells[i, 5].Clear();
 
                                 // Kiểm tra xem có phải dòng cuối không
                                 if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
@@ -256,6 +195,7 @@ namespace Quan_Ly
                                         worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
                                         worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
                                         worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
+                                        worksheet.Cells[j, 5].Value = worksheet.Cells[j + 1, 5].Value;
                                     }
 
                                     // Xóa dữ liệu ở hàng cuối cùng
@@ -273,25 +213,101 @@ namespace Quan_Ly
                         // Lưu tệp sau khi hoàn thành tất cả thay đổi
                         package.Save();
                     }
+                    try
+                    {
+                        // Mở tệp Excel "Accounts.xlsx" bằng thư viện EPPlus
+                        using (var package = new ExcelPackage(new FileInfo("data/Accounts.xlsx")))
+                        {
+                            ExcelWorksheet worksheet = null;
+                            if (permission.ToLower() == "member")
+                            {
+                                // Mở sheet đầu tiên
+                                worksheet = package.Workbook.Worksheets[1];
+                            }
+                            else if (permission.ToLower() == "admin")
+                            {
+                                // Mở sheet thứ hai
+                                worksheet = package.Workbook.Worksheets[2];
+                            }
+
+                            // Khai báo giá trị bắt đầu là dòng 3
+                            int check = 0; // Biến kiểm tra
+                                           // Duyệt qua các dòng dữ liệu từ dòng 3 đến dòng cuối cùng
+                            for (int i = worksheet.Dimension.Start.Row + 2; i <= worksheet.Dimension.End.Row; i++)
+                            {
+                                // Nếu tên trong tệp Excel trùng với tên cần xóa (không phân biệt hoa thường)
+                                if (worksheet.Cells[i, 1].Value.ToString().ToLower() == nameNeedToDel.ToLower())
+                                {
+                                    check = 1; // Đánh dấu rằng tìm thấy tên trùng
+
+                                    // Xóa các ô dữ liệu tương ứng
+                                    worksheet.Cells[i, 1].Clear();
+                                    worksheet.Cells[i, 2].Clear();
+                                    worksheet.Cells[i, 3].Clear();
+                                    worksheet.Cells[i, 4].Clear();
+
+                                    // Kiểm tra xem có phải dòng cuối không
+                                    if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
+                                    {
+                                        // Nếu đã xóa một dòng, chỉ cần xóa dòng tiếp theo
+                                        if (check != 0)
+                                        {
+                                            worksheet.DeleteRow(i, 1);
+                                        }
+                                        break; // Dừng vòng lặp
+                                    }
+                                    else
+                                    {
+                                        // Dịch chuyển dữ liệu từ các dòng phía sau lên trên để ghi đè lên dòng hiện tại
+                                        for (int j = i; j < worksheet.Dimension.End.Row; j++)
+                                        {
+                                            worksheet.Cells[j, 1].Value = worksheet.Cells[j + 1, 1].Value;
+                                            worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
+                                            worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
+                                            worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
+                                        }
+
+                                        // Xóa dữ liệu ở hàng cuối cùng
+                                        worksheet.DeleteRow(worksheet.Dimension.End.Row, 1);
+                                        break; // Dừng vòng lặp
+                                    }
+                                }
+
+                                if (check != 0)
+                                {
+                                    break; // Dừng vòng lặp nếu đã xóa tên
+                                }
+                            }
+
+                            // Lưu tệp sau khi hoàn thành tất cả thay đổi
+                            package.Save();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hiển thị thông báo lỗi nếu có lỗi xảy ra
+                        MessageBox.Show("Lỗi xóa account không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 catch (Exception ex)
                 {
                     // Hiển thị thông báo lỗi nếu có lỗi xảy ra
-                    MessageBox.Show("Lỗi xóa account không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Xóa không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception ex)
-            {
-                // Hiển thị thông báo lỗi nếu có lỗi xảy ra
-                MessageBox.Show("Xóa không thành công: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                // Hiển thị thông báo thành công sau khi xóa
-                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                finally
+                {
+                    // Hiển thị thông báo thành công sau khi xóa
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Gọi hàm Refresh để cập nhật Panel nhanVien
-                Refresh(nhanVien, imgList, permission);
+                    // Gọi hàm Refresh để cập nhật Panel nhanVien
+                    Refresh(nhanVien, imgList, permission);
+                }
+
+            }
+            else
+            {
+                //thoát khỏi phần còn lại của phương thức và không thực hiện lưu dữ liệu hoặc bất kỳ mã lệnh nào khác sau đó
+                return;
             }
         }
 
@@ -318,8 +334,8 @@ namespace Quan_Ly
 
         public void Save(Panel panelNhanVien, ImageList imgList, string permission)
         {
+            dsMaNV.Clear();
             List<int> dsLocationY = new List<int>();
-
             try
             {
                 using (var package = new ExcelPackage(new FileInfo("data/Nhân Viên.xlsx")))
@@ -363,8 +379,18 @@ namespace Quan_Ly
                                 //Và có giá trị Y tương ứng với y và có tên là "txtMaNV"
                                 if (textBox.Location.Y == y && textBox.Name == "txtMaNV")
                                 {
-                                    //thì thêm vào dòng i cột 1
-                                    worksheet.Cells[i, 1].Value = textBox.Text;
+                                    if (dsMaNV.ContainsValue(textBox.Text))
+                                    {
+                                        MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        //không thực hiện lưu và refresh lại panel
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        //thì thêm vào dòng i cột 1
+                                        worksheet.Cells[i, 1].Value = textBox.Text;
+                                        dsMaNV.Add(i, textBox.Text);
+                                    }
                                 }
                                 else if (textBox.Location.Y == y && textBox.Name == "txtName")
                                 {

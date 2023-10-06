@@ -39,7 +39,7 @@ namespace Quan_Ly
 
         private void bttThemMoiKhoHang_Click(object sender, EventArgs e)
         {
-            if (txtNamePanelTMKH.Text == "" || txtDonViPanelTMKH.Text == "" || txtSoLuongPanelTMKH.Text == "" || txtDonGiaPanelTMKH.Text == "")
+            if (txtMaNguyenLieuPanelTMKH.Text == "" || txtNamePanelTMKH.Text == "" || txtDonViPanelTMKH.Text == "" || txtSoLuongPanelTMKH.Text == "" || txtDonGiaPanelTMKH.Text == "")
             {
                 MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -51,7 +51,8 @@ namespace Quan_Ly
                 }
                 else
                 {
-                    khoHang.addNew(txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang, imageIconList);
+                    khoHang.addNew(txtMaNguyenLieuPanelTMKH.Text,txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang, imageIconList);
+                    txtMaNguyenLieuPanelTMKH.Clear();
                     txtNamePanelTMKH.Clear();
                     txtDonViPanelTMKH.Clear();
                     txtSoLuongPanelTMKH.Clear();
@@ -72,5 +73,10 @@ namespace Quan_Ly
             thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
         }
         #endregion
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

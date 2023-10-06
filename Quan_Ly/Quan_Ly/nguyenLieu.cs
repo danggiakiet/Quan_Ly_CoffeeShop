@@ -8,6 +8,7 @@ namespace Quan_Ly
 {
     public class nguyenLieu
     {
+        public string maNguyenLieu { get; set; }
         public string ten { get; set; }
         public string donVi { get; set; }
         public int soLuong { get; set; }
@@ -15,8 +16,9 @@ namespace Quan_Ly
 
         public nguyenLieu() { }
 
-        public nguyenLieu(string ten, string donVi, int soLuong, int donGia)
+        public nguyenLieu(string maNguyenLieu, string ten, string donVi, int soLuong, int donGia)
         {
+            this.maNguyenLieu = maNguyenLieu;
             this.ten = ten;
             this.donVi = donVi;
             this.soLuong = soLuong;

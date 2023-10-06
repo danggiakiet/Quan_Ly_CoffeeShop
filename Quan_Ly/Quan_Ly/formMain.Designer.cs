@@ -34,6 +34,7 @@
             this.tabControl = new Sunny.UI.UITabControl();
             this.tabKhoHang = new System.Windows.Forms.TabPage();
             this.panelKhoHang = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,26 +59,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabThongKe = new System.Windows.Forms.TabPage();
-            this.tabDoanhThu = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.tabBanHang = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelThongKe = new System.Windows.Forms.Panel();
             this.panelDsThongKe = new System.Windows.Forms.Panel();
             this.cbbMonth = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
+            this.tabDoanhThu = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tabBanHang = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtMaNguyenLieuPanelTMKH = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabKhoHang.SuspendLayout();
             this.panelKhoHang.SuspendLayout();
             this.panelThemMoiKhoHang.SuspendLayout();
             this.panelChucNangKhoHang.SuspendLayout();
             this.tabThongKe.SuspendLayout();
+            this.panelThongKe.SuspendLayout();
             this.tabDoanhThu.SuspendLayout();
             this.tabBanHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelThongKe.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageIconList
@@ -144,6 +147,7 @@
             this.panelKhoHang.AutoScroll = true;
             this.panelKhoHang.BackColor = System.Drawing.Color.White;
             this.panelKhoHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelKhoHang.Controls.Add(this.label14);
             this.panelKhoHang.Controls.Add(this.label13);
             this.panelKhoHang.Controls.Add(this.label12);
             this.panelKhoHang.Controls.Add(this.label4);
@@ -156,11 +160,21 @@
             this.panelKhoHang.Size = new System.Drawing.Size(830, 460);
             this.panelKhoHang.TabIndex = 1;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(39, 91);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 24);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Mã";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(752, 91);
+            this.label13.Location = new System.Drawing.Point(758, 91);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(47, 24);
             this.label13.TabIndex = 13;
@@ -170,7 +184,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(645, 91);
+            this.label12.Location = new System.Drawing.Point(652, 91);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(80, 24);
             this.label12.TabIndex = 12;
@@ -200,7 +214,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(224, 92);
+            this.label2.Location = new System.Drawing.Point(244, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 24);
             this.label2.TabIndex = 7;
@@ -220,6 +234,8 @@
             // 
             this.panelThemMoiKhoHang.BackColor = System.Drawing.Color.White;
             this.panelThemMoiKhoHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelThemMoiKhoHang.Controls.Add(this.txtMaNguyenLieuPanelTMKH);
+            this.panelThemMoiKhoHang.Controls.Add(this.label15);
             this.panelThemMoiKhoHang.Controls.Add(this.bttRefreshPanelTMKH);
             this.panelThemMoiKhoHang.Controls.Add(this.bttThemPanelTMKH);
             this.panelThemMoiKhoHang.Controls.Add(this.txtDonGiaPanelTMKH);
@@ -232,9 +248,9 @@
             this.panelThemMoiKhoHang.Controls.Add(this.label7);
             this.panelThemMoiKhoHang.Controls.Add(this.label8);
             this.panelThemMoiKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelThemMoiKhoHang.Location = new System.Drawing.Point(855, 135);
+            this.panelThemMoiKhoHang.Location = new System.Drawing.Point(855, 105);
             this.panelThemMoiKhoHang.Name = "panelThemMoiKhoHang";
-            this.panelThemMoiKhoHang.Size = new System.Drawing.Size(367, 335);
+            this.panelThemMoiKhoHang.Size = new System.Drawing.Size(367, 365);
             this.panelThemMoiKhoHang.TabIndex = 5;
             // 
             // bttRefreshPanelTMKH
@@ -242,7 +258,7 @@
             this.bttRefreshPanelTMKH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttRefreshPanelTMKH.ImageIndex = 6;
             this.bttRefreshPanelTMKH.ImageList = this.imageIconList;
-            this.bttRefreshPanelTMKH.Location = new System.Drawing.Point(295, 282);
+            this.bttRefreshPanelTMKH.Location = new System.Drawing.Point(295, 317);
             this.bttRefreshPanelTMKH.Name = "bttRefreshPanelTMKH";
             this.bttRefreshPanelTMKH.Size = new System.Drawing.Size(53, 38);
             this.bttRefreshPanelTMKH.TabIndex = 5;
@@ -254,7 +270,7 @@
             this.bttThemPanelTMKH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bttThemPanelTMKH.ImageIndex = 8;
             this.bttThemPanelTMKH.ImageList = this.imageIconList;
-            this.bttThemPanelTMKH.Location = new System.Drawing.Point(195, 282);
+            this.bttThemPanelTMKH.Location = new System.Drawing.Point(195, 317);
             this.bttThemPanelTMKH.Name = "bttThemPanelTMKH";
             this.bttThemPanelTMKH.Size = new System.Drawing.Size(94, 38);
             this.bttThemPanelTMKH.TabIndex = 17;
@@ -265,21 +281,21 @@
             // 
             // txtDonGiaPanelTMKH
             // 
-            this.txtDonGiaPanelTMKH.Location = new System.Drawing.Point(121, 220);
+            this.txtDonGiaPanelTMKH.Location = new System.Drawing.Point(121, 255);
             this.txtDonGiaPanelTMKH.Name = "txtDonGiaPanelTMKH";
             this.txtDonGiaPanelTMKH.Size = new System.Drawing.Size(226, 35);
             this.txtDonGiaPanelTMKH.TabIndex = 16;
             // 
             // txtSoLuongPanelTMKH
             // 
-            this.txtSoLuongPanelTMKH.Location = new System.Drawing.Point(122, 170);
+            this.txtSoLuongPanelTMKH.Location = new System.Drawing.Point(122, 205);
             this.txtSoLuongPanelTMKH.Name = "txtSoLuongPanelTMKH";
             this.txtSoLuongPanelTMKH.Size = new System.Drawing.Size(226, 35);
             this.txtSoLuongPanelTMKH.TabIndex = 15;
             // 
             // txtDonViPanelTMKH
             // 
-            this.txtDonViPanelTMKH.Location = new System.Drawing.Point(122, 120);
+            this.txtDonViPanelTMKH.Location = new System.Drawing.Point(122, 155);
             this.txtDonViPanelTMKH.Name = "txtDonViPanelTMKH";
             this.txtDonViPanelTMKH.Size = new System.Drawing.Size(226, 35);
             this.txtDonViPanelTMKH.TabIndex = 14;
@@ -287,7 +303,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 230);
+            this.label11.Location = new System.Drawing.Point(3, 265);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 27);
             this.label11.TabIndex = 13;
@@ -296,7 +312,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 180);
+            this.label10.Location = new System.Drawing.Point(3, 215);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 27);
             this.label10.TabIndex = 12;
@@ -304,7 +320,7 @@
             // 
             // txtNamePanelTMKH
             // 
-            this.txtNamePanelTMKH.Location = new System.Drawing.Point(122, 70);
+            this.txtNamePanelTMKH.Location = new System.Drawing.Point(122, 105);
             this.txtNamePanelTMKH.Name = "txtNamePanelTMKH";
             this.txtNamePanelTMKH.Size = new System.Drawing.Size(226, 35);
             this.txtNamePanelTMKH.TabIndex = 11;
@@ -322,7 +338,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 130);
+            this.label7.Location = new System.Drawing.Point(3, 165);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 27);
             this.label7.TabIndex = 2;
@@ -331,7 +347,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 80);
+            this.label8.Location = new System.Drawing.Point(3, 115);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 27);
             this.label8.TabIndex = 1;
@@ -348,7 +364,7 @@
             this.panelChucNangKhoHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelChucNangKhoHang.Location = new System.Drawing.Point(856, 12);
             this.panelChucNangKhoHang.Name = "panelChucNangKhoHang";
-            this.panelChucNangKhoHang.Size = new System.Drawing.Size(366, 117);
+            this.panelChucNangKhoHang.Size = new System.Drawing.Size(366, 81);
             this.panelChucNangKhoHang.TabIndex = 2;
             // 
             // bttSaveValuePanelKhoHang
@@ -356,7 +372,7 @@
             this.bttSaveValuePanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttSaveValuePanelKhoHang.ImageIndex = 7;
             this.bttSaveValuePanelKhoHang.ImageList = this.imageIconList;
-            this.bttSaveValuePanelKhoHang.Location = new System.Drawing.Point(145, 60);
+            this.bttSaveValuePanelKhoHang.Location = new System.Drawing.Point(294, 20);
             this.bttSaveValuePanelKhoHang.Name = "bttSaveValuePanelKhoHang";
             this.bttSaveValuePanelKhoHang.Size = new System.Drawing.Size(53, 30);
             this.bttSaveValuePanelKhoHang.TabIndex = 4;
@@ -368,7 +384,7 @@
             this.bttRefeshPanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttRefeshPanelKhoHang.ImageIndex = 6;
             this.bttRefeshPanelKhoHang.ImageList = this.imageIconList;
-            this.bttRefeshPanelKhoHang.Location = new System.Drawing.Point(145, 7);
+            this.bttRefeshPanelKhoHang.Location = new System.Drawing.Point(113, 19);
             this.bttRefeshPanelKhoHang.Name = "bttRefeshPanelKhoHang";
             this.bttRefeshPanelKhoHang.Size = new System.Drawing.Size(53, 30);
             this.bttRefeshPanelKhoHang.TabIndex = 3;
@@ -378,20 +394,21 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 64);
+            this.label6.Location = new System.Drawing.Point(224, 21);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 27);
+            this.label6.Size = new System.Drawing.Size(64, 27);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Lưu         :";
+            this.label6.Text = "Lưu :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 11);
+            this.label5.Location = new System.Drawing.Point(8, 23);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 27);
+            this.label5.Size = new System.Drawing.Size(99, 27);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Refresh    :";
+            this.label5.Text = "Refresh :";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // tabThongKe
             // 
@@ -404,61 +421,6 @@
             this.tabThongKe.Size = new System.Drawing.Size(1236, 485);
             this.tabThongKe.TabIndex = 5;
             this.tabThongKe.Text = "Thống Kê";
-            // 
-            // tabDoanhThu
-            // 
-            this.tabDoanhThu.AutoScroll = true;
-            this.tabDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
-            this.tabDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabDoanhThu.Controls.Add(this.panel5);
-            this.tabDoanhThu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabDoanhThu.ImageIndex = 3;
-            this.tabDoanhThu.Location = new System.Drawing.Point(0, 40);
-            this.tabDoanhThu.Name = "tabDoanhThu";
-            this.tabDoanhThu.Size = new System.Drawing.Size(1236, 485);
-            this.tabDoanhThu.TabIndex = 3;
-            this.tabDoanhThu.Text = "Doanh Thu";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Location = new System.Drawing.Point(11, 12);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1020, 539);
-            this.panel5.TabIndex = 1;
-            // 
-            // tabBanHang
-            // 
-            this.tabBanHang.AutoScroll = true;
-            this.tabBanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
-            this.tabBanHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabBanHang.Controls.Add(this.panel1);
-            this.tabBanHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabBanHang.ImageIndex = 0;
-            this.tabBanHang.Location = new System.Drawing.Point(0, 40);
-            this.tabBanHang.Name = "tabBanHang";
-            this.tabBanHang.Size = new System.Drawing.Size(1236, 485);
-            this.tabBanHang.TabIndex = 4;
-            this.tabBanHang.Text = "Bán Hàng";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(11, 14);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 539);
-            this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Quan_Ly.Properties.Resources.icon_120x120;
-            this.pictureBox1.Location = new System.Drawing.Point(801, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(115, 110);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // panelThongKe
             // 
@@ -522,6 +484,77 @@
             this.label32.TabIndex = 1;
             this.label32.Text = "Thống kê theo:";
             // 
+            // tabDoanhThu
+            // 
+            this.tabDoanhThu.AutoScroll = true;
+            this.tabDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabDoanhThu.Controls.Add(this.panel5);
+            this.tabDoanhThu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDoanhThu.ImageIndex = 3;
+            this.tabDoanhThu.Location = new System.Drawing.Point(0, 40);
+            this.tabDoanhThu.Name = "tabDoanhThu";
+            this.tabDoanhThu.Size = new System.Drawing.Size(1236, 485);
+            this.tabDoanhThu.TabIndex = 3;
+            this.tabDoanhThu.Text = "Doanh Thu";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Location = new System.Drawing.Point(11, 12);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1020, 539);
+            this.panel5.TabIndex = 1;
+            // 
+            // tabBanHang
+            // 
+            this.tabBanHang.AutoScroll = true;
+            this.tabBanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
+            this.tabBanHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabBanHang.Controls.Add(this.panel1);
+            this.tabBanHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabBanHang.ImageIndex = 0;
+            this.tabBanHang.Location = new System.Drawing.Point(0, 40);
+            this.tabBanHang.Name = "tabBanHang";
+            this.tabBanHang.Size = new System.Drawing.Size(1236, 485);
+            this.tabBanHang.TabIndex = 4;
+            this.tabBanHang.Text = "Bán Hàng";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Location = new System.Drawing.Point(11, 14);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1020, 539);
+            this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Quan_Ly.Properties.Resources.icon_120x120;
+            this.pictureBox1.Location = new System.Drawing.Point(801, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(115, 110);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 64);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 27);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Mã :";
+            // 
+            // txtMaNguyenLieuPanelTMKH
+            // 
+            this.txtMaNguyenLieuPanelTMKH.Location = new System.Drawing.Point(121, 56);
+            this.txtMaNguyenLieuPanelTMKH.Name = "txtMaNguyenLieuPanelTMKH";
+            this.txtMaNguyenLieuPanelTMKH.Size = new System.Drawing.Size(226, 35);
+            this.txtMaNguyenLieuPanelTMKH.TabIndex = 19;
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -545,11 +578,11 @@
             this.panelChucNangKhoHang.ResumeLayout(false);
             this.panelChucNangKhoHang.PerformLayout();
             this.tabThongKe.ResumeLayout(false);
+            this.panelThongKe.ResumeLayout(false);
+            this.panelThongKe.PerformLayout();
             this.tabDoanhThu.ResumeLayout(false);
             this.tabBanHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelThongKe.ResumeLayout(false);
-            this.panelThongKe.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -594,6 +627,9 @@
         private System.Windows.Forms.ComboBox cbbMonth;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtMaNguyenLieuPanelTMKH;
+        private System.Windows.Forms.Label label15;
     }
 }
 
