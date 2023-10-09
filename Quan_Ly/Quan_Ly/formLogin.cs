@@ -123,11 +123,18 @@ namespace Quan_Ly
             if (checkNotHidePassword.Checked)
             {
                 txtPassword.PasswordChar = '\0'; //Sử dụng '\0' để hiển thị văn bản thường.
+                checkNotHidePassword.BackgroundImage = Image.FromFile("img/icon/eye.png");
             }
             else
             {
                 txtPassword.PasswordChar = '•';
+                checkNotHidePassword.BackgroundImage = Image.FromFile("img/icon/eye-off.png");
             }
+        }
+
+        private void linkLabelQuenMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

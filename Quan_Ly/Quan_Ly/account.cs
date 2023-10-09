@@ -12,6 +12,8 @@ namespace Quan_Ly
         public string password { get; set; }
         public string permission { get; set; }
         public string nameOfUser { get; set; }
+        public string cauHoi { get; set; }
+        public string DapAn { get; set; }
         public account() { }
         public account(string user, string password, string permission, string nameOfUser)
         {
@@ -19,6 +21,12 @@ namespace Quan_Ly
             this.password = password;
             this.permission = permission;
             this.nameOfUser = nameOfUser;
+        }
+        public account(string user, string CauHoi, string DapAn)
+        {
+            this.user = user;
+            this.cauHoi = CauHoi;
+            this.DapAn = DapAn;
         }
     }
 }
