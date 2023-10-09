@@ -19,16 +19,17 @@ namespace Quan_Ly
         List<account> dsAccountsMember = new List<account>();
         List<account> dsAccountsAdmin = new List<account>();
         formMain formMain = new formMain();
+        private formQuenMatKhau formQuenMatKhau = null; // Khai báo biến để theo dõi formQuenMatKhau
         formMainAdmin formMainAdmin = new formMainAdmin();
 
         public formLogin()
         {
             InitializeComponent();
+            txtPassword.PasswordChar = '•';
         }
 
         private void formLogin_Load(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = '•';
             try
             {
                 //Mở file excel
@@ -134,6 +135,15 @@ namespace Quan_Ly
 
         private void linkLabelQuenMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (formQuenMatKhau == null || formQuenMatKhau.IsDisposed)
+            {
+                // Nếu formQuenMatKhau chưa được tạo hoặc đã bị giải phóng, tạo một mới
+                formQuenMatKhau = new formQuenMatKhau();
+                formQuenMatKhau.FormClosed += (s, args) => { this.Show(); formLogin_Load(sender ,e); }; // Thêm sự kiện FormClosed cho formQuenMatKhau
+            }
+
+            this.Hide();
+            formQuenMatKhau.Show();
 
         }
     }
