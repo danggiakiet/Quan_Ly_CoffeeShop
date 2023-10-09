@@ -35,6 +35,10 @@
             this.uiTabControlNhanVien = new Sunny.UI.UITabControl();
             this.tabMember = new System.Windows.Forms.TabPage();
             this.panelMember_Add = new System.Windows.Forms.Panel();
+            this.txt_TMNV_TraLoi = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.txt_TMNV_CauHoi = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
             this.txt_TMNV_Password = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_TMNV_MaNV = new System.Windows.Forms.TextBox();
@@ -63,22 +67,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.tabAdmin = new System.Windows.Forms.TabPage();
-            this.panelAdmin_Add = new System.Windows.Forms.Panel();
-            this.txt_TMQL_Password = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txt_TMQL_MaNV = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.dateTime_TMQL_NgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.btt_PanelAdmin_ResetValue = new System.Windows.Forms.Button();
-            this.btt_PanelAdmin_Add = new System.Windows.Forms.Button();
-            this.txt_TMQL_Luong = new System.Windows.Forms.TextBox();
-            this.txt_TMQL_Sdt = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txt_TMQL_Ten = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.panelAdmin_ChucNang = new System.Windows.Forms.Panel();
             this.btt_PanelAdmin_Save = new System.Windows.Forms.Button();
             this.btt_PanelAdmin_Refresh = new System.Windows.Forms.Button();
@@ -99,7 +87,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.tabDoanhThu = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.tabBanHang = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl = new Sunny.UI.UITabControl();
@@ -131,11 +118,38 @@
             this.bttRefeshPanelKhoHang = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.txt_TMNV_CauHoi = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.txt_TMNV_TraLoi = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
+            this.panelDoanhThu = new System.Windows.Forms.Panel();
+            this.label50 = new System.Windows.Forms.Label();
+            this.dateTime_PanelDoanhThu = new System.Windows.Forms.DateTimePicker();
+            this.label49 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.txtPanelDoanhThu_TienLoi = new System.Windows.Forms.TextBox();
+            this.txtPanelDoanhThu_TienVon = new System.Windows.Forms.TextBox();
+            this.panelDoanhThu_SanPham = new System.Windows.Forms.Panel();
+            this.panelAdmin_Add = new System.Windows.Forms.Panel();
+            this.txt_TMQL_TraLoi = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_TMQL_CauHoi = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt_TMQL_Password = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txt_TMQL_MaNV = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.dateTime_TMQL_NgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.btt_PanelAdmin_ResetValue = new System.Windows.Forms.Button();
+            this.btt_PanelAdmin_Add = new System.Windows.Forms.Button();
+            this.txt_TMQL_Luong = new System.Windows.Forms.TextBox();
+            this.txt_TMQL_Sdt = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txt_TMQL_Ten = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
             this.tabNhanVien.SuspendLayout();
             this.uiTabControlNhanVien.SuspendLayout();
             this.tabMember.SuspendLayout();
@@ -143,7 +157,6 @@
             this.panelMember.SuspendLayout();
             this.panelMember_ChucNang.SuspendLayout();
             this.tabAdmin.SuspendLayout();
-            this.panelAdmin_Add.SuspendLayout();
             this.panelAdmin_ChucNang.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.tabThongKe.SuspendLayout();
@@ -156,6 +169,9 @@
             this.panelKhoHang.SuspendLayout();
             this.panelThemMoiKhoHang.SuspendLayout();
             this.panelChucNangKhoHang.SuspendLayout();
+            this.panelDoanhThu.SuspendLayout();
+            this.panelDoanhThu_SanPham.SuspendLayout();
+            this.panelAdmin_Add.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageIconList
@@ -252,6 +268,38 @@
             this.panelMember_Add.Name = "panelMember_Add";
             this.panelMember_Add.Size = new System.Drawing.Size(364, 336);
             this.panelMember_Add.TabIndex = 18;
+            // 
+            // txt_TMNV_TraLoi
+            // 
+            this.txt_TMNV_TraLoi.Location = new System.Drawing.Point(136, 183);
+            this.txt_TMNV_TraLoi.Name = "txt_TMNV_TraLoi";
+            this.txt_TMNV_TraLoi.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMNV_TraLoi.TabIndex = 26;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(6, 191);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(123, 27);
+            this.label48.TabIndex = 25;
+            this.label48.Text = "Trả lời       :";
+            // 
+            // txt_TMNV_CauHoi
+            // 
+            this.txt_TMNV_CauHoi.Location = new System.Drawing.Point(136, 142);
+            this.txt_TMNV_CauHoi.Name = "txt_TMNV_CauHoi";
+            this.txt_TMNV_CauHoi.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMNV_CauHoi.TabIndex = 24;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(6, 150);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(123, 27);
+            this.label47.TabIndex = 23;
+            this.label47.Text = "Câu hỏi     :";
             // 
             // txt_TMNV_Password
             // 
@@ -534,165 +582,6 @@
             this.tabAdmin.TabIndex = 1;
             this.tabAdmin.Text = "Quản lý";
             // 
-            // panelAdmin_Add
-            // 
-            this.panelAdmin_Add.BackColor = System.Drawing.Color.White;
-            this.panelAdmin_Add.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Password);
-            this.panelAdmin_Add.Controls.Add(this.label27);
-            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_MaNV);
-            this.panelAdmin_Add.Controls.Add(this.label19);
-            this.panelAdmin_Add.Controls.Add(this.dateTime_TMQL_NgaySinh);
-            this.panelAdmin_Add.Controls.Add(this.btt_PanelAdmin_ResetValue);
-            this.panelAdmin_Add.Controls.Add(this.btt_PanelAdmin_Add);
-            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Luong);
-            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Sdt);
-            this.panelAdmin_Add.Controls.Add(this.label20);
-            this.panelAdmin_Add.Controls.Add(this.label21);
-            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Ten);
-            this.panelAdmin_Add.Controls.Add(this.label22);
-            this.panelAdmin_Add.Controls.Add(this.label23);
-            this.panelAdmin_Add.Controls.Add(this.label24);
-            this.panelAdmin_Add.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelAdmin_Add.Location = new System.Drawing.Point(830, 77);
-            this.panelAdmin_Add.Name = "panelAdmin_Add";
-            this.panelAdmin_Add.Size = new System.Drawing.Size(365, 336);
-            this.panelAdmin_Add.TabIndex = 10;
-            // 
-            // txt_TMQL_Password
-            // 
-            this.txt_TMQL_Password.Location = new System.Drawing.Point(133, 80);
-            this.txt_TMQL_Password.Name = "txt_TMQL_Password";
-            this.txt_TMQL_Password.Size = new System.Drawing.Size(215, 35);
-            this.txt_TMQL_Password.TabIndex = 22;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 88);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(122, 27);
-            this.label27.TabIndex = 21;
-            this.label27.Text = "Mật khẩu  :";
-            // 
-            // txt_TMQL_MaNV
-            // 
-            this.txt_TMQL_MaNV.Location = new System.Drawing.Point(133, 40);
-            this.txt_TMQL_MaNV.Name = "txt_TMQL_MaNV";
-            this.txt_TMQL_MaNV.Size = new System.Drawing.Size(215, 35);
-            this.txt_TMQL_MaNV.TabIndex = 20;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 48);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(119, 27);
-            this.label19.TabIndex = 19;
-            this.label19.Text = "Mã NV     :";
-            // 
-            // dateTime_TMQL_NgaySinh
-            // 
-            this.dateTime_TMQL_NgaySinh.CustomFormat = "dd/MM/yyyy";
-            this.dateTime_TMQL_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTime_TMQL_NgaySinh.Location = new System.Drawing.Point(133, 200);
-            this.dateTime_TMQL_NgaySinh.Name = "dateTime_TMQL_NgaySinh";
-            this.dateTime_TMQL_NgaySinh.Size = new System.Drawing.Size(215, 35);
-            this.dateTime_TMQL_NgaySinh.TabIndex = 18;
-            // 
-            // btt_PanelAdmin_ResetValue
-            // 
-            this.btt_PanelAdmin_ResetValue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btt_PanelAdmin_ResetValue.ImageIndex = 6;
-            this.btt_PanelAdmin_ResetValue.ImageList = this.imageIconList;
-            this.btt_PanelAdmin_ResetValue.Location = new System.Drawing.Point(298, 291);
-            this.btt_PanelAdmin_ResetValue.Name = "btt_PanelAdmin_ResetValue";
-            this.btt_PanelAdmin_ResetValue.Size = new System.Drawing.Size(53, 38);
-            this.btt_PanelAdmin_ResetValue.TabIndex = 5;
-            this.btt_PanelAdmin_ResetValue.UseVisualStyleBackColor = true;
-            this.btt_PanelAdmin_ResetValue.Click += new System.EventHandler(this.btt_PanelAdmin_ResetValue_Click);
-            // 
-            // btt_PanelAdmin_Add
-            // 
-            this.btt_PanelAdmin_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btt_PanelAdmin_Add.ImageIndex = 8;
-            this.btt_PanelAdmin_Add.ImageList = this.imageIconList;
-            this.btt_PanelAdmin_Add.Location = new System.Drawing.Point(198, 291);
-            this.btt_PanelAdmin_Add.Name = "btt_PanelAdmin_Add";
-            this.btt_PanelAdmin_Add.Size = new System.Drawing.Size(94, 38);
-            this.btt_PanelAdmin_Add.TabIndex = 17;
-            this.btt_PanelAdmin_Add.Text = "Thêm";
-            this.btt_PanelAdmin_Add.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btt_PanelAdmin_Add.UseVisualStyleBackColor = true;
-            this.btt_PanelAdmin_Add.Click += new System.EventHandler(this.btt_PanelAdmin_Add_Click);
-            // 
-            // txt_TMQL_Luong
-            // 
-            this.txt_TMQL_Luong.Location = new System.Drawing.Point(133, 240);
-            this.txt_TMQL_Luong.Name = "txt_TMQL_Luong";
-            this.txt_TMQL_Luong.Size = new System.Drawing.Size(215, 35);
-            this.txt_TMQL_Luong.TabIndex = 16;
-            // 
-            // txt_TMQL_Sdt
-            // 
-            this.txt_TMQL_Sdt.Location = new System.Drawing.Point(133, 160);
-            this.txt_TMQL_Sdt.Name = "txt_TMQL_Sdt";
-            this.txt_TMQL_Sdt.Size = new System.Drawing.Size(215, 35);
-            this.txt_TMQL_Sdt.TabIndex = 14;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(4, 250);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(118, 27);
-            this.label20.TabIndex = 13;
-            this.label20.Text = "Lương      :";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 210);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(120, 27);
-            this.label21.TabIndex = 12;
-            this.label21.Text = "Ngày sinh :";
-            // 
-            // txt_TMQL_Ten
-            // 
-            this.txt_TMQL_Ten.Location = new System.Drawing.Point(133, 120);
-            this.txt_TMQL_Ten.Name = "txt_TMQL_Ten";
-            this.txt_TMQL_Ten.Size = new System.Drawing.Size(215, 35);
-            this.txt_TMQL_Ten.TabIndex = 11;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(123, 4);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(133, 31);
-            this.label22.TabIndex = 10;
-            this.label22.Text = "Thêm mới";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(4, 170);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(121, 27);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "SĐT          :";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(4, 130);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(121, 27);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Tên           :";
-            // 
             // panelAdmin_ChucNang
             // 
             this.panelAdmin_ChucNang.BackColor = System.Drawing.Color.White;
@@ -857,7 +746,7 @@
             this.panelThongKe.Controls.Add(this.label32);
             this.panelThongKe.Location = new System.Drawing.Point(13, 12);
             this.panelThongKe.Name = "panelThongKe";
-            this.panelThongKe.Size = new System.Drawing.Size(1206, 460);
+            this.panelThongKe.Size = new System.Drawing.Size(1219, 460);
             this.panelThongKe.TabIndex = 1;
             // 
             // panelDsThongKe
@@ -914,7 +803,7 @@
             this.tabDoanhThu.AutoScroll = true;
             this.tabDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
             this.tabDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabDoanhThu.Controls.Add(this.panel5);
+            this.tabDoanhThu.Controls.Add(this.panelDoanhThu);
             this.tabDoanhThu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDoanhThu.ImageIndex = 3;
             this.tabDoanhThu.Location = new System.Drawing.Point(0, 40);
@@ -922,15 +811,6 @@
             this.tabDoanhThu.Size = new System.Drawing.Size(1245, 485);
             this.tabDoanhThu.TabIndex = 3;
             this.tabDoanhThu.Text = "Doanh Thu";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Location = new System.Drawing.Point(11, 12);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1020, 539);
-            this.panel5.TabIndex = 1;
             // 
             // tabBanHang
             // 
@@ -1283,41 +1163,316 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "Refresh :";
             // 
-            // openFileDialog1
+            // panelDoanhThu
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.panelDoanhThu.BackColor = System.Drawing.Color.White;
+            this.panelDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelDoanhThu.Controls.Add(this.panelDoanhThu_SanPham);
+            this.panelDoanhThu.Controls.Add(this.txtPanelDoanhThu_TienVon);
+            this.panelDoanhThu.Controls.Add(this.txtPanelDoanhThu_TienLoi);
+            this.panelDoanhThu.Controls.Add(this.label53);
+            this.panelDoanhThu.Controls.Add(this.label52);
+            this.panelDoanhThu.Controls.Add(this.label51);
+            this.panelDoanhThu.Controls.Add(this.dateTime_PanelDoanhThu);
+            this.panelDoanhThu.Controls.Add(this.label50);
+            this.panelDoanhThu.Location = new System.Drawing.Point(17, 10);
+            this.panelDoanhThu.Name = "panelDoanhThu";
+            this.panelDoanhThu.Size = new System.Drawing.Size(1215, 460);
+            this.panelDoanhThu.TabIndex = 2;
             // 
-            // txt_TMNV_CauHoi
+            // label50
             // 
-            this.txt_TMNV_CauHoi.Location = new System.Drawing.Point(136, 142);
-            this.txt_TMNV_CauHoi.Name = "txt_TMNV_CauHoi";
-            this.txt_TMNV_CauHoi.Size = new System.Drawing.Size(200, 35);
-            this.txt_TMNV_CauHoi.TabIndex = 24;
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(1012, 23);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(142, 23);
+            this.label50.TabIndex = 1;
+            this.label50.Text = "Doanh thu của :";
             // 
-            // label47
+            // dateTime_PanelDoanhThu
             // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(6, 150);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(123, 27);
-            this.label47.TabIndex = 23;
-            this.label47.Text = "Câu hỏi     :";
+            this.dateTime_PanelDoanhThu.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTime_PanelDoanhThu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTime_PanelDoanhThu.Location = new System.Drawing.Point(1032, 49);
+            this.dateTime_PanelDoanhThu.Name = "dateTime_PanelDoanhThu";
+            this.dateTime_PanelDoanhThu.Size = new System.Drawing.Size(122, 32);
+            this.dateTime_PanelDoanhThu.TabIndex = 6;
+            this.dateTime_PanelDoanhThu.ValueChanged += new System.EventHandler(this.dateTime_PanelDoanhThu_ValueChanged);
             // 
-            // txt_TMNV_TraLoi
+            // label49
             // 
-            this.txt_TMNV_TraLoi.Location = new System.Drawing.Point(136, 183);
-            this.txt_TMNV_TraLoi.Name = "txt_TMNV_TraLoi";
-            this.txt_TMNV_TraLoi.Size = new System.Drawing.Size(200, 35);
-            this.txt_TMNV_TraLoi.TabIndex = 26;
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(82, 18);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(241, 26);
+            this.label49.TabIndex = 7;
+            this.label49.Text = "Số sản phẩm bán được";
             // 
-            // label48
+            // textBox1
             // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(6, 191);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(123, 27);
-            this.label48.TabIndex = 25;
-            this.label48.Text = "Trả lời       :";
+            this.textBox1.Location = new System.Drawing.Point(13, 66);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(287, 35);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(306, 66);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(79, 35);
+            this.textBox2.TabIndex = 9;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(590, 20);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(173, 26);
+            this.label51.TabIndex = 10;
+            this.label51.Text = "Tổng doanh thu";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(526, 83);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(76, 24);
+            this.label52.TabIndex = 11;
+            this.label52.Text = "Tiền lời";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(750, 83);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(87, 24);
+            this.label53.TabIndex = 12;
+            this.label53.Text = "Tiền vốn";
+            // 
+            // txtPanelDoanhThu_TienLoi
+            // 
+            this.txtPanelDoanhThu_TienLoi.Location = new System.Drawing.Point(468, 110);
+            this.txtPanelDoanhThu_TienLoi.Name = "txtPanelDoanhThu_TienLoi";
+            this.txtPanelDoanhThu_TienLoi.Size = new System.Drawing.Size(187, 35);
+            this.txtPanelDoanhThu_TienLoi.TabIndex = 13;
+            // 
+            // txtPanelDoanhThu_TienVon
+            // 
+            this.txtPanelDoanhThu_TienVon.Location = new System.Drawing.Point(697, 110);
+            this.txtPanelDoanhThu_TienVon.Name = "txtPanelDoanhThu_TienVon";
+            this.txtPanelDoanhThu_TienVon.Size = new System.Drawing.Size(187, 35);
+            this.txtPanelDoanhThu_TienVon.TabIndex = 14;
+            // 
+            // panelDoanhThu_SanPham
+            // 
+            this.panelDoanhThu_SanPham.AutoScroll = true;
+            this.panelDoanhThu_SanPham.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelDoanhThu_SanPham.Controls.Add(this.textBox2);
+            this.panelDoanhThu_SanPham.Controls.Add(this.textBox1);
+            this.panelDoanhThu_SanPham.Controls.Add(this.label49);
+            this.panelDoanhThu_SanPham.Location = new System.Drawing.Point(9, 17);
+            this.panelDoanhThu_SanPham.Name = "panelDoanhThu_SanPham";
+            this.panelDoanhThu_SanPham.Size = new System.Drawing.Size(408, 429);
+            this.panelDoanhThu_SanPham.TabIndex = 15;
+            // 
+            // panelAdmin_Add
+            // 
+            this.panelAdmin_Add.AutoScroll = true;
+            this.panelAdmin_Add.BackColor = System.Drawing.Color.White;
+            this.panelAdmin_Add.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_TraLoi);
+            this.panelAdmin_Add.Controls.Add(this.label19);
+            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_CauHoi);
+            this.panelAdmin_Add.Controls.Add(this.label20);
+            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Password);
+            this.panelAdmin_Add.Controls.Add(this.label21);
+            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_MaNV);
+            this.panelAdmin_Add.Controls.Add(this.label22);
+            this.panelAdmin_Add.Controls.Add(this.dateTime_TMQL_NgaySinh);
+            this.panelAdmin_Add.Controls.Add(this.btt_PanelAdmin_ResetValue);
+            this.panelAdmin_Add.Controls.Add(this.btt_PanelAdmin_Add);
+            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Luong);
+            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Sdt);
+            this.panelAdmin_Add.Controls.Add(this.label23);
+            this.panelAdmin_Add.Controls.Add(this.label24);
+            this.panelAdmin_Add.Controls.Add(this.txt_TMQL_Ten);
+            this.panelAdmin_Add.Controls.Add(this.label27);
+            this.panelAdmin_Add.Controls.Add(this.label54);
+            this.panelAdmin_Add.Controls.Add(this.label55);
+            this.panelAdmin_Add.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelAdmin_Add.Location = new System.Drawing.Point(830, 79);
+            this.panelAdmin_Add.Name = "panelAdmin_Add";
+            this.panelAdmin_Add.Size = new System.Drawing.Size(364, 336);
+            this.panelAdmin_Add.TabIndex = 19;
+            // 
+            // txt_TMQL_TraLoi
+            // 
+            this.txt_TMQL_TraLoi.Location = new System.Drawing.Point(136, 183);
+            this.txt_TMQL_TraLoi.Name = "txt_TMQL_TraLoi";
+            this.txt_TMQL_TraLoi.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMQL_TraLoi.TabIndex = 26;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 191);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(123, 27);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "Trả lời       :";
+            // 
+            // txt_TMQL_CauHoi
+            // 
+            this.txt_TMQL_CauHoi.Location = new System.Drawing.Point(136, 142);
+            this.txt_TMQL_CauHoi.Name = "txt_TMQL_CauHoi";
+            this.txt_TMQL_CauHoi.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMQL_CauHoi.TabIndex = 24;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 150);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(123, 27);
+            this.label20.TabIndex = 23;
+            this.label20.Text = "Câu hỏi     :";
+            // 
+            // txt_TMQL_Password
+            // 
+            this.txt_TMQL_Password.Location = new System.Drawing.Point(136, 101);
+            this.txt_TMQL_Password.Name = "txt_TMQL_Password";
+            this.txt_TMQL_Password.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMQL_Password.TabIndex = 22;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 109);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(122, 27);
+            this.label21.TabIndex = 21;
+            this.label21.Text = "Mật khẩu  :";
+            // 
+            // txt_TMQL_MaNV
+            // 
+            this.txt_TMQL_MaNV.Location = new System.Drawing.Point(136, 61);
+            this.txt_TMQL_MaNV.Name = "txt_TMQL_MaNV";
+            this.txt_TMQL_MaNV.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMQL_MaNV.TabIndex = 20;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 69);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(119, 27);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "Mã NV     :";
+            // 
+            // dateTime_TMQL_NgaySinh
+            // 
+            this.dateTime_TMQL_NgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dateTime_TMQL_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTime_TMQL_NgaySinh.Location = new System.Drawing.Point(136, 304);
+            this.dateTime_TMQL_NgaySinh.Name = "dateTime_TMQL_NgaySinh";
+            this.dateTime_TMQL_NgaySinh.Size = new System.Drawing.Size(200, 35);
+            this.dateTime_TMQL_NgaySinh.TabIndex = 18;
+            // 
+            // btt_PanelAdmin_ResetValue
+            // 
+            this.btt_PanelAdmin_ResetValue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btt_PanelAdmin_ResetValue.ImageIndex = 6;
+            this.btt_PanelAdmin_ResetValue.ImageList = this.imageIconList;
+            this.btt_PanelAdmin_ResetValue.Location = new System.Drawing.Point(283, 389);
+            this.btt_PanelAdmin_ResetValue.Name = "btt_PanelAdmin_ResetValue";
+            this.btt_PanelAdmin_ResetValue.Size = new System.Drawing.Size(53, 38);
+            this.btt_PanelAdmin_ResetValue.TabIndex = 5;
+            this.btt_PanelAdmin_ResetValue.UseVisualStyleBackColor = true;
+            this.btt_PanelAdmin_ResetValue.Click += new System.EventHandler(this.btt_PanelAdmin_ResetValue_Click);
+            // 
+            // btt_PanelAdmin_Add
+            // 
+            this.btt_PanelAdmin_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btt_PanelAdmin_Add.ImageIndex = 8;
+            this.btt_PanelAdmin_Add.ImageList = this.imageIconList;
+            this.btt_PanelAdmin_Add.Location = new System.Drawing.Point(183, 389);
+            this.btt_PanelAdmin_Add.Name = "btt_PanelAdmin_Add";
+            this.btt_PanelAdmin_Add.Size = new System.Drawing.Size(94, 38);
+            this.btt_PanelAdmin_Add.TabIndex = 17;
+            this.btt_PanelAdmin_Add.Text = "Thêm";
+            this.btt_PanelAdmin_Add.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btt_PanelAdmin_Add.UseVisualStyleBackColor = true;
+            this.btt_PanelAdmin_Add.Click += new System.EventHandler(this.btt_PanelAdmin_Add_Click);
+            // 
+            // txt_TMQL_Luong
+            // 
+            this.txt_TMQL_Luong.Location = new System.Drawing.Point(136, 344);
+            this.txt_TMQL_Luong.Name = "txt_TMQL_Luong";
+            this.txt_TMQL_Luong.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMQL_Luong.TabIndex = 16;
+            // 
+            // txt_TMQL_Sdt
+            // 
+            this.txt_TMQL_Sdt.Location = new System.Drawing.Point(136, 264);
+            this.txt_TMQL_Sdt.Name = "txt_TMQL_Sdt";
+            this.txt_TMQL_Sdt.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMQL_Sdt.TabIndex = 14;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(7, 354);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(118, 27);
+            this.label23.TabIndex = 13;
+            this.label23.Text = "Lương      :";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(7, 314);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(120, 27);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "Ngày sinh :";
+            // 
+            // txt_TMQL_Ten
+            // 
+            this.txt_TMQL_Ten.Location = new System.Drawing.Point(136, 224);
+            this.txt_TMQL_Ten.Name = "txt_TMQL_Ten";
+            this.txt_TMQL_Ten.Size = new System.Drawing.Size(200, 35);
+            this.txt_TMQL_Ten.TabIndex = 11;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(126, 18);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(133, 31);
+            this.label27.TabIndex = 10;
+            this.label27.Text = "Thêm mới";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(7, 274);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(121, 27);
+            this.label54.TabIndex = 2;
+            this.label54.Text = "SĐT          :";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(7, 234);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(121, 27);
+            this.label55.TabIndex = 1;
+            this.label55.Text = "Tên           :";
             // 
             // formMainAdmin
             // 
@@ -1339,8 +1494,6 @@
             this.panelMember_ChucNang.ResumeLayout(false);
             this.panelMember_ChucNang.PerformLayout();
             this.tabAdmin.ResumeLayout(false);
-            this.panelAdmin_Add.ResumeLayout(false);
-            this.panelAdmin_Add.PerformLayout();
             this.panelAdmin_ChucNang.ResumeLayout(false);
             this.panelAdmin_ChucNang.PerformLayout();
             this.panelAdmin.ResumeLayout(false);
@@ -1359,6 +1512,12 @@
             this.panelThemMoiKhoHang.PerformLayout();
             this.panelChucNangKhoHang.ResumeLayout(false);
             this.panelChucNangKhoHang.PerformLayout();
+            this.panelDoanhThu.ResumeLayout(false);
+            this.panelDoanhThu.PerformLayout();
+            this.panelDoanhThu_SanPham.ResumeLayout(false);
+            this.panelDoanhThu_SanPham.PerformLayout();
+            this.panelAdmin_Add.ResumeLayout(false);
+            this.panelAdmin_Add.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1370,7 +1529,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage tabThongKe;
         private System.Windows.Forms.TabPage tabDoanhThu;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TabPage tabBanHang;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Sunny.UI.UITabControl tabControl;
@@ -1378,18 +1536,6 @@
         private Sunny.UI.UITabControl uiTabControlNhanVien;
         private System.Windows.Forms.TabPage tabMember;
         private System.Windows.Forms.TabPage tabAdmin;
-        private System.Windows.Forms.Panel panelAdmin_Add;
-        private System.Windows.Forms.DateTimePicker dateTime_TMQL_NgaySinh;
-        private System.Windows.Forms.Button btt_PanelAdmin_ResetValue;
-        private System.Windows.Forms.Button btt_PanelAdmin_Add;
-        private System.Windows.Forms.TextBox txt_TMQL_Luong;
-        private System.Windows.Forms.TextBox txt_TMQL_Sdt;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txt_TMQL_Ten;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panelAdmin_ChucNang;
         private System.Windows.Forms.Button btt_PanelAdmin_Save;
         private System.Windows.Forms.Button btt_PanelAdmin_Refresh;
@@ -1409,10 +1555,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox txt_TMQL_MaNV;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txt_TMQL_Password;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panelMember_Add;
         private System.Windows.Forms.TextBox txt_TMNV_Password;
         private System.Windows.Forms.Label label14;
@@ -1439,7 +1581,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Panel panelDsThongKe;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel panelKhoHang;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
@@ -1471,5 +1612,37 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox txt_TMNV_CauHoi;
         private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Panel panelDoanhThu;
+        private System.Windows.Forms.DateTimePicker dateTime_PanelDoanhThu;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Panel panelDoanhThu_SanPham;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox txtPanelDoanhThu_TienVon;
+        private System.Windows.Forms.TextBox txtPanelDoanhThu_TienLoi;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Panel panelAdmin_Add;
+        private System.Windows.Forms.TextBox txt_TMQL_TraLoi;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txt_TMQL_CauHoi;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txt_TMQL_Password;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txt_TMQL_MaNV;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.DateTimePicker dateTime_TMQL_NgaySinh;
+        private System.Windows.Forms.Button btt_PanelAdmin_ResetValue;
+        private System.Windows.Forms.Button btt_PanelAdmin_Add;
+        private System.Windows.Forms.TextBox txt_TMQL_Luong;
+        private System.Windows.Forms.TextBox txt_TMQL_Sdt;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txt_TMQL_Ten;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
     }
 }

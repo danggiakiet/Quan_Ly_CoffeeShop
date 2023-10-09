@@ -97,7 +97,7 @@ namespace Quan_Ly
         private void btt_PanelMember_Add_Click(object sender, EventArgs e)
         {
             double luong;
-            if (txt_TMNV_MaNV.Text == "" || txt_TMNV_Password.Text == "" || txt_TMNV_Ten.Text == "" || txt_TMNV_DienThoai.Text == "" || txt_TMNV_Luong.Text == "")
+            if (txt_TMNV_MaNV.Text == "" || txt_TMNV_Password.Text == "" || txt_TMNV_Ten.Text == "" || txt_TMNV_DienThoai.Text == "" || txt_TMNV_Luong.Text == "" || txt_TMNV_CauHoi.Text == "" || txt_TMNV_TraLoi.Text == "")
             {
                 MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -107,7 +107,7 @@ namespace Quan_Ly
                 {
                     if (double.TryParse(txt_TMNV_Luong.Text, out luong))
                     {
-                        nhanVien.addNew(panelMember, imageIconList, "member", txt_TMNV_MaNV.Text, txt_TMNV_Password.Text, txt_TMNV_Ten.Text, txt_TMNV_DienThoai.Text, dateTime_TMNV_NgaySinh, luong);
+                        nhanVien.addNew(panelMember, imageIconList, "member", txt_TMNV_MaNV.Text, txt_TMNV_Password.Text, txt_TMNV_CauHoi.Text, txt_TMNV_TraLoi.Text, txt_TMNV_Ten.Text, txt_TMNV_DienThoai.Text, dateTime_TMNV_NgaySinh, luong);
                     }
                     else
                     {
@@ -152,7 +152,7 @@ namespace Quan_Ly
                 {
                     if (double.TryParse(txt_TMQL_Luong.Text, out luong))
                     {
-                        nhanVien.addNew(panelAdmin, imageIconList, "admin", txt_TMQL_MaNV.Text, txt_TMQL_Password.Text, txt_TMQL_Ten.Text, txt_TMQL_Sdt.Text, dateTime_TMQL_NgaySinh, luong);
+                        nhanVien.addNew(panelAdmin, imageIconList, "admin", txt_TMQL_MaNV.Text, txt_TMQL_Password.Text, txt_TMQL_CauHoi.Text, txt_TMQL_TraLoi.Text, txt_TMQL_Ten.Text, txt_TMQL_Sdt.Text, dateTime_TMQL_NgaySinh, luong);
                     }
                     else
                     {
@@ -181,5 +181,9 @@ namespace Quan_Ly
             thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
         }
         #endregion
+
+        private void dateTime_PanelDoanhThu_ValueChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

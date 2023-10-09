@@ -245,6 +245,9 @@ namespace Quan_Ly
                                     worksheet.Cells[i, 2].Clear();
                                     worksheet.Cells[i, 3].Clear();
                                     worksheet.Cells[i, 4].Clear();
+                                    worksheet.Cells[i, 5].Clear();
+                                    worksheet.Cells[i, 6].Clear();
+
 
                                     // Kiểm tra xem có phải dòng cuối không
                                     if (i == Convert.ToUInt32(worksheet.Dimension.End.Row) + 1)
@@ -265,6 +268,8 @@ namespace Quan_Ly
                                             worksheet.Cells[j, 2].Value = worksheet.Cells[j + 1, 2].Value;
                                             worksheet.Cells[j, 3].Value = worksheet.Cells[j + 1, 3].Value;
                                             worksheet.Cells[j, 4].Value = worksheet.Cells[j + 1, 4].Value;
+                                            worksheet.Cells[j, 5].Value = worksheet.Cells[j + 1, 5].Value;
+                                            worksheet.Cells[j, 6].Value = worksheet.Cells[j + 1, 6].Value;
                                         }
 
                                         // Xóa dữ liệu ở hàng cuối cùng
@@ -429,7 +434,7 @@ namespace Quan_Ly
             }
         }
 
-        public void addNew(Panel panelNhanVien, ImageList imgList, string permission, string maNV, string password, string ten, string dienThoai, DateTimePicker ngaySinh, double Luong)
+        public void addNew(Panel panelNhanVien, ImageList imgList, string permission, string maNV, string CauHoi, string DapAn, string password, string ten, string dienThoai, DateTimePicker ngaySinh, double Luong)
         {
             try
             {
@@ -503,6 +508,10 @@ namespace Quan_Ly
                                 accountWorksheet.Cells[accountNewRow, 3].Value = permission;
                                 //Thêm ngày tên
                                 accountWorksheet.Cells[accountNewRow, 4].Value = ten;
+                                //Thêm câu hỏi
+                                accountWorksheet.Cells[accountNewRow, 5].Value = CauHoi;
+                                //Thêm đáp án
+                                accountWorksheet.Cells[accountNewRow, 6].Value = DapAn;
                                 accountPackage.Save();
                             }
                         }
