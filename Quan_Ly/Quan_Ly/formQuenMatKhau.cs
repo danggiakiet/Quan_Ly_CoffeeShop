@@ -175,7 +175,7 @@ namespace Quan_Ly
                                 if (worksheet.Cells[i, 1].Value.ToString().ToLower() == user.ToLower())
                                 {
                                     worksheet.Cells[i, 2].Value = txtMatKhauMoi.Text;
-                                    MessageBox.Show("Bạn đã cập nhập mật khẩu mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Bạn đã cập nhật mật khẩu mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     package.Save();
                                     this.Close();
                                 }
