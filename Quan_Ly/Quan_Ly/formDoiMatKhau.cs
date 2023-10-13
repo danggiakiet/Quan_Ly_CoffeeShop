@@ -13,11 +13,11 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Quan_Ly
 {
-    public partial class formQuenMatKhau : Form
+    public partial class formDoiMatKhau : Form
     {
         List<account> dsTaiKhoanMember = new List<account>();
         List<account> dsTaiKhoanAdmin = new List<account>();
-        public formQuenMatKhau()
+        public formDoiMatKhau()
         {
             InitializeComponent();
             txtCauHoi.ReadOnly = true;

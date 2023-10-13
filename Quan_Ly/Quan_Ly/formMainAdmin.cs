@@ -24,18 +24,27 @@ namespace Quan_Ly
         panelNhanVien nhanVien = new panelNhanVien();
         panelThongKe thongKe = new panelThongKe();
         panelDoanhThu doanhThu = new panelDoanhThu();
+        panelBanHang banHang = new panelBanHang();
         public formMainAdmin()
         {
             InitializeComponent();
 
         }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formDoiMatKhau formDoiMatKhau = new formDoiMatKhau();
+            formDoiMatKhau.ShowDialog();
+        }
         private void formMainAdmin_Load(object sender, EventArgs e)
         {
+            dateTime.Text = DateTime.Today.ToString("dd/MM/yyyy");
             khoHang.Main(panelKhoHang, imageIconList);
             nhanVien.Main(panelMember, imageIconList, "member");
             nhanVien.Main(panelAdmin, imageIconList, "admin");
             cbbMonth.SelectedIndex = Convert.ToInt32(DateTime.Today.Month - 1);
             dateTime_PanelDoanhThu_ValueChanged(sender, e);
+            banHang.Main(Convert.ToDateTime(dateTime.Text), panelBanHang_Menu, panelBanHang_Total, txtTotalPrice,imageIconList);
+
         }
         #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
@@ -184,9 +193,13 @@ namespace Quan_Ly
         }
         #endregion
 
+        #region Panel DoanhThu
         private void dateTime_PanelDoanhThu_ValueChanged(object sender, EventArgs e)
         {
             doanhThu.Main(panelDoanhThu_SanPham, txtPanelDoanhThu_TienLoi, txtPanelDoanhThu_TienVon, dateTime_PanelDoanhThu.Value);
+            doanhThu.LoadDataFromExcel_TienLoi_TienVon(dateTime_PanelDoanhThu.Value.Month, txt_PanelDoanhThu_TongLoiThang, txt_PanelDoanhThu_TongVonThang);
         }
+        #endregion
+
     }
 }

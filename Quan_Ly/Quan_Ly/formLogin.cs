@@ -19,7 +19,7 @@ namespace Quan_Ly
         List<account> dsAccountsMember = new List<account>();
         List<account> dsAccountsAdmin = new List<account>();
         formMain formMain = new formMain();
-        private formQuenMatKhau formQuenMatKhau = null; // Khai báo biến để theo dõi formQuenMatKhau
+        private formDoiMatKhau formDoiMatKhau = null; // Khai báo biến để theo dõi formQuenMatKhau
         formMainAdmin formMainAdmin = new formMainAdmin();
 
         public formLogin()
@@ -135,15 +135,15 @@ namespace Quan_Ly
 
         private void linkLabelQuenMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (formQuenMatKhau == null || formQuenMatKhau.IsDisposed)
+            if (formDoiMatKhau == null || formDoiMatKhau.IsDisposed)
             {
                 // Nếu formQuenMatKhau chưa được tạo hoặc đã bị giải phóng, tạo một mới
-                formQuenMatKhau = new formQuenMatKhau();
-                formQuenMatKhau.FormClosed += (s, args) => { this.Show(); formLogin_Load(sender ,e); }; // Thêm sự kiện FormClosed cho formQuenMatKhau
+                formDoiMatKhau = new formDoiMatKhau();
+                formDoiMatKhau.FormClosed += (s, args) => { this.Show(); formLogin_Load(sender ,e); }; // Thêm sự kiện FormClosed cho formQuenMatKhau
             }
 
             this.Hide();
-            formQuenMatKhau.Show();
+            formDoiMatKhau.Show();
 
         }
     }

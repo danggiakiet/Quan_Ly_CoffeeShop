@@ -1,6 +1,6 @@
 ﻿namespace Quan_Ly
 {
-    partial class formQuenMatKhau
+    partial class formDoiMatKhau
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formQuenMatKhau));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formDoiMatKhau));
             this.label1 = new System.Windows.Forms.Label();
             this.labelTaiKhoan = new System.Windows.Forms.Label();
             this.txtCheckTaiKhoan = new System.Windows.Forms.TextBox();
@@ -51,9 +51,9 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(155, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 31);
+            this.label1.Size = new System.Drawing.Size(174, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Quên mật khẩu";
+            this.label1.Text = "Đổi mật khẩu";
             // 
             // labelTaiKhoan
             // 
@@ -191,7 +191,7 @@
             this.labelMatKhau.Text = "Mật khẩu :";
             this.labelMatKhau.Visible = false;
             // 
-            // formQuenMatKhau
+            // formDoiMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -211,9 +211,9 @@
             this.Controls.Add(this.labelTaiKhoan);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "formQuenMatKhau";
+            this.Name = "formDoiMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quên mật khẩu";
+            this.Text = "Đổi mật khẩu";
             this.Load += new System.EventHandler(this.formQuenMatKhau_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

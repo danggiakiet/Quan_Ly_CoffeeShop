@@ -42,5 +42,5 @@ D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formMainAdmin.resources
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formLogin.resources
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formMain.resources
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formMainAdmin.resources
-D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formQuenMatKhau.resources
 D:\Hoc Tap\2023\PhatTrienUngDung\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formQuenMatKhau.resources
+D:\Quan_Ly_CoffeeShop\Quan_Ly\Quan_Ly\obj\Debug\Quan_Ly.formDoiMatKhau.resources

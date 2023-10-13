@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,32 @@ namespace Quan_Ly
             LoadDataFromExcel(ngay.Month, ngay.Day, tienLoi, tienVon);
             renderControlsToPanel(panelDoanhThu);
         }
+        public void LoadDataFromExcel_TienLoi_TienVon(int month,TextBox tienLoiThang, TextBox tienVonThang)
+        {
+            try
+            {
+                //Mở file excel
+                using(var package = new ExcelPackage(new FileInfo("data/Doanh Thu.xlsx")))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[month + 1];
+                    int lastRow = worksheet.Dimension.End.Row;
+                    int lastColumn = worksheet.Dimension.End.Column;
+                    // Lấy giá trị từ ô cột kế cuối trong sheet
+                    int tongLoiThang = Convert.ToInt32(worksheet.Cells[lastRow, lastColumn - 1].Value);
+                    tienLoiThang.Text = tongLoiThang.ToString("N0") + " đ";
+
+                    // Lấy giá trị từ ô cuối cùng trong sheet
+                    int tongVonThang = Convert.ToInt32(worksheet.Cells[lastRow, lastColumn].Value);
+                    tienVonThang.Text = tongVonThang.ToString("N0") + " đ";
+                }    
+            }
+            catch (Exception ex) 
+            { 
+                MessageBox.Show("Lỗi khi đọc dữ liệu từ file excel: dòng 29 - 41", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tienLoiThang.Text = "0";
+                tienVonThang.Text = "0";
+            }
+        }
         private void LoadDataFromExcel(int month, int day, TextBox tienLoi, TextBox tienVon)
         {
             //Làm mới danh sách
@@ -31,18 +58,21 @@ namespace Quan_Ly
                 using (var package = new ExcelPackage(new FileInfo("data/Doanh Thu.xlsx")))
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[month + 1];
-                    // Lấy giá trị từ ô cột kế cuối trong sheet
-                    var tongLoiCell = worksheet.Cells[day + 2, worksheet.Dimension.End.Column - 1].Value;
-                    if (tongLoiCell != null && int.TryParse(tongLoiCell.ToString(), out int parsedTongLoi))
+                    try
                     {
-                        tienLoi.Text = parsedTongLoi.ToString();
-                    }
+                        // Lấy giá trị từ ô cột kế cuối trong sheet
+                        int tongLoi = Convert.ToInt32(worksheet.Cells[day + 2, worksheet.Dimension.End.Column - 1].Value);
+                        tienLoi.Text = tongLoi.ToString("N0") + " đ";
 
-                    // Lấy giá trị từ ô cuối cùng trong sheet
-                    var tongVonCell = worksheet.Cells[day + 2, worksheet.Dimension.End.Column].Value;
-                    if (tongVonCell != null && int.TryParse(tongVonCell.ToString(), out int parsedTongVon))
-                    {
-                        tienVon.Text = parsedTongVon.ToString();
+                        // Lấy giá trị từ ô cuối cùng trong sheet
+                        int tongVon = Convert.ToInt32(worksheet.Cells[day + 2, worksheet.Dimension.End.Column].Value);
+                        tienVon.Text = tongVon.ToString("N0") + " đ";
+                    }
+                    catch (Exception ex) 
+                    { 
+                        MessageBox.Show("Lỗi khi lấy dữ liệu từ file excel: dòng 36-42 - " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tienLoi.Text = "0";
+                        tienVon.Text = "0";
                     }
                     for (int i = 2; i <= worksheet.Dimension.End.Column - 3; i++)
                     {
@@ -78,7 +108,7 @@ namespace Quan_Ly
             catch (Exception ex)
             {
                 //Thông báo lỗi
-                MessageBox.Show("Lỗi khi đọc dữ liệu từ Excel: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi đọc dữ liệu từ Excel: dòng 30 - 74, " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
@@ -103,6 +133,7 @@ namespace Quan_Ly
             txtTenDoUong.ReadOnly = true;
 
             TextBox txtSoLuong = ControlPanel.CreateTextBox("txtSoLuong", doUong.soLuongDaBan.ToString(), HorizontalAlignment.Center, x + 290, y, 80, 35);
+            txtSoLuong.ReadOnly = true;
 
             panelDoanhThu.Controls.Add(txtTenDoUong);
             panelDoanhThu.Controls.Add(txtSoLuong);

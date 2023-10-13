@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="account.cs" />
     <Compile Include="ControlPanel.cs" />
+    <Compile Include="doUongMenu.cs" />
     <Compile Include="doUongThongKe.cs" />
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
@@ -94,14 +95,15 @@
     <Compile Include="formMainAdmin.Designer.cs">
       <DependentUpon>formMainAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="formQuenMatKhau.cs">
+    <Compile Include="formDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formQuenMatKhau.Designer.cs">
-      <DependentUpon>formQuenMatKhau.cs</DependentUpon>
+    <Compile Include="formDoiMatKhau.Designer.cs">
+      <DependentUpon>formDoiMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="nguyenLieu.cs" />
     <Compile Include="nhanVien.cs" />
+    <Compile Include="panelBanHang.cs" />
     <Compile Include="panelDoanhThu.cs" />
     <Compile Include="panelKhoHang.cs" />
     <Compile Include="panelNhanVien.cs" />
@@ -117,8 +119,8 @@
     <EmbeddedResource Include="formMainAdmin.resx">
       <DependentUpon>formMainAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formQuenMatKhau.resx">
-      <DependentUpon>formQuenMatKhau.cs</DependentUpon>
+    <EmbeddedResource Include="formDoiMatKhau.resx">
+      <DependentUpon>formDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
