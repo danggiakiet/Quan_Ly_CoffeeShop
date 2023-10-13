@@ -38,29 +38,9 @@ namespace Quan_Ly
                 //Mở file excel
                 using (var package = new ExcelPackage(new FileInfo("data/Thống Kê.xlsx")))
                 {
-                    ExcelWorksheet worksheet = null;
-                    //Duyệt tháng để mở sheet theo tháng
-                    switch (month)
-                    {
-                        case 1: { worksheet = package.Workbook.Worksheets[1]; break; }
-                        case 2: { worksheet = package.Workbook.Worksheets[2]; break; }
-                        case 3: { worksheet = package.Workbook.Worksheets[3]; break; }
-                        case 4: { worksheet = package.Workbook.Worksheets[4]; break; }
-                        case 5: { worksheet = package.Workbook.Worksheets[5]; break; }
-                        case 6: { worksheet = package.Workbook.Worksheets[6]; break; }
-                        case 7: { worksheet = package.Workbook.Worksheets[7]; break; }
-                        case 8: { worksheet = package.Workbook.Worksheets[8]; break; }
-                        case 9: { worksheet = package.Workbook.Worksheets[9]; break; }
-                        case 10: { worksheet = package.Workbook.Worksheets[10]; break; }
-                        case 11: { worksheet = package.Workbook.Worksheets[11]; break; }
-                        case 12: { worksheet = package.Workbook.Worksheets[12]; break; }
-                        default:
-                            {
-                                MessageBox.Show("Lỗi khi mở sheet thống kê theo tháng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                break;
-                            }
-                    }
-                    for (int i = 2; i < worksheet.Dimension.End.Column - 1; i++)
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[month];
+
+                    for (int i = 2; i <= worksheet.Dimension.End.Column; i++)
                     {
                         // Khởi tạo các biến để chứa các giá trị lấy từ dữ liệu theo từng cột
                         // Cột tương ứng và ô thứ 2

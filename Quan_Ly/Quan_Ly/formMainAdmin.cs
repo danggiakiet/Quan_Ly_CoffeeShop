@@ -23,6 +23,7 @@ namespace Quan_Ly
         panelKhoHang khoHang = new panelKhoHang();
         panelNhanVien nhanVien = new panelNhanVien();
         panelThongKe thongKe = new panelThongKe();
+        panelDoanhThu doanhThu = new panelDoanhThu();
         public formMainAdmin()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace Quan_Ly
             nhanVien.Main(panelMember, imageIconList, "member");
             nhanVien.Main(panelAdmin, imageIconList, "admin");
             cbbMonth.SelectedIndex = Convert.ToInt32(DateTime.Today.Month - 1);
+            dateTime_PanelDoanhThu_ValueChanged(sender, e);
         }
         #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
@@ -120,7 +122,7 @@ namespace Quan_Ly
                     MessageBox.Show("Số điện thoại phải là kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_TMNV_DienThoai.Clear();
                 }
-            }    
+            }
         }
 
         private void btt_PanelMember_RefreshValue_Click(object sender, EventArgs e)
@@ -184,6 +186,7 @@ namespace Quan_Ly
 
         private void dateTime_PanelDoanhThu_ValueChanged(object sender, EventArgs e)
         {
+            doanhThu.Main(panelDoanhThu_SanPham, txtPanelDoanhThu_TienLoi, txtPanelDoanhThu_TienVon, dateTime_PanelDoanhThu.Value);
         }
     }
 }

@@ -102,6 +102,7 @@
     </Compile>
     <Compile Include="nguyenLieu.cs" />
     <Compile Include="nhanVien.cs" />
+    <Compile Include="panelDoanhThu.cs" />
     <Compile Include="panelKhoHang.cs" />
     <Compile Include="panelNhanVien.cs" />
     <Compile Include="panelThongKe.cs" />
