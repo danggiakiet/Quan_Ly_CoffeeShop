@@ -19,6 +19,7 @@ namespace Quan_Ly
     public class panelBanHang
     {
         List<doUongMenu> dsMenu = new List<doUongMenu>();
+
         ControlPanel ControlPanel = new ControlPanel();
         public void Main(DateTime ngay, Panel panelBanHang, Panel panelTotal, TextBox txtTotalPrice, ImageList imageList)
         {
@@ -75,25 +76,78 @@ namespace Quan_Ly
         }
         private void renderControlsToPanel(Panel panelBanHang, Panel panelTotal, TextBox txtTotalPrice, ImageList imageList)
         {
-            //vị trí control đầu tiên
             int x = 25, y = 90, index = 1;
+            //vị trí control đầu tiên
             //duyệt dsDoUongThongKe
             foreach (doUongMenu doUong in dsMenu)
             {
-                if(index > 4)
+                if (index > 4)
                 {
                     x = 25;
                     y += 240;
                     index = 1;
-                }    
+                }
                 //Gọi hàm thêm control vào panel với các giá trị: vị trí x, vị trí y, panelDoUongThongKe
                 AddControlToPanel(x, y, doUong, panelBanHang, panelTotal, imageList, txtTotalPrice, index);
                 x += 160;
                 index++;
                 //chỉnh vị trí và stt cho control tiếp theo
             }
-        } 
-        int xPanelTotal = 10,  yPanelTotal = 80;
+        }
+        int xPanelTotal = 10, yPanelTotal = 80;
+        public void saveOrder(Panel panelTotal, int month, int day)
+        {
+            try
+            {
+                //Mở file excel
+                using (var package = new ExcelPackage(new FileInfo("data/Doanh Thu.xlsx")))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[month + 1];
+                    TextBox textBoxDoUong = new TextBox();
+                    int y = 0;
+                    foreach (Control control in panelTotal.Controls)
+                    {
+                        if (control is TextBox && control.Name == "txtTenDoUong")
+                        {
+                            textBoxDoUong.Text = ((TextBox)control).Text.ToLower();
+                            y = control.Location.Y;
+                        }
+                        if (control is NumericUpDown && (control.Location.Y == y))
+                        {
+                            for (int i = 2; i <= worksheet.Dimension.End.Column - 3; i++)
+                            {
+                                if (worksheet.Cells[2, i].Value.ToString().ToLower() == textBoxDoUong.Text.ToLower())
+                                {
+
+                                    int soLuong = Convert.ToInt32(worksheet.Cells[day + 2, i].Value) + (int)((NumericUpDown)control).Value;
+                                    worksheet.Cells[day + 2, i].Value = soLuong;
+                                    ////Sửa tổng lời ngày
+                                    //worksheet.Cells[day + 2, worksheet.Dimension.End.Column - 1].Formula = $"=B{day + 2}*'Tiền '!$E$4 + C{day + 2}*'Tiền '!$F$4 + D{day + 2}*'Tiền '!$G$4 + E{day + 2}*'Tiền '!$H$4 + F{day + 2}*'Tiền '!$I$4 + G{day + 2}*'Tiền '!$J$4 + H{day + 2}*'Tiền '!$K$4 + I{day + 2}*'Tiền '!$L$4 + J{day + 2}*'Tiền '!$M$4 + K{day + 2}*'Tiền '!$N$4 + L{day + 2}*'Tiền '!$O$4 + M{day + 2}*'Tiền '!$P$4 + N{day + 2}*'Tiền '!$Q$4";
+                                    ////Sửa tổng vốn ngày
+                                    //worksheet.Cells[day + 2, worksheet.Dimension.End.Column].Formula = $"=(B{day + 2}*'Tiền '!$E$3) + (C{day + 2}*'Tiền '!$F$3) + (D{day + 2}*'Tiền '!$G$3) + (E{day + 2}*'Tiền '!$H$3) + (F{day + 2}*'Tiền '!$I$3) + (G{day + 2}*'Tiền '!$J$3) + (H{day + 2}*'Tiền '!$K$3) + (I{day + 2}*'Tiền '!$L$3) + (J{day + 2}*'Tiền '!$M$3) + (K{day + 2}*'Tiền '!$N$3) + (L{day + 2}*'Tiền '!$O$3) + (M{day + 2}*'Tiền '!$P$3) + (N{day + 2}*'Tiền '!$Q$3)";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    package.Save();
+                    // Đóng file Excel
+                    package.Dispose();
+                    MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearPanelControls(panelTotal);
+                }
+            }
+            catch (Exception ex)
+            {
+                //Thông báo lỗi
+                MessageBox.Show("Lỗi khi đọc dữ liệu từ Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            finally
+            {
+                yPanelTotal = 80;
+            }
+        }
         private void addControlToPanelTotal(doUongMenu doUong, Panel panelTotal, ImageList imageList, TextBox txtTotalPrice)
         {
             TextBox txtTenDoUong = ControlPanel.CreateTextBox("txtTenDoUong", doUong.Ten, HorizontalAlignment.Left, xPanelTotal, yPanelTotal, 220, 35);
@@ -134,10 +188,15 @@ namespace Quan_Ly
                 TotalPrice(panelTotal, txtTotalPrice);
             };
 
-            bttDelete.Click += (sender, e) => 
-            { 
-                ClearPanelTotalControls(panelTotal, bttDelete.Location.Y); yPanelTotal -= 40;
-                TotalPrice(panelTotal, txtTotalPrice);
+            bttDelete.Click += (sender, e) =>
+            {
+                DialogResult result = MessageBox.Show("Bạn có muốn thực hiện hành động này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    ClearPanelTotal_IndexControl(panelTotal, bttDelete.Location.Y);
+                    yPanelTotal -= 40;
+                    TotalPrice(panelTotal, txtTotalPrice);
+                }
             };
         }
         private void AddControlToPanel(int x, int y, doUongMenu doUong, Panel panelBanHang, Panel panelTotal, ImageList imageList, TextBox txtTotalPrice, int index)
@@ -189,7 +248,7 @@ namespace Quan_Ly
                 control.Dispose();
             }
         }
-        private void ClearPanelTotalControls(Panel panelTotal, int y)
+        private void ClearPanelTotal_IndexControl(Panel panelTotal, int y)
         {
             //tạo danh sách chứa controls cần xóa, các controls cần xóa là Richtextbox, Label
             List<Control> controlsToRemove = panelTotal.Controls.OfType<Control>().Where(control =>
@@ -231,6 +290,5 @@ namespace Quan_Ly
             // Cập nhật giá trị txtTotalPrice
             txtTotalPrice.Text = totalPrice.ToString("N0");
         }
-
     }
 }

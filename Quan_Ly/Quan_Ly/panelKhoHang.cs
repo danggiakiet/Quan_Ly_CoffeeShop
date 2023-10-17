@@ -63,6 +63,8 @@ namespace Quan_Ly
                         // Thêm biến vừa tạo vào dsNguyenLieu
                         dsNguyenLieu.Add(nLieu);
                     }
+                    // Đóng file Excel
+                    package.Dispose();
                 }
             }
             catch (Exception ex)
@@ -209,6 +211,8 @@ namespace Quan_Ly
                         i++;
                     }
                     package.Save();
+                    // Đóng file Excel
+                    package.Dispose();
                     MessageBox.Show("Lưu thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -265,6 +269,8 @@ namespace Quan_Ly
                         worksheet.Cells[newRow, 6].Formula = "C" + newRow + "*D" + newRow; // Sử dụng công thức Excel để tính tổng giá
                         package.Save();
                         MessageBox.Show("Thêm mới thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Đóng file Excel
+                        package.Dispose();
                     }
                 }
             }
@@ -365,6 +371,8 @@ namespace Quan_Ly
 
                         // Lưu tệp sau khi hoàn thành tất cả thay đổi
                         package.Save();
+                        // Đóng file Excel
+                        package.Dispose();
                     }
                 }
                 catch (Exception ex)

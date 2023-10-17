@@ -36,11 +36,10 @@ namespace Quan_Ly
             try
             {
                 //Mở file excel
-                using (var package = new ExcelPackage(new FileInfo("data/Thống Kê.xlsx")))
+                using (var package = new ExcelPackage(new FileInfo("data/Doanh Thu.xlsx")))
                 {
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets[month];
-
-                    for (int i = 2; i <= worksheet.Dimension.End.Column; i++)
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[month+1];
+                    for (int i = 2; i <= worksheet.Dimension.End.Column - 2; i++)
                     {
                         // Khởi tạo các biến để chứa các giá trị lấy từ dữ liệu theo từng cột
                         // Cột tương ứng và ô thứ 2
@@ -69,8 +68,8 @@ namespace Quan_Ly
                             dsDoUongThongKe.Add(doUongThongKe);
                         }
                     }
-
-
+                    // Đóng file Excel
+                    package.Dispose();
                 }
             }
             catch (Exception ex)

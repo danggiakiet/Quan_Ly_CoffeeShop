@@ -14,6 +14,7 @@ using OfficeOpenXml;
 using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Quan_Ly
 {
@@ -25,6 +26,7 @@ namespace Quan_Ly
         panelThongKe thongKe = new panelThongKe();
         panelDoanhThu doanhThu = new panelDoanhThu();
         panelBanHang banHang = new panelBanHang();
+        panelMenu menu = new panelMenu();
         public formMainAdmin()
         {
             InitializeComponent();
@@ -37,13 +39,15 @@ namespace Quan_Ly
         }
         private void formMainAdmin_Load(object sender, EventArgs e)
         {
+            bttBanHang.Visible = false;
             dateTime.Text = DateTime.Today.ToString("dd/MM/yyyy");
             khoHang.Main(panelKhoHang, imageIconList);
             nhanVien.Main(panelMember, imageIconList, "member");
             nhanVien.Main(panelAdmin, imageIconList, "admin");
             cbbMonth.SelectedIndex = Convert.ToInt32(DateTime.Today.Month - 1);
             dateTime_PanelDoanhThu_ValueChanged(sender, e);
-            banHang.Main(Convert.ToDateTime(dateTime.Text), panelBanHang_Menu, panelBanHang_Total, txtTotalPrice,imageIconList);
+            banHang.Main(Convert.ToDateTime(dateTime.Text), panelBanHang_Menu, panelBanHang_Total, txtTotalPrice, imageIconList);
+            menu.Main(panelMenu, imageIconList);
 
         }
         #region PanelKhoHang
@@ -200,6 +204,83 @@ namespace Quan_Ly
             doanhThu.LoadDataFromExcel_TienLoi_TienVon(dateTime_PanelDoanhThu.Value.Month, txt_PanelDoanhThu_TongLoiThang, txt_PanelDoanhThu_TongVonThang);
         }
         #endregion
+
+        #region Panel BanHang
+        private void checkPanelBanHang_Total(Panel panelTotal)
+        {
+            bool hasTextBox = false;
+
+            foreach (Control control in panelTotal.Controls)
+            {
+                if (control is TextBox)
+                {
+                    hasTextBox = true;
+                    break;
+                }
+            }
+
+            bttBanHang.Visible = hasTextBox;
+        }
+        private void panelBanHang_Total_Paint(object sender, PaintEventArgs e)
+        {
+            checkPanelBanHang_Total(panelBanHang_Total);
+        }
+        private void bttBanHang_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thực hiện hành động này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                banHang.saveOrder(panelBanHang_Total, DateTime.Today.Month, DateTime.Today.Day);
+                txtTotalPrice.Clear();
+                dateTime_PanelDoanhThu_ValueChanged(sender, e);
+                thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
+            }
+        }
+        #endregion
+
+        #region Menu
+        private string OpenFileWithDefaultPath()
+        {
+            // Tạo một đối tượng OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // Thiết lập đường dẫn mặc định là ổ C
+            openFileDialog.InitialDirectory = "C:\\";
+
+            // Thiết lập các thuộc tính khác cho hộp thoại mở tệp tin
+            openFileDialog.Title = "Chọn tệp tin";
+            openFileDialog.Filter = "Hình ảnh|*.jpg;*.jpeg;*.png;*.gif;*.bmp|Tất cả các tệp tin|*.*";
+
+
+            // Hiển thị hộp thoại mở tệp tin và kiểm tra kết quả
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Đường dẫn tới tệp tin mà người dùng đã chọn
+                string selectedFilePath = openFileDialog.FileName;
+
+                // Kiểm tra định dạng của tệp
+                string fileExtension = System.IO.Path.GetExtension(selectedFilePath).ToLower();
+                if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png")
+                {
+                    // Nếu tệp là hình ảnh, trả về đường dẫn
+                    return selectedFilePath;
+                }
+                else
+                {
+                    MessageBox.Show("File được chọn phải có định dạng hình ảnh: .jpg, .jpeg, .png", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+
+            return null; // Trả về null nếu người dùng không chọn tệp tin
+        }
+        private void linkLabelOpenFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string file_path = OpenFileWithDefaultPath();
+            txtMenu_imagePath.Text = file_path;
+        }
+        #endregion
+
 
     }
 }

@@ -43,7 +43,7 @@ namespace Quan_Ly
             }
             catch (Exception ex) 
             { 
-                MessageBox.Show("Lỗi khi đọc dữ liệu từ file excel: dòng 29 - 41", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi đọc dữ liệu từ file excel: " + ex, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tienLoiThang.Text = "0";
                 tienVonThang.Text = "0";
             }
@@ -55,7 +55,8 @@ namespace Quan_Ly
             try
             {
                 //Mở file excel
-                using (var package = new ExcelPackage(new FileInfo("data/Doanh Thu.xlsx")))
+                using (var package = new ExcelPackage(new FileInfo("data/Doanh Thu" +
+                    ".xlsx")))
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[month + 1];
                     try
@@ -70,7 +71,7 @@ namespace Quan_Ly
                     }
                     catch (Exception ex) 
                     { 
-                        MessageBox.Show("Lỗi khi lấy dữ liệu từ file excel: dòng 36-42 - " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Lỗi khi lấy dữ liệu từ file excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tienLoi.Text = "0";
                         tienVon.Text = "0";
                     }
@@ -103,12 +104,14 @@ namespace Quan_Ly
                             dsDoUongThongKe.Add(doUongThongKe);
                         }
                     }
+                    // Đóng file Excel
+                    package.Dispose();
                 }
             }
             catch (Exception ex)
             {
                 //Thông báo lỗi
-                MessageBox.Show("Lỗi khi đọc dữ liệu từ Excel: dòng 30 - 74, " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi đọc dữ liệu từ Excel: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }

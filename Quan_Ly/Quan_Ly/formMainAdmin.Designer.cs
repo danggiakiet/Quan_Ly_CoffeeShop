@@ -107,6 +107,10 @@
             this.label32 = new System.Windows.Forms.Label();
             this.tabDoanhThu = new System.Windows.Forms.TabPage();
             this.panelDoanhThu = new System.Windows.Forms.Panel();
+            this.txt_PanelDoanhThu_TongVonThang = new System.Windows.Forms.TextBox();
+            this.txt_PanelDoanhThu_TongLoiThang = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
             this.panelDoanhThu_SanPham = new System.Windows.Forms.Panel();
             this.label49 = new System.Windows.Forms.Label();
             this.txtPanelDoanhThu_TienVon = new System.Windows.Forms.TextBox();
@@ -117,6 +121,13 @@
             this.dateTime_PanelDoanhThu = new System.Windows.Forms.DateTimePicker();
             this.label50 = new System.Windows.Forms.Label();
             this.tabBanHang = new System.Windows.Forms.TabPage();
+            this.bttBanHang = new System.Windows.Forms.Button();
+            this.label61 = new System.Windows.Forms.Label();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
+            this.panelBanHang_Menu = new System.Windows.Forms.Panel();
+            this.label58 = new System.Windows.Forms.Label();
+            this.panelBanHang_Total = new System.Windows.Forms.Panel();
+            this.label60 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl = new Sunny.UI.UITabControl();
             this.tabKhoHang = new System.Windows.Forms.TabPage();
@@ -147,19 +158,27 @@
             this.bttRefeshPanelKhoHang = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.txt_PanelDoanhThu_TongVonThang = new System.Windows.Forms.TextBox();
-            this.txt_PanelDoanhThu_TongLoiThang = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.panelBanHang_Menu = new System.Windows.Forms.Panel();
-            this.panelBanHang_Total = new System.Windows.Forms.Panel();
-            this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.dateTime = new System.Windows.Forms.MaskedTextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.txtTotalPrice = new System.Windows.Forms.TextBox();
-            this.label61 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.label62 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtMenu_txtTen = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtMenu_imagePath = new System.Windows.Forms.TextBox();
+            this.txtMenu_txtTienVon = new System.Windows.Forms.TextBox();
+            this.txtMenu_txtTienLoi = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.txtMenu_txtTienGia = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.linkLabelOpenFile = new System.Windows.Forms.LinkLabel();
             this.tabNhanVien.SuspendLayout();
             this.uiTabControlNhanVien.SuspendLayout();
             this.tabMember.SuspendLayout();
@@ -176,14 +195,17 @@
             this.panelDoanhThu.SuspendLayout();
             this.panelDoanhThu_SanPham.SuspendLayout();
             this.tabBanHang.SuspendLayout();
+            this.panelBanHang_Menu.SuspendLayout();
+            this.panelBanHang_Total.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabKhoHang.SuspendLayout();
             this.panelKhoHang.SuspendLayout();
             this.panelThemMoiKhoHang.SuspendLayout();
             this.panelChucNangKhoHang.SuspendLayout();
-            this.panelBanHang_Menu.SuspendLayout();
-            this.panelBanHang_Total.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageIconList
@@ -200,6 +222,7 @@
             this.imageIconList.Images.SetKeyName(7, "save.png");
             this.imageIconList.Images.SetKeyName(8, "add-circle.png");
             this.imageIconList.Images.SetKeyName(9, "trash-outline.png");
+            this.imageIconList.Images.SetKeyName(10, "grid.png");
             // 
             // tabNhanVien
             // 
@@ -1032,6 +1055,44 @@
             this.panelDoanhThu.Size = new System.Drawing.Size(1215, 460);
             this.panelDoanhThu.TabIndex = 2;
             // 
+            // txt_PanelDoanhThu_TongVonThang
+            // 
+            this.txt_PanelDoanhThu_TongVonThang.Location = new System.Drawing.Point(991, 250);
+            this.txt_PanelDoanhThu_TongVonThang.Name = "txt_PanelDoanhThu_TongVonThang";
+            this.txt_PanelDoanhThu_TongVonThang.ReadOnly = true;
+            this.txt_PanelDoanhThu_TongVonThang.Size = new System.Drawing.Size(187, 35);
+            this.txt_PanelDoanhThu_TongVonThang.TabIndex = 19;
+            this.txt_PanelDoanhThu_TongVonThang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_PanelDoanhThu_TongLoiThang
+            // 
+            this.txt_PanelDoanhThu_TongLoiThang.Location = new System.Drawing.Point(991, 148);
+            this.txt_PanelDoanhThu_TongLoiThang.Name = "txt_PanelDoanhThu_TongLoiThang";
+            this.txt_PanelDoanhThu_TongLoiThang.ReadOnly = true;
+            this.txt_PanelDoanhThu_TongLoiThang.Size = new System.Drawing.Size(187, 35);
+            this.txt_PanelDoanhThu_TongLoiThang.TabIndex = 18;
+            this.txt_PanelDoanhThu_TongLoiThang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(990, 223);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(187, 24);
+            this.label56.TabIndex = 17;
+            this.label56.Text = "Tiền vốn theo tháng";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(1000, 121);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(176, 24);
+            this.label57.TabIndex = 16;
+            this.label57.Text = "Tiền lời theo tháng";
+            // 
             // panelDoanhThu_SanPham
             // 
             this.panelDoanhThu_SanPham.AutoScroll = true;
@@ -1124,6 +1185,7 @@
             this.tabBanHang.AutoScroll = true;
             this.tabBanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
             this.tabBanHang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabBanHang.Controls.Add(this.bttBanHang);
             this.tabBanHang.Controls.Add(this.label61);
             this.tabBanHang.Controls.Add(this.txtTotalPrice);
             this.tabBanHang.Controls.Add(this.panelBanHang_Menu);
@@ -1135,6 +1197,80 @@
             this.tabBanHang.Size = new System.Drawing.Size(1245, 485);
             this.tabBanHang.TabIndex = 4;
             this.tabBanHang.Text = "Bán Hàng";
+            // 
+            // bttBanHang
+            // 
+            this.bttBanHang.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttBanHang.Location = new System.Drawing.Point(1125, 353);
+            this.bttBanHang.Name = "bttBanHang";
+            this.bttBanHang.Size = new System.Drawing.Size(101, 35);
+            this.bttBanHang.TabIndex = 13;
+            this.bttBanHang.Text = "Xong";
+            this.bttBanHang.UseVisualStyleBackColor = true;
+            this.bttBanHang.Click += new System.EventHandler(this.bttBanHang_Click);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(888, 309);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(118, 26);
+            this.label61.TabIndex = 12;
+            this.label61.Text = "Tổng cộng";
+            // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPrice.Location = new System.Drawing.Point(1012, 300);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.Size = new System.Drawing.Size(214, 35);
+            this.txtTotalPrice.TabIndex = 11;
+            this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // panelBanHang_Menu
+            // 
+            this.panelBanHang_Menu.AutoScroll = true;
+            this.panelBanHang_Menu.BackColor = System.Drawing.Color.White;
+            this.panelBanHang_Menu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelBanHang_Menu.Controls.Add(this.label58);
+            this.panelBanHang_Menu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelBanHang_Menu.Location = new System.Drawing.Point(15, 10);
+            this.panelBanHang_Menu.Name = "panelBanHang_Menu";
+            this.panelBanHang_Menu.Size = new System.Drawing.Size(685, 460);
+            this.panelBanHang_Menu.TabIndex = 9;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(286, 13);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(135, 55);
+            this.label58.TabIndex = 1;
+            this.label58.Text = "Menu";
+            // 
+            // panelBanHang_Total
+            // 
+            this.panelBanHang_Total.AutoScroll = true;
+            this.panelBanHang_Total.BackColor = System.Drawing.Color.White;
+            this.panelBanHang_Total.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelBanHang_Total.Controls.Add(this.label60);
+            this.panelBanHang_Total.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelBanHang_Total.Location = new System.Drawing.Point(706, 10);
+            this.panelBanHang_Total.Name = "panelBanHang_Total";
+            this.panelBanHang_Total.Size = new System.Drawing.Size(520, 284);
+            this.panelBanHang_Total.TabIndex = 10;
+            this.panelBanHang_Total.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBanHang_Total_Paint);
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(225, 13);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(136, 55);
+            this.label60.TabIndex = 2;
+            this.label60.Text = "Order";
             // 
             // pictureBox1
             // 
@@ -1152,6 +1288,7 @@
             this.tabControl.Controls.Add(this.tabThongKe);
             this.tabControl.Controls.Add(this.tabDoanhThu);
             this.tabControl.Controls.Add(this.tabBanHang);
+            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
@@ -1173,6 +1310,7 @@
             this.tabControl.TabSelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.tabControl.TabSelectedHighColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
             this.tabControl.TabUnSelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.tabControl.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // tabKhoHang
             // 
@@ -1473,44 +1611,6 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "Refresh :";
             // 
-            // txt_PanelDoanhThu_TongVonThang
-            // 
-            this.txt_PanelDoanhThu_TongVonThang.Location = new System.Drawing.Point(991, 250);
-            this.txt_PanelDoanhThu_TongVonThang.Name = "txt_PanelDoanhThu_TongVonThang";
-            this.txt_PanelDoanhThu_TongVonThang.ReadOnly = true;
-            this.txt_PanelDoanhThu_TongVonThang.Size = new System.Drawing.Size(187, 35);
-            this.txt_PanelDoanhThu_TongVonThang.TabIndex = 19;
-            this.txt_PanelDoanhThu_TongVonThang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_PanelDoanhThu_TongLoiThang
-            // 
-            this.txt_PanelDoanhThu_TongLoiThang.Location = new System.Drawing.Point(991, 148);
-            this.txt_PanelDoanhThu_TongLoiThang.Name = "txt_PanelDoanhThu_TongLoiThang";
-            this.txt_PanelDoanhThu_TongLoiThang.ReadOnly = true;
-            this.txt_PanelDoanhThu_TongLoiThang.Size = new System.Drawing.Size(187, 35);
-            this.txt_PanelDoanhThu_TongLoiThang.TabIndex = 18;
-            this.txt_PanelDoanhThu_TongLoiThang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(990, 223);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(187, 24);
-            this.label56.TabIndex = 17;
-            this.label56.Text = "Tiền vốn theo tháng";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(1000, 121);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(176, 24);
-            this.label57.TabIndex = 16;
-            this.label57.Text = "Tiền lời theo tháng";
-            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -1522,40 +1622,6 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Đổi mật khẩu";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // panelBanHang_Menu
-            // 
-            this.panelBanHang_Menu.AutoScroll = true;
-            this.panelBanHang_Menu.BackColor = System.Drawing.Color.White;
-            this.panelBanHang_Menu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelBanHang_Menu.Controls.Add(this.label58);
-            this.panelBanHang_Menu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelBanHang_Menu.Location = new System.Drawing.Point(15, 10);
-            this.panelBanHang_Menu.Name = "panelBanHang_Menu";
-            this.panelBanHang_Menu.Size = new System.Drawing.Size(685, 460);
-            this.panelBanHang_Menu.TabIndex = 9;
-            // 
-            // panelBanHang_Total
-            // 
-            this.panelBanHang_Total.AutoScroll = true;
-            this.panelBanHang_Total.BackColor = System.Drawing.Color.White;
-            this.panelBanHang_Total.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelBanHang_Total.Controls.Add(this.label60);
-            this.panelBanHang_Total.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelBanHang_Total.Location = new System.Drawing.Point(706, 10);
-            this.panelBanHang_Total.Name = "panelBanHang_Total";
-            this.panelBanHang_Total.Size = new System.Drawing.Size(520, 284);
-            this.panelBanHang_Total.TabIndex = 10;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(286, 13);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(135, 55);
-            this.label58.TabIndex = 1;
-            this.label58.Text = "Menu";
             // 
             // label59
             // 
@@ -1580,33 +1646,195 @@
             this.dateTime.TabIndex = 8;
             this.dateTime.ValidatingType = typeof(System.DateTime);
             // 
-            // label60
+            // tabPage1
             // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(225, 13);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(136, 55);
-            this.label60.TabIndex = 2;
-            this.label60.Text = "Order";
+            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.panelMenu);
+            this.tabPage1.ImageIndex = 10;
+            this.tabPage1.Location = new System.Drawing.Point(0, 40);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1245, 485);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "Menu";
             // 
-            // txtTotalPrice
+            // panelMenu
             // 
-            this.txtTotalPrice.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPrice.Location = new System.Drawing.Point(1012, 300);
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.Size = new System.Drawing.Size(214, 35);
-            this.txtTotalPrice.TabIndex = 11;
-            this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.panelMenu.AutoScroll = true;
+            this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMenu.Controls.Add(this.label62);
+            this.panelMenu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelMenu.Location = new System.Drawing.Point(15, 10);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(685, 460);
+            this.panelMenu.TabIndex = 10;
             // 
-            // label61
+            // label62
             // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(888, 309);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(118, 26);
-            this.label61.TabIndex = 12;
-            this.label61.Text = "Tổng cộng";
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(286, 13);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(135, 55);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "Menu";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.linkLabelOpenFile);
+            this.panel1.Controls.Add(this.txtMenu_txtTen);
+            this.panel1.Controls.Add(this.label63);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.txtMenu_imagePath);
+            this.panel1.Controls.Add(this.txtMenu_txtTienVon);
+            this.panel1.Controls.Add(this.txtMenu_txtTienLoi);
+            this.panel1.Controls.Add(this.label64);
+            this.panel1.Controls.Add(this.label65);
+            this.panel1.Controls.Add(this.txtMenu_txtTienGia);
+            this.panel1.Controls.Add(this.label66);
+            this.panel1.Controls.Add(this.label67);
+            this.panel1.Controls.Add(this.label68);
+            this.panel1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(736, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(451, 382);
+            this.panel1.TabIndex = 11;
+            // 
+            // txtMenu_txtTen
+            // 
+            this.txtMenu_txtTen.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMenu_txtTen.Location = new System.Drawing.Point(121, 59);
+            this.txtMenu_txtTen.Name = "txtMenu_txtTen";
+            this.txtMenu_txtTen.Size = new System.Drawing.Size(226, 32);
+            this.txtMenu_txtTen.TabIndex = 19;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(3, 64);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(61, 27);
+            this.label63.TabIndex = 18;
+            this.label63.Text = "Tên :";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.ImageIndex = 6;
+            this.button1.ImageList = this.imageIconList;
+            this.button1.Location = new System.Drawing.Point(295, 317);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 38);
+            this.button1.TabIndex = 5;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.ImageIndex = 8;
+            this.button2.ImageList = this.imageIconList;
+            this.button2.Location = new System.Drawing.Point(195, 317);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 38);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Thêm";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // txtMenu_imagePath
+            // 
+            this.txtMenu_imagePath.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMenu_imagePath.Location = new System.Drawing.Point(121, 261);
+            this.txtMenu_imagePath.Name = "txtMenu_imagePath";
+            this.txtMenu_imagePath.ReadOnly = true;
+            this.txtMenu_imagePath.Size = new System.Drawing.Size(226, 29);
+            this.txtMenu_imagePath.TabIndex = 16;
+            // 
+            // txtMenu_txtTienVon
+            // 
+            this.txtMenu_txtTienVon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMenu_txtTienVon.Location = new System.Drawing.Point(122, 210);
+            this.txtMenu_txtTienVon.Name = "txtMenu_txtTienVon";
+            this.txtMenu_txtTienVon.Size = new System.Drawing.Size(226, 32);
+            this.txtMenu_txtTienVon.TabIndex = 15;
+            // 
+            // txtMenu_txtTienLoi
+            // 
+            this.txtMenu_txtTienLoi.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMenu_txtTienLoi.Location = new System.Drawing.Point(122, 160);
+            this.txtMenu_txtTienLoi.Name = "txtMenu_txtTienLoi";
+            this.txtMenu_txtTienLoi.Size = new System.Drawing.Size(226, 32);
+            this.txtMenu_txtTienLoi.TabIndex = 14;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(3, 265);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(112, 27);
+            this.label64.TabIndex = 13;
+            this.label64.Text = "Hình ảnh :";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(3, 215);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(108, 27);
+            this.label65.TabIndex = 12;
+            this.label65.Text = "Tiền vốn :";
+            // 
+            // txtMenu_txtTienGia
+            // 
+            this.txtMenu_txtTienGia.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMenu_txtTienGia.Location = new System.Drawing.Point(122, 110);
+            this.txtMenu_txtTienGia.Name = "txtMenu_txtTienGia";
+            this.txtMenu_txtTienGia.Size = new System.Drawing.Size(226, 32);
+            this.txtMenu_txtTienGia.TabIndex = 11;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(116, 16);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(133, 31);
+            this.label66.TabIndex = 10;
+            this.label66.Text = "Thêm mới";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(3, 165);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(97, 27);
+            this.label67.TabIndex = 2;
+            this.label67.Text = "Tiền lời :";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(3, 115);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(58, 27);
+            this.label68.TabIndex = 1;
+            this.label68.Text = "Giá :";
+            // 
+            // linkLabelOpenFile
+            // 
+            this.linkLabelOpenFile.AutoSize = true;
+            this.linkLabelOpenFile.Location = new System.Drawing.Point(353, 263);
+            this.linkLabelOpenFile.Name = "linkLabelOpenFile";
+            this.linkLabelOpenFile.Size = new System.Drawing.Size(87, 27);
+            this.linkLabelOpenFile.TabIndex = 20;
+            this.linkLabelOpenFile.TabStop = true;
+            this.linkLabelOpenFile.Text = "Tìm file";
+            this.linkLabelOpenFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenFile_LinkClicked);
             // 
             // formMainAdmin
             // 
@@ -1620,6 +1848,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "formMainAdmin";
             this.Text = "Tròn Coffee Shop";
+            this.TransparencyKey = System.Drawing.Color.Snow;
             this.Load += new System.EventHandler(this.formMainAdmin_Load);
             this.tabNhanVien.ResumeLayout(false);
             this.uiTabControlNhanVien.ResumeLayout(false);
@@ -1647,6 +1876,10 @@
             this.panelDoanhThu_SanPham.PerformLayout();
             this.tabBanHang.ResumeLayout(false);
             this.tabBanHang.PerformLayout();
+            this.panelBanHang_Menu.ResumeLayout(false);
+            this.panelBanHang_Menu.PerformLayout();
+            this.panelBanHang_Total.ResumeLayout(false);
+            this.panelBanHang_Total.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabKhoHang.ResumeLayout(false);
@@ -1656,10 +1889,11 @@
             this.panelThemMoiKhoHang.PerformLayout();
             this.panelChucNangKhoHang.ResumeLayout(false);
             this.panelChucNangKhoHang.PerformLayout();
-            this.panelBanHang_Menu.ResumeLayout(false);
-            this.panelBanHang_Menu.PerformLayout();
-            this.panelBanHang_Total.ResumeLayout(false);
-            this.panelBanHang_Total.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1797,5 +2031,24 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox txtTotalPrice;
+        private System.Windows.Forms.Button bttBanHang;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtMenu_txtTen;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtMenu_imagePath;
+        private System.Windows.Forms.TextBox txtMenu_txtTienVon;
+        private System.Windows.Forms.TextBox txtMenu_txtTienLoi;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox txtMenu_txtTienGia;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.LinkLabel linkLabelOpenFile;
     }
 }

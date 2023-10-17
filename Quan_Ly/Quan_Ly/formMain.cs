@@ -1,4 +1,5 @@
 ﻿using MetroFramework.Controls;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,10 @@ namespace Quan_Ly
     {
         ControlPanel control = new ControlPanel();
         panelKhoHang khoHang = new panelKhoHang();
+        panelNhanVien nhanVien = new panelNhanVien();
         panelThongKe thongKe = new panelThongKe();
+        panelDoanhThu doanhThu = new panelDoanhThu();
+        panelBanHang banHang = new panelBanHang();
         public formMain()
         {
             InitializeComponent();
@@ -23,9 +27,19 @@ namespace Quan_Ly
         }
         private void formMain_Load(object sender, EventArgs e)
         {
+            bttBanHang.Visible = false;
+            dateTime.Text = DateTime.Today.ToString("dd/MM/yyyy");
             khoHang.Main(panelKhoHang, imageIconList);
             cbbMonth.SelectedIndex = Convert.ToInt32(DateTime.Today.Month - 1);
+            dateTime_PanelDoanhThu_ValueChanged(sender, e);
+            banHang.Main(Convert.ToDateTime(dateTime.Text), panelBanHang_Menu, panelBanHang_Total, txtTotalPrice, imageIconList);
         }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formDoiMatKhau formDoiMatKhau = new formDoiMatKhau();
+            formDoiMatKhau.ShowDialog();
+        }
+
         #region PanelKhoHang
         private void bttRefreshPanelKhoHang_Click(object sender, EventArgs e)
         {
@@ -51,7 +65,7 @@ namespace Quan_Ly
                 }
                 else
                 {
-                    khoHang.addNew(txtMaNguyenLieuPanelTMKH.Text,txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang, imageIconList);
+                    khoHang.addNew(txtMaNguyenLieuPanelTMKH.Text, txtNamePanelTMKH.Text, txtDonViPanelTMKH.Text, soLuong, donGia, panelKhoHang, imageIconList);
                     txtMaNguyenLieuPanelTMKH.Clear();
                     txtNamePanelTMKH.Clear();
                     txtDonViPanelTMKH.Clear();
@@ -68,15 +82,56 @@ namespace Quan_Ly
         #endregion
 
         #region PanelThongKe
-        private void cbbMonth_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
         }
         #endregion
 
-        private void label5_Click(object sender, EventArgs e)
+        #region Panel DoanhThu
+        private void dateTime_PanelDoanhThu_ValueChanged(object sender, EventArgs e)
         {
+            doanhThu.Main(panelDoanhThu_SanPham, txtPanelDoanhThu_TienLoi, txtPanelDoanhThu_TienVon, dateTime_PanelDoanhThu.Value);
+            doanhThu.LoadDataFromExcel_TienLoi_TienVon(dateTime_PanelDoanhThu.Value.Month, txt_PanelDoanhThu_TongLoiThang, txt_PanelDoanhThu_TongVonThang);
+        }
+        #endregion
 
+        #region Panel BanHang
+        private void checkPanelBanHang_Total(Panel panelTotal)
+        {
+            bool hasTextBox = false;
+
+            foreach (Control control in panelTotal.Controls)
+            {
+                if (control is TextBox)
+                {
+                    hasTextBox = true;
+                    break;
+                }
+            }
+
+            bttBanHang.Visible = hasTextBox;
+        }
+        private void panelBanHang_Total_Paint(object sender, PaintEventArgs e)
+        {
+            checkPanelBanHang_Total(panelBanHang_Total);
+        }
+        private void bttBanHang_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thực hiện hành động này không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                banHang.saveOrder(panelBanHang_Total, DateTime.Today.Month, DateTime.Today.Day);
+                txtTotalPrice.Clear();
+                dateTime_PanelDoanhThu_ValueChanged(sender, e);
+                thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
+            }
+        }
+        #endregion
+
+        private void bttRefreshPanelThongKe_Click(object sender, EventArgs e)
+        {
+            thongKe.Refresh(panelDsThongKe, DateTime.Today.Month);
         }
     }
 }

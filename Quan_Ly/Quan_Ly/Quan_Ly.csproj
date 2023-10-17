@@ -106,6 +106,7 @@
     <Compile Include="panelBanHang.cs" />
     <Compile Include="panelDoanhThu.cs" />
     <Compile Include="panelKhoHang.cs" />
+    <Compile Include="panelMenu.cs" />
     <Compile Include="panelNhanVien.cs" />
     <Compile Include="panelThongKe.cs" />
     <Compile Include="Program.cs" />
