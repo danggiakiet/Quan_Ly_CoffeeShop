@@ -47,6 +47,8 @@
             this.panelThemMoiKhoHang = new System.Windows.Forms.Panel();
             this.txtMaNguyenLieuPanelTMKH = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.bttRefreshPanelTMKH = new System.Windows.Forms.Button();
+            this.bttThemPanelTMKH = new System.Windows.Forms.Button();
             this.txtDonGiaPanelTMKH = new System.Windows.Forms.TextBox();
             this.txtSoLuongPanelTMKH = new System.Windows.Forms.TextBox();
             this.txtDonViPanelTMKH = new System.Windows.Forms.TextBox();
@@ -57,29 +59,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panelChucNangKhoHang = new System.Windows.Forms.Panel();
+            this.bttSaveValuePanelKhoHang = new System.Windows.Forms.Button();
+            this.bttRefeshPanelKhoHang = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.tabThongKe = new System.Windows.Forms.TabPage();
             this.panelThongKe = new System.Windows.Forms.Panel();
+            this.bttRefreshPanelThongKe = new System.Windows.Forms.Button();
             this.panelDsThongKe = new System.Windows.Forms.Panel();
             this.cbbMonth = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.tabDoanhThu = new System.Windows.Forms.TabPage();
-            this.panelDoanhThu = new System.Windows.Forms.Panel();
-            this.txt_PanelDoanhThu_TongVonThang = new System.Windows.Forms.TextBox();
-            this.txt_PanelDoanhThu_TongLoiThang = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.panelDoanhThu_SanPham = new System.Windows.Forms.Panel();
-            this.label49 = new System.Windows.Forms.Label();
-            this.txtPanelDoanhThu_TienVon = new System.Windows.Forms.TextBox();
-            this.txtPanelDoanhThu_TienLoi = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.dateTime_PanelDoanhThu = new System.Windows.Forms.DateTimePicker();
-            this.label50 = new System.Windows.Forms.Label();
             this.tabBanHang = new System.Windows.Forms.TabPage();
             this.bttBanHang = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
@@ -88,12 +78,9 @@
             this.label58 = new System.Windows.Forms.Label();
             this.panelBanHang_Total = new System.Windows.Forms.Panel();
             this.label60 = new System.Windows.Forms.Label();
-            this.bttRefreshPanelTMKH = new System.Windows.Forms.Button();
-            this.bttThemPanelTMKH = new System.Windows.Forms.Button();
-            this.bttSaveValuePanelKhoHang = new System.Windows.Forms.Button();
-            this.bttRefeshPanelKhoHang = new System.Windows.Forms.Button();
-            this.bttRefreshPanelThongKe = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelTenNV = new System.Windows.Forms.Label();
+            this.linkLabelDangXuat = new System.Windows.Forms.LinkLabel();
             this.tabControl.SuspendLayout();
             this.tabKhoHang.SuspendLayout();
             this.panelKhoHang.SuspendLayout();
@@ -101,9 +88,6 @@
             this.panelChucNangKhoHang.SuspendLayout();
             this.tabThongKe.SuspendLayout();
             this.panelThongKe.SuspendLayout();
-            this.tabDoanhThu.SuspendLayout();
-            this.panelDoanhThu.SuspendLayout();
-            this.panelDoanhThu_SanPham.SuspendLayout();
             this.tabBanHang.SuspendLayout();
             this.panelBanHang_Menu.SuspendLayout();
             this.panelBanHang_Total.SuspendLayout();
@@ -152,7 +136,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(1055, 20);
+            this.linkLabel1.Location = new System.Drawing.Point(1028, 33);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(96, 18);
             this.linkLabel1.TabIndex = 11;
@@ -164,7 +148,6 @@
             // 
             this.tabControl.Controls.Add(this.tabKhoHang);
             this.tabControl.Controls.Add(this.tabThongKe);
-            this.tabControl.Controls.Add(this.tabDoanhThu);
             this.tabControl.Controls.Add(this.tabBanHang);
             this.tabControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -332,6 +315,32 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Mã :";
             // 
+            // bttRefreshPanelTMKH
+            // 
+            this.bttRefreshPanelTMKH.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttRefreshPanelTMKH.ImageIndex = 6;
+            this.bttRefreshPanelTMKH.ImageList = this.imageIconList;
+            this.bttRefreshPanelTMKH.Location = new System.Drawing.Point(295, 317);
+            this.bttRefreshPanelTMKH.Name = "bttRefreshPanelTMKH";
+            this.bttRefreshPanelTMKH.Size = new System.Drawing.Size(53, 38);
+            this.bttRefreshPanelTMKH.TabIndex = 5;
+            this.bttRefreshPanelTMKH.UseVisualStyleBackColor = true;
+            this.bttRefreshPanelTMKH.Click += new System.EventHandler(this.bttRefreshPanelTMKH_Click);
+            // 
+            // bttThemPanelTMKH
+            // 
+            this.bttThemPanelTMKH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bttThemPanelTMKH.ImageIndex = 8;
+            this.bttThemPanelTMKH.ImageList = this.imageIconList;
+            this.bttThemPanelTMKH.Location = new System.Drawing.Point(195, 317);
+            this.bttThemPanelTMKH.Name = "bttThemPanelTMKH";
+            this.bttThemPanelTMKH.Size = new System.Drawing.Size(94, 38);
+            this.bttThemPanelTMKH.TabIndex = 17;
+            this.bttThemPanelTMKH.Text = "Thêm";
+            this.bttThemPanelTMKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bttThemPanelTMKH.UseVisualStyleBackColor = true;
+            this.bttThemPanelTMKH.Click += new System.EventHandler(this.bttThemMoiKhoHang_Click);
+            // 
             // txtDonGiaPanelTMKH
             // 
             this.txtDonGiaPanelTMKH.Location = new System.Drawing.Point(121, 255);
@@ -420,6 +429,30 @@
             this.panelChucNangKhoHang.Size = new System.Drawing.Size(366, 81);
             this.panelChucNangKhoHang.TabIndex = 7;
             // 
+            // bttSaveValuePanelKhoHang
+            // 
+            this.bttSaveValuePanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttSaveValuePanelKhoHang.ImageIndex = 7;
+            this.bttSaveValuePanelKhoHang.ImageList = this.imageIconList;
+            this.bttSaveValuePanelKhoHang.Location = new System.Drawing.Point(294, 20);
+            this.bttSaveValuePanelKhoHang.Name = "bttSaveValuePanelKhoHang";
+            this.bttSaveValuePanelKhoHang.Size = new System.Drawing.Size(53, 30);
+            this.bttSaveValuePanelKhoHang.TabIndex = 4;
+            this.bttSaveValuePanelKhoHang.UseVisualStyleBackColor = true;
+            this.bttSaveValuePanelKhoHang.Click += new System.EventHandler(this.bttSaveValuePanelKhoHang_Click);
+            // 
+            // bttRefeshPanelKhoHang
+            // 
+            this.bttRefeshPanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttRefeshPanelKhoHang.ImageIndex = 6;
+            this.bttRefeshPanelKhoHang.ImageList = this.imageIconList;
+            this.bttRefeshPanelKhoHang.Location = new System.Drawing.Point(113, 19);
+            this.bttRefeshPanelKhoHang.Name = "bttRefeshPanelKhoHang";
+            this.bttRefeshPanelKhoHang.Size = new System.Drawing.Size(53, 30);
+            this.bttRefeshPanelKhoHang.TabIndex = 3;
+            this.bttRefeshPanelKhoHang.UseVisualStyleBackColor = true;
+            this.bttRefeshPanelKhoHang.Click += new System.EventHandler(this.bttRefreshPanelKhoHang_Click);
+            // 
             // label45
             // 
             this.label45.AutoSize = true;
@@ -463,6 +496,18 @@
             this.panelThongKe.Name = "panelThongKe";
             this.panelThongKe.Size = new System.Drawing.Size(1219, 460);
             this.panelThongKe.TabIndex = 1;
+            // 
+            // bttRefreshPanelThongKe
+            // 
+            this.bttRefreshPanelThongKe.BackgroundImage = global::Quan_Ly.Properties.Resources.refresh_circle1;
+            this.bttRefreshPanelThongKe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bttRefreshPanelThongKe.ImageList = this.imageIconList;
+            this.bttRefreshPanelThongKe.Location = new System.Drawing.Point(1057, 10);
+            this.bttRefreshPanelThongKe.Name = "bttRefreshPanelThongKe";
+            this.bttRefreshPanelThongKe.Size = new System.Drawing.Size(45, 45);
+            this.bttRefreshPanelThongKe.TabIndex = 6;
+            this.bttRefreshPanelThongKe.UseVisualStyleBackColor = true;
+            this.bttRefreshPanelThongKe.Click += new System.EventHandler(this.bttRefreshPanelThongKe_Click);
             // 
             // panelDsThongKe
             // 
@@ -512,166 +557,6 @@
             this.label32.Size = new System.Drawing.Size(134, 23);
             this.label32.TabIndex = 1;
             this.label32.Text = "Thống kê theo:";
-            // 
-            // tabDoanhThu
-            // 
-            this.tabDoanhThu.AutoScroll = true;
-            this.tabDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
-            this.tabDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabDoanhThu.Controls.Add(this.panelDoanhThu);
-            this.tabDoanhThu.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabDoanhThu.ImageIndex = 3;
-            this.tabDoanhThu.Location = new System.Drawing.Point(0, 40);
-            this.tabDoanhThu.Name = "tabDoanhThu";
-            this.tabDoanhThu.Size = new System.Drawing.Size(1245, 485);
-            this.tabDoanhThu.TabIndex = 3;
-            this.tabDoanhThu.Text = "Doanh Thu";
-            // 
-            // panelDoanhThu
-            // 
-            this.panelDoanhThu.BackColor = System.Drawing.Color.White;
-            this.panelDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelDoanhThu.Controls.Add(this.txt_PanelDoanhThu_TongVonThang);
-            this.panelDoanhThu.Controls.Add(this.txt_PanelDoanhThu_TongLoiThang);
-            this.panelDoanhThu.Controls.Add(this.label56);
-            this.panelDoanhThu.Controls.Add(this.label57);
-            this.panelDoanhThu.Controls.Add(this.panelDoanhThu_SanPham);
-            this.panelDoanhThu.Controls.Add(this.txtPanelDoanhThu_TienVon);
-            this.panelDoanhThu.Controls.Add(this.txtPanelDoanhThu_TienLoi);
-            this.panelDoanhThu.Controls.Add(this.label53);
-            this.panelDoanhThu.Controls.Add(this.label52);
-            this.panelDoanhThu.Controls.Add(this.label51);
-            this.panelDoanhThu.Controls.Add(this.dateTime_PanelDoanhThu);
-            this.panelDoanhThu.Controls.Add(this.label50);
-            this.panelDoanhThu.Location = new System.Drawing.Point(17, 10);
-            this.panelDoanhThu.Name = "panelDoanhThu";
-            this.panelDoanhThu.Size = new System.Drawing.Size(1215, 460);
-            this.panelDoanhThu.TabIndex = 2;
-            // 
-            // txt_PanelDoanhThu_TongVonThang
-            // 
-            this.txt_PanelDoanhThu_TongVonThang.Location = new System.Drawing.Point(991, 250);
-            this.txt_PanelDoanhThu_TongVonThang.Name = "txt_PanelDoanhThu_TongVonThang";
-            this.txt_PanelDoanhThu_TongVonThang.ReadOnly = true;
-            this.txt_PanelDoanhThu_TongVonThang.Size = new System.Drawing.Size(187, 35);
-            this.txt_PanelDoanhThu_TongVonThang.TabIndex = 19;
-            this.txt_PanelDoanhThu_TongVonThang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_PanelDoanhThu_TongLoiThang
-            // 
-            this.txt_PanelDoanhThu_TongLoiThang.Location = new System.Drawing.Point(991, 148);
-            this.txt_PanelDoanhThu_TongLoiThang.Name = "txt_PanelDoanhThu_TongLoiThang";
-            this.txt_PanelDoanhThu_TongLoiThang.ReadOnly = true;
-            this.txt_PanelDoanhThu_TongLoiThang.Size = new System.Drawing.Size(187, 35);
-            this.txt_PanelDoanhThu_TongLoiThang.TabIndex = 18;
-            this.txt_PanelDoanhThu_TongLoiThang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(990, 223);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(187, 24);
-            this.label56.TabIndex = 17;
-            this.label56.Text = "Tiền vốn theo tháng";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(1000, 121);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(176, 24);
-            this.label57.TabIndex = 16;
-            this.label57.Text = "Tiền lời theo tháng";
-            // 
-            // panelDoanhThu_SanPham
-            // 
-            this.panelDoanhThu_SanPham.AutoScroll = true;
-            this.panelDoanhThu_SanPham.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelDoanhThu_SanPham.Controls.Add(this.label49);
-            this.panelDoanhThu_SanPham.Location = new System.Drawing.Point(9, 17);
-            this.panelDoanhThu_SanPham.Name = "panelDoanhThu_SanPham";
-            this.panelDoanhThu_SanPham.Size = new System.Drawing.Size(405, 429);
-            this.panelDoanhThu_SanPham.TabIndex = 15;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(82, 18);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(241, 26);
-            this.label49.TabIndex = 7;
-            this.label49.Text = "Số sản phẩm bán được";
-            // 
-            // txtPanelDoanhThu_TienVon
-            // 
-            this.txtPanelDoanhThu_TienVon.Location = new System.Drawing.Point(697, 110);
-            this.txtPanelDoanhThu_TienVon.Name = "txtPanelDoanhThu_TienVon";
-            this.txtPanelDoanhThu_TienVon.ReadOnly = true;
-            this.txtPanelDoanhThu_TienVon.Size = new System.Drawing.Size(187, 35);
-            this.txtPanelDoanhThu_TienVon.TabIndex = 14;
-            this.txtPanelDoanhThu_TienVon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtPanelDoanhThu_TienLoi
-            // 
-            this.txtPanelDoanhThu_TienLoi.Location = new System.Drawing.Point(468, 110);
-            this.txtPanelDoanhThu_TienLoi.Name = "txtPanelDoanhThu_TienLoi";
-            this.txtPanelDoanhThu_TienLoi.ReadOnly = true;
-            this.txtPanelDoanhThu_TienLoi.Size = new System.Drawing.Size(187, 35);
-            this.txtPanelDoanhThu_TienLoi.TabIndex = 13;
-            this.txtPanelDoanhThu_TienLoi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(750, 83);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(87, 24);
-            this.label53.TabIndex = 12;
-            this.label53.Text = "Tiền vốn";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(526, 83);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(76, 24);
-            this.label52.TabIndex = 11;
-            this.label52.Text = "Tiền lời";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(590, 20);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(173, 26);
-            this.label51.TabIndex = 10;
-            this.label51.Text = "Tổng doanh thu";
-            // 
-            // dateTime_PanelDoanhThu
-            // 
-            this.dateTime_PanelDoanhThu.CustomFormat = "dd/MM/yyyy";
-            this.dateTime_PanelDoanhThu.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTime_PanelDoanhThu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTime_PanelDoanhThu.Location = new System.Drawing.Point(1016, 59);
-            this.dateTime_PanelDoanhThu.Name = "dateTime_PanelDoanhThu";
-            this.dateTime_PanelDoanhThu.Size = new System.Drawing.Size(138, 32);
-            this.dateTime_PanelDoanhThu.TabIndex = 6;
-            this.dateTime_PanelDoanhThu.ValueChanged += new System.EventHandler(this.dateTime_PanelDoanhThu_ValueChanged);
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(1012, 23);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(142, 23);
-            this.label50.TabIndex = 1;
-            this.label50.Text = "Doanh thu của :";
             // 
             // tabBanHang
             // 
@@ -765,82 +650,44 @@
             this.label60.TabIndex = 2;
             this.label60.Text = "Order";
             // 
-            // bttRefreshPanelTMKH
-            // 
-            this.bttRefreshPanelTMKH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bttRefreshPanelTMKH.ImageIndex = 6;
-            this.bttRefreshPanelTMKH.ImageList = this.imageIconList;
-            this.bttRefreshPanelTMKH.Location = new System.Drawing.Point(295, 317);
-            this.bttRefreshPanelTMKH.Name = "bttRefreshPanelTMKH";
-            this.bttRefreshPanelTMKH.Size = new System.Drawing.Size(53, 38);
-            this.bttRefreshPanelTMKH.TabIndex = 5;
-            this.bttRefreshPanelTMKH.UseVisualStyleBackColor = true;
-            this.bttRefreshPanelTMKH.Click += new System.EventHandler(this.bttRefreshPanelTMKH_Click);
-            // 
-            // bttThemPanelTMKH
-            // 
-            this.bttThemPanelTMKH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bttThemPanelTMKH.ImageIndex = 8;
-            this.bttThemPanelTMKH.ImageList = this.imageIconList;
-            this.bttThemPanelTMKH.Location = new System.Drawing.Point(195, 317);
-            this.bttThemPanelTMKH.Name = "bttThemPanelTMKH";
-            this.bttThemPanelTMKH.Size = new System.Drawing.Size(94, 38);
-            this.bttThemPanelTMKH.TabIndex = 17;
-            this.bttThemPanelTMKH.Text = "Thêm";
-            this.bttThemPanelTMKH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bttThemPanelTMKH.UseVisualStyleBackColor = true;
-            this.bttThemPanelTMKH.Click += new System.EventHandler(this.bttThemMoiKhoHang_Click);
-            // 
-            // bttSaveValuePanelKhoHang
-            // 
-            this.bttSaveValuePanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bttSaveValuePanelKhoHang.ImageIndex = 7;
-            this.bttSaveValuePanelKhoHang.ImageList = this.imageIconList;
-            this.bttSaveValuePanelKhoHang.Location = new System.Drawing.Point(294, 20);
-            this.bttSaveValuePanelKhoHang.Name = "bttSaveValuePanelKhoHang";
-            this.bttSaveValuePanelKhoHang.Size = new System.Drawing.Size(53, 30);
-            this.bttSaveValuePanelKhoHang.TabIndex = 4;
-            this.bttSaveValuePanelKhoHang.UseVisualStyleBackColor = true;
-            this.bttSaveValuePanelKhoHang.Click += new System.EventHandler(this.bttSaveValuePanelKhoHang_Click);
-            // 
-            // bttRefeshPanelKhoHang
-            // 
-            this.bttRefeshPanelKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bttRefeshPanelKhoHang.ImageIndex = 6;
-            this.bttRefeshPanelKhoHang.ImageList = this.imageIconList;
-            this.bttRefeshPanelKhoHang.Location = new System.Drawing.Point(113, 19);
-            this.bttRefeshPanelKhoHang.Name = "bttRefeshPanelKhoHang";
-            this.bttRefeshPanelKhoHang.Size = new System.Drawing.Size(53, 30);
-            this.bttRefeshPanelKhoHang.TabIndex = 3;
-            this.bttRefeshPanelKhoHang.UseVisualStyleBackColor = true;
-            this.bttRefeshPanelKhoHang.Click += new System.EventHandler(this.bttRefreshPanelKhoHang_Click);
-            // 
-            // bttRefreshPanelThongKe
-            // 
-            this.bttRefreshPanelThongKe.BackgroundImage = global::Quan_Ly.Properties.Resources.refresh_circle1;
-            this.bttRefreshPanelThongKe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttRefreshPanelThongKe.ImageList = this.imageIconList;
-            this.bttRefreshPanelThongKe.Location = new System.Drawing.Point(1057, 10);
-            this.bttRefreshPanelThongKe.Name = "bttRefreshPanelThongKe";
-            this.bttRefreshPanelThongKe.Size = new System.Drawing.Size(45, 45);
-            this.bttRefreshPanelThongKe.TabIndex = 6;
-            this.bttRefreshPanelThongKe.UseVisualStyleBackColor = true;
-            this.bttRefreshPanelThongKe.Click += new System.EventHandler(this.bttRefreshPanelThongKe_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(801, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(639, 20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(115, 110);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // labelTenNV
+            // 
+            this.labelTenNV.AutoSize = true;
+            this.labelTenNV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTenNV.Location = new System.Drawing.Point(803, 33);
+            this.labelTenNV.Name = "labelTenNV";
+            this.labelTenNV.Size = new System.Drawing.Size(69, 21);
+            this.labelTenNV.TabIndex = 13;
+            this.labelTenNV.Text = "Họ tên: ";
+            // 
+            // linkLabelDangXuat
+            // 
+            this.linkLabelDangXuat.AutoSize = true;
+            this.linkLabelDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelDangXuat.Location = new System.Drawing.Point(1149, 33);
+            this.linkLabelDangXuat.Name = "linkLabelDangXuat";
+            this.linkLabelDangXuat.Size = new System.Drawing.Size(74, 18);
+            this.linkLabelDangXuat.TabIndex = 14;
+            this.linkLabelDangXuat.TabStop = true;
+            this.linkLabelDangXuat.Text = "Đăng xuất";
+            this.linkLabelDangXuat.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelDangXuat_LinkClicked);
             // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1270, 670);
+            this.Controls.Add(this.linkLabelDangXuat);
+            this.Controls.Add(this.labelTenNV);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.dateTime);
@@ -864,11 +711,6 @@
             this.tabThongKe.ResumeLayout(false);
             this.panelThongKe.ResumeLayout(false);
             this.panelThongKe.PerformLayout();
-            this.tabDoanhThu.ResumeLayout(false);
-            this.panelDoanhThu.ResumeLayout(false);
-            this.panelDoanhThu.PerformLayout();
-            this.panelDoanhThu_SanPham.ResumeLayout(false);
-            this.panelDoanhThu_SanPham.PerformLayout();
             this.tabBanHang.ResumeLayout(false);
             this.tabBanHang.PerformLayout();
             this.panelBanHang_Menu.ResumeLayout(false);
@@ -923,21 +765,6 @@
         private System.Windows.Forms.ComboBox cbbMonth;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TabPage tabDoanhThu;
-        private System.Windows.Forms.Panel panelDoanhThu;
-        private System.Windows.Forms.TextBox txt_PanelDoanhThu_TongVonThang;
-        private System.Windows.Forms.TextBox txt_PanelDoanhThu_TongLoiThang;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.Panel panelDoanhThu_SanPham;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox txtPanelDoanhThu_TienVon;
-        private System.Windows.Forms.TextBox txtPanelDoanhThu_TienLoi;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.DateTimePicker dateTime_PanelDoanhThu;
-        private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TabPage tabBanHang;
         private System.Windows.Forms.Button bttBanHang;
         private System.Windows.Forms.Label label61;
@@ -947,6 +774,8 @@
         private System.Windows.Forms.Panel panelBanHang_Total;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Button bttRefreshPanelThongKe;
+        private System.Windows.Forms.Label labelTenNV;
+        private System.Windows.Forms.LinkLabel linkLabelDangXuat;
     }
 }
 

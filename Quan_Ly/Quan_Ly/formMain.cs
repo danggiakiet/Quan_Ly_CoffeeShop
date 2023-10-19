@@ -20,10 +20,10 @@ namespace Quan_Ly
         panelThongKe thongKe = new panelThongKe();
         panelDoanhThu doanhThu = new panelDoanhThu();
         panelBanHang banHang = new panelBanHang();
-        public formMain()
+        public formMain(string TenNhanVien)
         {
             InitializeComponent();
-
+            labelTenNV.Text += TenNhanVien;
         }
         private void formMain_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,6 @@ namespace Quan_Ly
             dateTime.Text = DateTime.Today.ToString("dd/MM/yyyy");
             khoHang.Main(panelKhoHang, imageIconList);
             cbbMonth.SelectedIndex = Convert.ToInt32(DateTime.Today.Month - 1);
-            dateTime_PanelDoanhThu_ValueChanged(sender, e);
             banHang.Main(Convert.ToDateTime(dateTime.Text), panelBanHang_Menu, panelBanHang_Total, txtTotalPrice, imageIconList);
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -88,13 +87,6 @@ namespace Quan_Ly
         }
         #endregion
 
-        #region Panel DoanhThu
-        private void dateTime_PanelDoanhThu_ValueChanged(object sender, EventArgs e)
-        {
-            doanhThu.Main(panelDoanhThu_SanPham, txtPanelDoanhThu_TienLoi, txtPanelDoanhThu_TienVon, dateTime_PanelDoanhThu.Value);
-            doanhThu.LoadDataFromExcel_TienLoi_TienVon(dateTime_PanelDoanhThu.Value.Month, txt_PanelDoanhThu_TongLoiThang, txt_PanelDoanhThu_TongVonThang);
-        }
-        #endregion
 
         #region Panel BanHang
         private void checkPanelBanHang_Total(Panel panelTotal)
@@ -123,7 +115,6 @@ namespace Quan_Ly
             {
                 banHang.saveOrder(panelBanHang_Total, DateTime.Today.Month, DateTime.Today.Day);
                 txtTotalPrice.Clear();
-                dateTime_PanelDoanhThu_ValueChanged(sender, e);
                 thongKe.Main(panelDsThongKe, Convert.ToInt32(cbbMonth.Text));
             }
         }
@@ -132,6 +123,19 @@ namespace Quan_Ly
         private void bttRefreshPanelThongKe_Click(object sender, EventArgs e)
         {
             thongKe.Refresh(panelDsThongKe, DateTime.Today.Month);
+        }
+        formLogin formLogin = new formLogin();
+        private void linkLabelDangXuat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            if (formLogin == null || formLogin.IsDisposed)
+            {
+                // Nếu formLogin chưa được tạo hoặc đã bị giải phóng, tạo một mới
+                formLogin = new formLogin();
+            }
+
+            this.Hide();
+            formLogin.Show();
         }
     }
 }

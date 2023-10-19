@@ -18,9 +18,7 @@ namespace Quan_Ly
 
         List<account> dsAccountsMember = new List<account>();
         List<account> dsAccountsAdmin = new List<account>();
-        formMain formMain = new formMain();
         private formDoiMatKhau formDoiMatKhau = null; // Khai báo biến để theo dõi formQuenMatKhau
-        formMainAdmin formMainAdmin = new formMainAdmin();
 
         public formLogin()
         {
@@ -94,7 +92,7 @@ namespace Quan_Ly
             {
                 if (txtUser.Text.ToLower() == account.user.ToLower() && txtPassword.Text == account.password)
                 {
-
+                    formMain formMain = new formMain(account.nameOfUser);
                     check = 1;
                     formMain.Show();
                     this.Hide();
@@ -106,6 +104,7 @@ namespace Quan_Ly
             {
                 if (txtUser.Text.ToLower() == account.user.ToLower() && txtPassword.Text == account.password)
                 {
+                    formMainAdmin formMainAdmin = new formMainAdmin(account.nameOfUser);
                     check = 1;
                     formMainAdmin.Show();
                     this.Hide();

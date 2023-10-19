@@ -14,6 +14,7 @@ using TextBox = System.Windows.Forms.TextBox;
 using Label = System.Windows.Forms.Label;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+using System.Diagnostics;
 
 namespace Quan_Ly
 {
@@ -101,7 +102,7 @@ namespace Quan_Ly
             TextBox textBoxTen = ControlPanel.CreateTextBox("txtName", nhanVien.ten, HorizontalAlignment.Left, x + 70, y, 210, 35);
             TextBox textBoxSoDienThoai = ControlPanel.CreateTextBox("txtSoDienThoai", nhanVien.soDienThoai, HorizontalAlignment.Right, x + 285, y, 150, 35);
             DateTimePicker dateTimeNgaySinh = ControlPanel.CreateDateTimePicker("dateTimeNgaySinh", nhanVien.ngaySinh, "dd/MM/yyyy", x + 440, y, 135, 35);
-            TextBox textBoxLuong = ControlPanel.CreateTextBox("txtLuong", nhanVien.luong.ToString(), HorizontalAlignment.Right, x + 580, y, 160, 35);
+            TextBox textBoxLuong = ControlPanel.CreateTextBox("txtLuong", nhanVien.luong.ToString("N0"), HorizontalAlignment.Right, x + 580, y, 160, 35);
             Button buttonDelete = ControlPanel.CreateButton(x + 755, y, 35, 35, imgList);
 
             panelNhanVien.Controls.Add(textBoxMaNV);
@@ -336,7 +337,10 @@ namespace Quan_Ly
             }
 
         }
-
+        private bool kiemTraSoDienThoai(string input)
+        {
+            return input.All(char.IsDigit);
+        }
         public void Save(Panel panelNhanVien, ImageList imgList, string permission)
         {
             dsMaNV.Clear();
@@ -384,30 +388,80 @@ namespace Quan_Ly
                                 //Và có giá trị Y tương ứng với y và có tên là "txtMaNV"
                                 if (textBox.Location.Y == y && textBox.Name == "txtMaNV")
                                 {
-                                    if (dsMaNV.ContainsValue(textBox.Text))
+                                    if (textBox.Text == "")
                                     {
-                                        MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        //không thực hiện lưu và refresh lại panel
+                                        MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         return;
                                     }
                                     else
                                     {
-                                        //thì thêm vào dòng i cột 1
-                                        worksheet.Cells[i, 1].Value = textBox.Text;
-                                        dsMaNV.Add(i, textBox.Text);
+                                        if (dsMaNV.ContainsValue(textBox.Text))
+                                        {
+                                            MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            //không thực hiện lưu và refresh lại panel
+                                            return;
+                                        }
+                                        else
+                                        {
+                                            //thì thêm vào dòng i cột 1
+                                            worksheet.Cells[i, 1].Value = textBox.Text;
+                                            dsMaNV.Add(i, textBox.Text);
+                                        }
                                     }
                                 }
                                 else if (textBox.Location.Y == y && textBox.Name == "txtName")
                                 {
-                                    worksheet.Cells[i, 2].Value = textBox.Text;
+                                    if (textBox.Text == "")
+                                    {
+                                        MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        worksheet.Cells[i, 2].Value = textBox.Text;
+                                    }
                                 }
                                 else if (textBox.Location.Y == y && textBox.Name == "txtSoDienThoai")
                                 {
-                                    worksheet.Cells[i, 3].Value = textBox.Text;
+                                    if (textBox.Text == "")
+                                    {
+                                        MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        if (kiemTraSoDienThoai(textBox.Text))
+                                        {
+                                            worksheet.Cells[i, 3].Value = textBox.Text;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Số điện thoại phải là kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            return;
+                                        }
+                                    }
                                 }
                                 else if (textBox.Location.Y == y && textBox.Name == "txtLuong")
                                 {
-                                    worksheet.Cells[i, 5].Value = textBox.Text;
+                                    double luong;
+                                    if (textBox.Text == "")
+                                    {
+                                        MessageBox.Show("Yêu cầu điền đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        if (double.TryParse(textBox.Text.Replace(",", "").Replace(".", ""), out luong)) // Loại bỏ dấu ',' nếu có
+                                        {
+                                            worksheet.Cells[i, 5].Value = luong.ToString();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Giá trị lương phải là kiểu số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            return;
+                                        }
+
+                                    }
                                 }
                             }
                             else if (control is DateTimePicker dateTimePicker)

@@ -158,13 +158,9 @@
             this.bttRefeshPanelKhoHang = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label59 = new System.Windows.Forms.Label();
-            this.dateTime = new System.Windows.Forms.MaskedTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.label62 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabelOpenFile = new System.Windows.Forms.LinkLabel();
             this.txtMenu_txtTen = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -178,7 +174,13 @@
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
-            this.linkLabelOpenFile = new System.Windows.Forms.LinkLabel();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.label62 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label59 = new System.Windows.Forms.Label();
+            this.dateTime = new System.Windows.Forms.MaskedTextBox();
+            this.labelTenNV = new System.Windows.Forms.Label();
+            this.linkLabelDangXuat = new System.Windows.Forms.LinkLabel();
             this.tabNhanVien.SuspendLayout();
             this.uiTabControlNhanVien.SuspendLayout();
             this.tabMember.SuspendLayout();
@@ -204,8 +206,8 @@
             this.panelThemMoiKhoHang.SuspendLayout();
             this.panelChucNangKhoHang.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageIconList
@@ -1275,7 +1277,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Quan_Ly.Properties.Resources.icon_120x120;
-            this.pictureBox1.Location = new System.Drawing.Point(801, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(604, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(115, 110);
             this.pictureBox1.TabIndex = 5;
@@ -1611,44 +1613,9 @@
             this.label46.TabIndex = 1;
             this.label46.Text = "Refresh :";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(1039, 15);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(96, 18);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Đổi mật khẩu";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(980, 104);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(64, 23);
-            this.label59.TabIndex = 7;
-            this.label59.Text = "Ngày: ";
-            // 
-            // dateTime
-            // 
-            this.dateTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dateTime.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dateTime.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTime.Location = new System.Drawing.Point(1042, 104);
-            this.dateTime.Mask = "00/00/0000";
-            this.dateTime.Name = "dateTime";
-            this.dateTime.ReadOnly = true;
-            this.dateTime.Size = new System.Drawing.Size(134, 25);
-            this.dateTime.TabIndex = 8;
-            this.dateTime.ValidatingType = typeof(System.DateTime);
-            // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(249)))), ((int)(((byte)(241)))));
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.panelMenu);
@@ -1658,28 +1625,6 @@
             this.tabPage1.Size = new System.Drawing.Size(1245, 485);
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "Menu";
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.AutoScroll = true;
-            this.panelMenu.BackColor = System.Drawing.Color.White;
-            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelMenu.Controls.Add(this.label62);
-            this.panelMenu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelMenu.Location = new System.Drawing.Point(15, 10);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(685, 460);
-            this.panelMenu.TabIndex = 10;
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(286, 13);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(135, 55);
-            this.label62.TabIndex = 1;
-            this.label62.Text = "Menu";
             // 
             // panel1
             // 
@@ -1704,6 +1649,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(451, 382);
             this.panel1.TabIndex = 11;
+            // 
+            // linkLabelOpenFile
+            // 
+            this.linkLabelOpenFile.AutoSize = true;
+            this.linkLabelOpenFile.Location = new System.Drawing.Point(353, 263);
+            this.linkLabelOpenFile.Name = "linkLabelOpenFile";
+            this.linkLabelOpenFile.Size = new System.Drawing.Size(87, 27);
+            this.linkLabelOpenFile.TabIndex = 20;
+            this.linkLabelOpenFile.TabStop = true;
+            this.linkLabelOpenFile.Text = "Tìm file";
+            this.linkLabelOpenFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenFile_LinkClicked);
             // 
             // txtMenu_txtTen
             // 
@@ -1825,22 +1781,92 @@
             this.label68.TabIndex = 1;
             this.label68.Text = "Giá :";
             // 
-            // linkLabelOpenFile
+            // panelMenu
             // 
-            this.linkLabelOpenFile.AutoSize = true;
-            this.linkLabelOpenFile.Location = new System.Drawing.Point(353, 263);
-            this.linkLabelOpenFile.Name = "linkLabelOpenFile";
-            this.linkLabelOpenFile.Size = new System.Drawing.Size(87, 27);
-            this.linkLabelOpenFile.TabIndex = 20;
-            this.linkLabelOpenFile.TabStop = true;
-            this.linkLabelOpenFile.Text = "Tìm file";
-            this.linkLabelOpenFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenFile_LinkClicked);
+            this.panelMenu.AutoScroll = true;
+            this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelMenu.Controls.Add(this.label62);
+            this.panelMenu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelMenu.Location = new System.Drawing.Point(15, 10);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(685, 460);
+            this.panelMenu.TabIndex = 10;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(286, 13);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(135, 55);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "Menu";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(1039, 35);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(96, 18);
+            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Đổi mật khẩu";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(980, 104);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(64, 23);
+            this.label59.TabIndex = 7;
+            this.label59.Text = "Ngày: ";
+            // 
+            // dateTime
+            // 
+            this.dateTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dateTime.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dateTime.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTime.Location = new System.Drawing.Point(1042, 104);
+            this.dateTime.Mask = "00/00/0000";
+            this.dateTime.Name = "dateTime";
+            this.dateTime.ReadOnly = true;
+            this.dateTime.Size = new System.Drawing.Size(134, 25);
+            this.dateTime.TabIndex = 8;
+            this.dateTime.ValidatingType = typeof(System.DateTime);
+            // 
+            // labelTenNV
+            // 
+            this.labelTenNV.AutoSize = true;
+            this.labelTenNV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTenNV.Location = new System.Drawing.Point(762, 35);
+            this.labelTenNV.Name = "labelTenNV";
+            this.labelTenNV.Size = new System.Drawing.Size(69, 21);
+            this.labelTenNV.TabIndex = 14;
+            this.labelTenNV.Text = "Họ tên: ";
+            // 
+            // linkLabelDangXuat
+            // 
+            this.linkLabelDangXuat.AutoSize = true;
+            this.linkLabelDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelDangXuat.Location = new System.Drawing.Point(1182, 35);
+            this.linkLabelDangXuat.Name = "linkLabelDangXuat";
+            this.linkLabelDangXuat.Size = new System.Drawing.Size(74, 18);
+            this.linkLabelDangXuat.TabIndex = 15;
+            this.linkLabelDangXuat.TabStop = true;
+            this.linkLabelDangXuat.Text = "Đăng xuất";
+            this.linkLabelDangXuat.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelDangXuat_LinkClicked);
             // 
             // formMainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1268, 672);
+            this.Controls.Add(this.linkLabelDangXuat);
+            this.Controls.Add(this.labelTenNV);
             this.Controls.Add(this.dateTime);
             this.Controls.Add(this.label59);
             this.Controls.Add(this.linkLabel1);
@@ -1890,10 +1916,10 @@
             this.panelChucNangKhoHang.ResumeLayout(false);
             this.panelChucNangKhoHang.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
-            this.panelMenu.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2050,5 +2076,7 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.LinkLabel linkLabelOpenFile;
+        private System.Windows.Forms.Label labelTenNV;
+        private System.Windows.Forms.LinkLabel linkLabelDangXuat;
     }
 }

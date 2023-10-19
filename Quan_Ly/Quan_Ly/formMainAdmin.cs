@@ -27,9 +27,10 @@ namespace Quan_Ly
         panelDoanhThu doanhThu = new panelDoanhThu();
         panelBanHang banHang = new panelBanHang();
         panelMenu menu = new panelMenu();
-        public formMainAdmin()
+        public formMainAdmin(string tenNhanVien)
         {
             InitializeComponent();
+            labelTenNV.Text += tenNhanVien;
 
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -279,8 +280,19 @@ namespace Quan_Ly
             string file_path = OpenFileWithDefaultPath();
             txtMenu_imagePath.Text = file_path;
         }
+
         #endregion
+        formLogin formLogin = new formLogin();
+        private void linkLabelDangXuat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (formLogin == null || formLogin.IsDisposed)
+            {
+                // Nếu formLogin chưa được tạo hoặc đã bị giải phóng, tạo một mới
+                formLogin = new formLogin();
+            }
 
-
+            this.Hide();
+            formLogin.Show();
+        }
     }
 }
